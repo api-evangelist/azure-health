@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/azure-health/json-schema/DeidentificationContent.json",
+  "title": "De-identification Request Content",
+  "description": "Request body for de-identification operation.",
+  "type": "object",
+  "properties": {
+    "inputText": {
+      "type": "string",
+      "description": "Input text to de-identify.",
+      "maxLength": 48000
+    },
+    "operation": {
+      "type": "string",
+      "description": "Operation to perform on the input documents.",
+      "default": "Surrogate",
+      "enum": [
+        "Redact",
+        "Surrogate",
+        "Tag"
+      ],
+      "x-ms-enum": {
+        "name": "DeidentificationOperationType",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Redact",
+            "value": "Redact",
+            "description": "Redact Operation will remove all entities of PHI and replace them with a placeholder value."
+          },
+          {
+            "name": "Surrogate",
+            "value": "Surrogate",
+            "description": "Surrogation Operation will replace all entities of PHI with a surrogate value."
+          },
+          {
+            "name": "Tag",
+            "value": "Tag",
+            "description": "Tag Operation will detect all entities of PHI, their type, and return their locations in the document."
+          }
+        ]
+      }
+    },
+    "customizations": {
+      "$ref": "#/definitions/DeidentificationCustomizationOptions",
+      "description": "Customization parameters to override default service behaviors."
+    }
+  },
+  "required": [
+    "inputText"
+  ]
+}

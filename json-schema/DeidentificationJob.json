@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/azure-health/json-schema/DeidentificationJob.json",
+  "title": "De-identification Batch Job",
+  "description": "A job containing a batch of documents to de-identify.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of a job.",
+      "minLength": 3,
+      "maxLength": 36,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-_]+[a-zA-Z0-9]$",
+      "readOnly": true
+    },
+    "operation": {
+      "type": "string",
+      "description": "Operation to perform on the input documents.",
+      "default": "Surrogate",
+      "enum": [
+        "Redact",
+        "Surrogate",
+        "Tag"
+      ],
+      "x-ms-enum": {
+        "name": "DeidentificationOperationType",
+        "modelAsString": true,
+        "values": [
+          {
+            "name": "Redact",
+            "value": "Redact",
+            "description": "Redact Operation will remove all entities of PHI and replace them with a placeholder value."
+          },
+          {
+            "name": "Surrogate",
+            "value": "Surrogate",
+            "description": "Surrogation Operation will replace all entities of PHI with a surrogate value."
+          },
+          {
+            "name": "Tag",
+            "value": "Tag",
+            "description": "Tag Operation will detect all entities of PHI, their type, and return their locations in the document."
+          }
+        ]
+      }
+    },
+    "sourceLocation": {
+      "$ref": "#/definitions/SourceStorageLocation",
+      "description": "Storage location to perform the operation on."
+    },
+    "targetLocation": {
+      "$ref": "#/definitions/TargetStorageLocation",
+      "description": "Target location to store output of operation."
+    },
+    "customizations": {
+      "$ref": "#/definitions/DeidentificationJobCustomizationOptions",
+      "description": "Customization parameters to override default service behaviors."
+    },
+    "status": {
+      "$ref": "#/definitions/Azure.Core.Foundations.OperationState",
+      "description": "Current status of a job.",
+      "readOnly": true
+    },
+    "error": {
+      "$ref": "#/definitions/Azure.Core.Foundations.Error",
+      "description": "Error when job fails in it's entirety.",
+      "readOnly": true
+    },
+    "lastUpdatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when the job was completed.\n\nIf the job is canceled, this is the time when the job was canceled.\n\nIf the job failed, this is the time when the job failed.",
+      "readOnly": true
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when the job was created.",
+      "readOnly": true
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time when the job was started.",
+      "readOnly": true
+    },
+    "summary": {
+      "$ref": "#/definitions/DeidentificationJobSummary",
+      "description": "Summary of a job. Exists only when the job is completed.",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "name",
+    "sourceLocation",
+    "targetLocation",
+    "status",
+    "lastUpdatedAt",
+    "createdAt"
+  ]
+}

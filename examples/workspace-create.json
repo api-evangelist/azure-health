@@ -1,0 +1,10 @@
+{
+  "location": "eastus",
+  "tags": {
+    "environment": "production",
+    "costCenter": "health-IT"
+  },
+  "properties": {
+    "publicNetworkAccess": "Enabled"
+  }
+}

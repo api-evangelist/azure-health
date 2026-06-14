@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/azure-health/json-schema/IotConnector.json",
+  "title": "Azure Health Data Services MedTech (IoT Connector)",
+  "description": "IoT Connector definition.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/definitions/TaggedResource"
+    },
+    {
+      "$ref": "#/definitions/ServiceManagedIdentity"
+    }
+  ],
+  "properties": {
+    "properties": {
+      "description": "IoT Connector configuration.",
+      "$ref": "#/definitions/IotConnectorProperties",
+      "x-ms-client-flatten": true
+    },
+    "systemData": {
+      "description": "Metadata pertaining to creation and last modification of the resource.",
+      "$ref": "#/definitions/systemData"
+    }
+  }
+}

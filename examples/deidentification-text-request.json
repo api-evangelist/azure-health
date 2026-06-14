@@ -1,0 +1,10 @@
+{
+  "inputText": "Patient John Smith, DOB 01/15/1975, SSN 123-45-6789, seen at General Hospital on 2024-01-10.",
+  "operation": "Surrogate",
+  "dataType": "Text",
+  "customizationOptions": {
+    "surrogationSettings": {
+      "seed": "my-consistent-seed-42"
+    }
+  }
+}

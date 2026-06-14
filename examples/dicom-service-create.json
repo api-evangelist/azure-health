@@ -1,0 +1,31 @@
+{
+  "location": "eastus",
+  "tags": {
+    "environment": "production",
+    "department": "radiology"
+  },
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "properties": {
+    "publicNetworkAccess": "Enabled",
+    "corsConfiguration": {
+      "origins": [
+        "https://pacs.example.com"
+      ],
+      "headers": [
+        "*"
+      ],
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "OPTIONS"
+      ],
+      "maxAge": 1440,
+      "allowCredentials": false
+    },
+    "enableDataPartitions": false
+  }
+}

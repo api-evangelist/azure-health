@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/azure-health/json-schema/FhirService.json",
+  "title": "Azure Health Data Services FHIR Service",
+  "description": "The description of Fhir Service",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/definitions/TaggedResource"
+    },
+    {
+      "$ref": "#/definitions/ServiceManagedIdentity"
+    }
+  ],
+  "properties": {
+    "kind": {
+      "readOnly": false,
+      "type": "string",
+      "description": "The kind of the service.",
+      "enum": [
+        "fhir-Stu3",
+        "fhir-R4"
+      ],
+      "x-ms-enum": {
+        "name": "fhirServiceKind",
+        "modelAsString": true
+      }
+    },
+    "properties": {
+      "description": "Fhir Service configuration.",
+      "$ref": "#/definitions/FhirServiceProperties",
+      "x-ms-client-flatten": true
+    },
+    "systemData": {
+      "description": "Metadata pertaining to creation and last modification of the resource.",
+      "$ref": "#/definitions/systemData"
+    }
+  }
+}

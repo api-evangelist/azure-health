@@ -1,0 +1,18 @@
+{
+  "operation": "Surrogate",
+  "dataType": "Text",
+  "sourceLocation": {
+    "location": "https://mystorageaccount.blob.core.windows.net/input-container",
+    "prefix": "clinical-notes/2024/"
+  },
+  "targetLocation": {
+    "location": "https://mystorageaccount.blob.core.windows.net/output-container",
+    "prefix": "deid-notes/2024/",
+    "overwrite": true
+  },
+  "customizationOptions": {
+    "surrogationSettings": {
+      "seed": "job-seed-abc123"
+    }
+  }
+}

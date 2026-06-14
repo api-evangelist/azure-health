@@ -1,0 +1,150 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "fhir": "http://hl7.org/fhir/",
+    "dicom": "http://dicom.nema.org/resources/ontology/DCM#",
+    "azure": "https://learn.microsoft.com/en-us/azure/healthcare-apis/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "HealthDataServicesWorkspace": {
+      "@id": "azure:workspace-overview",
+      "@type": "@id"
+    },
+    "FhirService": {
+      "@id": "azure:fhir/overview",
+      "@type": "@id"
+    },
+    "DicomService": {
+      "@id": "azure:dicom/overview",
+      "@type": "@id"
+    },
+    "MedTechService": {
+      "@id": "azure:iot/iot-connector-overview",
+      "@type": "@id"
+    },
+    "DeidentificationService": {
+      "@id": "azure:deidentification/overview",
+      "@type": "@id"
+    },
+
+    "workspaceName": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "schema:location",
+      "@type": "xsd:string"
+    },
+    "provisioningState": {
+      "@id": "schema:actionStatus",
+      "@type": "xsd:string"
+    },
+    "publicNetworkAccess": {
+      "@id": "schema:accessMode",
+      "@type": "xsd:string"
+    },
+    "fhirVersion": {
+      "@id": "fhir:version",
+      "@type": "xsd:string"
+    },
+    "authority": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "audience": {
+      "@id": "schema:audience",
+      "@type": "xsd:string"
+    },
+    "smartProxyEnabled": {
+      "@id": "schema:isAccessibleForFree",
+      "@type": "xsd:boolean"
+    },
+    "corsOrigins": {
+      "@id": "schema:url",
+      "@type": "xsd:string"
+    },
+    "exportStorageAccountName": {
+      "@id": "schema:storageLocation",
+      "@type": "xsd:string"
+    },
+    "eventHubName": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "fullyQualifiedEventHubNamespace": {
+      "@id": "schema:url",
+      "@type": "xsd:string"
+    },
+    "consumerGroup": {
+      "@id": "schema:audience",
+      "@type": "xsd:string"
+    },
+    "deviceMapping": {
+      "@id": "schema:encodingFormat",
+      "@type": "xsd:string"
+    },
+    "inputText": {
+      "@id": "schema:text",
+      "@type": "xsd:string"
+    },
+    "operation": {
+      "@id": "schema:action",
+      "@type": "xsd:string",
+      "@vocab": {
+        "Tag": "azure:deidentification/overview#tag",
+        "Redact": "azure:deidentification/overview#redact",
+        "Surrogate": "azure:deidentification/overview#surrogate"
+      }
+    },
+    "outputText": {
+      "@id": "schema:result",
+      "@type": "xsd:string"
+    },
+    "taggerResult": {
+      "@id": "schema:result",
+      "@type": "@id"
+    },
+    "phiEntities": {
+      "@id": "schema:hasPart",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "category": {
+      "@id": "schema:category",
+      "@type": "xsd:string"
+    },
+    "offset": {
+      "@id": "schema:position",
+      "@type": "xsd:integer"
+    },
+    "length": {
+      "@id": "schema:valueQuantity",
+      "@type": "xsd:integer"
+    },
+    "sourceLocation": {
+      "@id": "schema:contentUrl",
+      "@type": "@id"
+    },
+    "targetLocation": {
+      "@id": "schema:uploadUrl",
+      "@type": "@id"
+    },
+    "jobName": {
+      "@id": "schema:identifier",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "schema:actionStatus",
+      "@type": "xsd:string"
+    },
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "lastUpdatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    }
+  }
+}

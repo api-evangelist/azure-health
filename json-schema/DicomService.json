@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/azure-health/json-schema/DicomService.json",
+  "title": "Azure Health Data Services DICOM Service",
+  "description": "The description of Dicom Service",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/definitions/TaggedResource"
+    },
+    {
+      "$ref": "#/definitions/ServiceManagedIdentity"
+    }
+  ],
+  "properties": {
+    "properties": {
+      "description": "Dicom Service configuration.",
+      "$ref": "#/definitions/DicomServiceProperties",
+      "x-ms-client-flatten": true
+    },
+    "systemData": {
+      "description": "Metadata pertaining to creation and last modification of the resource.",
+      "$ref": "#/definitions/systemData"
+    }
+  }
+}

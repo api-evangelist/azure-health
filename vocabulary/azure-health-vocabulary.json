@@ -1,0 +1,129 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "DefinedTermSet",
+  "name": "Azure Health Data Services Vocabulary",
+  "description": "Controlled vocabulary of terms, acronyms, and domain concepts used across Azure Health Data Services (FHIR, DICOM, MedTech, De-identification).",
+  "url": "https://learn.microsoft.com/en-us/azure/healthcare-apis/",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "termCode": "FHIR",
+      "name": "Fast Healthcare Interoperability Resources",
+      "description": "HL7 standard for exchanging healthcare information electronically. Azure Health Data Services implements FHIR R4 (version 4.0.1)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "DICOM",
+      "name": "Digital Imaging and Communications in Medicine",
+      "description": "International standard for medical images and related information. Azure implements DICOMweb APIs: STOW-RS (store), QIDO-RS (query), WADO-RS (retrieve)."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "IoMT",
+      "name": "Internet of Medical Things",
+      "description": "Connected medical devices and wearables that stream health telemetry. The MedTech service ingests IoMT data and converts it to FHIR Observations."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "PHI",
+      "name": "Protected Health Information",
+      "description": "Individually identifiable health information protected under HIPAA. Azure Health Data Services operates within HIPAA/HITRUST compliance boundaries."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "SMART-on-FHIR",
+      "name": "Substitutable Medical Applications, Reusable Technologies on FHIR",
+      "description": "Open standard for launching healthcare applications within EHRs. Azure FHIR service supports SMART v1 and v2."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "STOW-RS",
+      "name": "Store Over the Web by RESTful Services",
+      "description": "DICOMweb standard for storing DICOM instances via a RESTful HTTP API."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "QIDO-RS",
+      "name": "Query based on ID for DICOM Objects by RESTful Services",
+      "description": "DICOMweb standard for searching DICOM studies, series, and instances via RESTful HTTP."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "WADO-RS",
+      "name": "Web Access to DICOM Objects by RESTful Services",
+      "description": "DICOMweb standard for retrieving DICOM instances and metadata via RESTful HTTP."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "UPS-RS",
+      "name": "Unified Procedure Step RESTful Services",
+      "description": "DICOMweb standard for managing imaging workflow steps (worklist). Supported by the Azure DICOM Worklist Service."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "Workspace",
+      "name": "Azure Health Data Services Workspace",
+      "description": "Top-level Azure resource that groups FHIR, DICOM, and MedTech service instances into a shared HIPAA/HITRUST compliance boundary."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "DICOMcast",
+      "name": "DICOMcast",
+      "description": "Azure feature that synchronizes DICOM imaging metadata into the FHIR service as ImagingStudy resources, enabling unified clinical+imaging queries."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "ChangeFeed",
+      "name": "Change Feed",
+      "description": "Ordered, append-only audit log of all create/update/delete events on DICOM instances. Enables event-driven architectures and compliance auditing."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "EHR",
+      "name": "Electronic Health Record",
+      "description": "Digital record of patient health information created, stored, and shared across health organizations."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "TAG",
+      "name": "PHI Tagging Operation",
+      "description": "De-identification operation that identifies and labels PHI entity spans in clinical text without modifying the text."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "REDACT",
+      "name": "PHI Redaction Operation",
+      "description": "De-identification operation that replaces identified PHI spans with their entity type label (e.g., [PATIENT])."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "SURROGATE",
+      "name": "PHI Surrogation Operation",
+      "description": "De-identification operation that replaces PHI with realistic pseudonyms, maintaining internal consistency within a batch using a seed value."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "HIPAA-18",
+      "name": "HIPAA 18 Safe Harbor Identifiers",
+      "description": "The 18 categories of PHI defined by HIPAA Safe Harbor de-identification standard. The Azure de-identification service processes all 18 plus additional entity types."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "RBAC",
+      "name": "Role-Based Access Control",
+      "description": "Authorization model using Microsoft Entra ID to grant access to Azure Health Data Services resources based on assigned roles."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "ARM",
+      "name": "Azure Resource Manager",
+      "description": "Azure's control-plane API for provisioning and managing Azure resources including Health Data Services workspaces and service instances."
+    },
+    {
+      "@type": "DefinedTerm",
+      "termCode": "MedTech",
+      "name": "MedTech Service",
+      "description": "Azure Health Data Services managed service (formerly IoT Connector) that ingests device telemetry from Azure Event Hub and maps it to FHIR Observation resources."
+    }
+  ]
+}

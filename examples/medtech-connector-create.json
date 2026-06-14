@@ -1,0 +1,40 @@
+{
+  "location": "eastus",
+  "tags": {
+    "environment": "production",
+    "department": "remote-monitoring"
+  },
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "properties": {
+    "ingestionEndpointConfiguration": {
+      "eventHubName": "health-device-events",
+      "consumerGroup": "medtech-consumer",
+      "fullyQualifiedEventHubNamespace": "myhealthdevices.servicebus.windows.net"
+    },
+    "deviceMapping": {
+      "content": {
+        "templateType": "CollectionContent",
+        "template": [
+          {
+            "templateType": "JsonPathContent",
+            "template": {
+              "typeName": "heartRate",
+              "typeMatchExpression": "$..[?(@heartRate)]",
+              "deviceIdExpression": "$.deviceId",
+              "timestampExpression": "$.endDate",
+              "values": [
+                {
+                  "required": true,
+                  "valueExpression": "$.heartRate",
+                  "valueName": "hr"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

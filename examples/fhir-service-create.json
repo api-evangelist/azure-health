@@ -1,0 +1,44 @@
+{
+  "kind": "fhir-R4",
+  "location": "eastus",
+  "tags": {
+    "environment": "production",
+    "department": "clinical-informatics"
+  },
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "properties": {
+    "authenticationConfiguration": {
+      "authority": "https://login.microsoftonline.com/{tenantId}",
+      "audience": "https://{workspace-name}-{fhir-service-name}.fhir.azurehealthcareapis.com",
+      "smartProxyEnabled": true
+    },
+    "corsConfiguration": {
+      "origins": [
+        "https://myapp.example.com"
+      ],
+      "headers": [
+        "*"
+      ],
+      "methods": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "maxAge": 1440,
+      "allowCredentials": false
+    },
+    "exportConfiguration": {
+      "storageAccountName": "mystorageaccount"
+    },
+    "resourceVersionPolicyConfiguration": {
+      "default": "versioned"
+    },
+    "implementationGuidesConfiguration": {
+      "usCoreMissingData": false
+    },
+    "publicNetworkAccess": "Enabled"
+  }
+}

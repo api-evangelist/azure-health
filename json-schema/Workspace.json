@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.github.io/azure-health/json-schema/Workspace.json",
+  "title": "Azure Health Data Services Workspace",
+  "description": "Workspace resource.",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "#/definitions/TaggedResource"
+    }
+  ],
+  "properties": {
+    "properties": {
+      "x-ms-client-flatten": false,
+      "type": "object",
+      "description": "Workspaces resource specific properties.",
+      "properties": {
+        "provisioningState": {
+          "description": "The provisioning state.",
+          "$ref": "#/definitions/ProvisioningState"
+        },
+        "privateEndpointConnections": {
+          "description": "The list of private endpoint connections that are set up for this resource.",
+          "type": "array",
+          "items": {
+            "$ref": "../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection"
+          },
+          "readOnly": true
+        },
+        "publicNetworkAccess": {
+          "description": "Control permission for data plane traffic coming from public networks while private endpoint is enabled.",
+          "$ref": "#/definitions/ResourcePublicNetworkAccess"
+        }
+      }
+    },
+    "systemData": {
+      "description": "Metadata pertaining to creation and last modification of the resource.",
+      "$ref": "#/definitions/systemData"
+    }
+  }
+}

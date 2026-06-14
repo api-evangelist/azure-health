@@ -1,0 +1,107 @@
+{
+  "@context": "https://raw.githubusercontent.com/api-evangelist/azure-health/main/json-ld/azure-health-context.jsonld",
+  "@graph": [
+    {
+      "@type": "schema:SoftwareApplication",
+      "@id": "https://azure.microsoft.com/en-us/products/health-data-services",
+      "schema:name": "Microsoft Azure Health Data Services",
+      "schema:description": "A cloud-based suite of managed API services built on open healthcare standards (FHIR R4, DICOM, HL7) for storing, analyzing, and exchanging protected health information at scale.",
+      "schema:url": "https://azure.microsoft.com/en-us/products/health-data-services",
+      "schema:provider": {
+        "@type": "schema:Organization",
+        "@id": "https://microsoft.com",
+        "schema:name": "Microsoft",
+        "schema:url": "https://microsoft.com"
+      },
+      "schema:applicationCategory": "Healthcare Data Platform",
+      "schema:hasPart": [
+        {
+          "@type": "schema:SoftwareApplication",
+          "@id": "https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview",
+          "schema:name": "Azure Health Data Services FHIR Service",
+          "schema:description": "Managed FHIR R4-compliant REST API for storing and exchanging electronic health records with SMART on FHIR support.",
+          "schema:url": "https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview",
+          "schema:applicationSubCategory": "FHIR Server",
+          "schema:softwareVersion": "R4",
+          "schema:featureList": [
+            "FHIR R4 compliant",
+            "SMART on FHIR v1 and v2",
+            "RBAC via Microsoft Entra ID",
+            "Batch and transaction bundles",
+            "Advanced FHIR search",
+            "Multi-region failover",
+            "Export to ADLS Gen2"
+          ]
+        },
+        {
+          "@type": "schema:SoftwareApplication",
+          "@id": "https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/overview",
+          "schema:name": "Azure Health Data Services DICOM Service",
+          "schema:description": "Managed cloud DICOMweb service for storing, searching, and retrieving medical imaging data using STOW-RS, QIDO-RS, and WADO-RS.",
+          "schema:url": "https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/overview",
+          "schema:applicationSubCategory": "Medical Imaging Server",
+          "schema:featureList": [
+            "STOW-RS (store)",
+            "QIDO-RS (query)",
+            "WADO-RS (retrieve)",
+            "Extended query tags",
+            "Change feed",
+            "UPS-RS worklist",
+            "DICOMcast FHIR integration"
+          ]
+        },
+        {
+          "@type": "schema:SoftwareApplication",
+          "@id": "https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/iot-connector-overview",
+          "schema:name": "Azure Health Data Services MedTech Service",
+          "schema:description": "Managed IoMT ingestion service that transforms device telemetry from Azure Event Hub into FHIR R4 Observation resources.",
+          "schema:url": "https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/iot-connector-overview",
+          "schema:applicationSubCategory": "IoMT Data Pipeline",
+          "schema:featureList": [
+            "Azure Event Hub ingestion",
+            "Device mapping templates",
+            "FHIR Observation output",
+            "Multiple concurrent device types",
+            "Configurable identity resolution"
+          ]
+        },
+        {
+          "@type": "schema:SoftwareApplication",
+          "@id": "https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview",
+          "schema:name": "Azure Health Data Services De-identification Service",
+          "schema:description": "ML-based REST API for identifying and processing 27 PHI entity types in clinical text via TAG, REDACT, and SURROGATE operations.",
+          "schema:url": "https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview",
+          "schema:applicationSubCategory": "Clinical NLP / PHI De-identification",
+          "schema:featureList": [
+            "27 PHI entity types",
+            "HIPAA 18 Safe Harbor compliance",
+            "TAG operation",
+            "REDACT operation",
+            "SURROGATE operation",
+            "Synchronous and batch modes",
+            "Azure Blob Storage integration"
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "schema:WebAPI",
+      "@id": "https://learn.microsoft.com/en-us/rest/api/healthcareapis/",
+      "schema:name": "Azure Health Data Services Workspace Management REST API",
+      "schema:description": "ARM control-plane REST API for provisioning and managing Azure Health Data Services workspaces and child service instances.",
+      "schema:url": "https://learn.microsoft.com/en-us/rest/api/healthcareapis/",
+      "schema:version": "2024-03-31",
+      "schema:encodingFormat": "application/json",
+      "schema:documentation": {
+        "@type": "schema:TechArticle",
+        "schema:url": "https://learn.microsoft.com/en-us/rest/api/healthcareapis/"
+      },
+      "schema:termsOfService": "https://azure.microsoft.com/en-us/support/legal/",
+      "schema:license": {
+        "@type": "schema:CreativeWork",
+        "schema:name": "Microsoft API Terms of Use",
+        "schema:url": "https://azure.microsoft.com/en-us/support/legal/"
+      }
+    }
+  ]
+}
