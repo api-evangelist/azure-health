@@ -1,0 +1,149 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Microsoft Azure Health Data Services
+providerId: microsoft-azure-health-data-services
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Healthcare
+  - FHIR
+  - DICOM
+  - MedTech
+  - De-identification
+  - Microsoft Azure
+description: >-
+  FOCUS-aligned FinOps for Azure Health Data Services covering four services:
+  (1) FHIR service billed on runtime-hours, SSD storage (GB-month), and throughput
+  (RU/s); (2) DICOM service billed on runtime-hours and imaging storage (GB-month);
+  (3) MedTech service billed on runtime-hours and device messages processed; and
+  (4) De-identification service billed on data volume (MB) with a 50 MB free monthly
+  allotment. All services are pay-as-you-go with no upfront cost. Enterprise reserved
+  capacity discounts are available.
+sources:
+  - https://azure.microsoft.com/en-us/pricing/details/health-data-services/
+  - https://learn.microsoft.com/en-us/azure/healthcare-apis/healthcare-apis-overview
+  - https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview#pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Microsoft Corporation
+serviceCategory: Healthcare / Health Data Services
+billingModel:
+  pricingCategory: Pay-As-You-Go + Committed Use
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Adjustment
+    - Credit
+focusColumns:
+  ServiceName: Azure Health Data Services
+  ServiceCategory: Healthcare
+  ProviderName: Microsoft
+  PublisherName: Microsoft Corporation
+  InvoiceIssuerName: Microsoft Corporation
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: fhir_runtime_hours
+    unit: hour
+    aggregation: sum
+    dimensions:
+      - fhir_service_instance
+      - region
+      - subscription
+  - name: fhir_storage_gb_month
+    unit: GB-month
+    aggregation: avg
+    dimensions:
+      - fhir_service_instance
+      - region
+      - subscription
+  - name: fhir_throughput_ru_per_second
+    unit: RU/s (per 100 RU/s)
+    aggregation: avg
+    dimensions:
+      - fhir_service_instance
+      - region
+      - subscription
+  - name: dicom_runtime_hours
+    unit: hour
+    aggregation: sum
+    dimensions:
+      - dicom_service_instance
+      - region
+      - subscription
+  - name: dicom_storage_gb_month
+    unit: GB-month
+    aggregation: avg
+    dimensions:
+      - dicom_service_instance
+      - region
+      - subscription
+  - name: medtech_runtime_hours
+    unit: hour
+    aggregation: sum
+    dimensions:
+      - medtech_service_instance
+      - region
+      - subscription
+  - name: medtech_messages_processed
+    unit: message
+    aggregation: sum
+    dimensions:
+      - medtech_service_instance
+      - region
+      - subscription
+  - name: deid_mb_processed
+    unit: MB
+    aggregation: sum
+    dimensions:
+      - deid_service_instance
+      - operation_type
+      - region
+      - subscription
+optimizationOpportunities:
+  - name: Right-size FHIR DICOM instances
+    description: >-
+      Monitor actual storage growth and throughput utilization via Azure Monitor
+      metrics. De-provision or share workspace instances that are underutilized
+      to eliminate idle runtime-hour charges.
+  - name: Use de-identification free allotment
+    description: >-
+      The 50 MB monthly free allotment resets each month. Plan batch de-id
+      jobs to maximize use of the free tier before incurring per-MB charges.
+  - name: Reserved capacity for predictable workloads
+    description: >-
+      For steady-state FHIR or DICOM workloads, commit to 1- or 3-year reserved
+      capacity to receive discount pricing vs. pay-as-you-go runtime and storage.
+  - name: Azure Pricing Calculator
+    description: >-
+      Use the Azure Pricing Calculator to model cost across FHIR, DICOM, MedTech,
+      and de-identification tiers before provisioning new service instances.
+    url: https://azure.microsoft.com/en-us/pricing/calculator/
+  - name: Azure Cost Management integration
+    description: >-
+      Tag all Azure Health Data Services resources with cost center, environment,
+      and application tags to enable granular cost allocation reporting in
+      Azure Cost Management + Billing.
+  - name: MedTech message batching
+    description: >-
+      Batch IoMT device messages efficiently via Event Hub partition strategy
+      to minimize per-message processing overhead and optimize MedTech billing.
+  - name: DICOM storage lifecycle management
+    description: >-
+      Implement automated export and archival workflows for aged DICOM studies
+      using the DICOM export API to move data to lower-cost Azure Blob Storage
+      (Cool/Cold/Archive tier) once studies are no longer actively accessed.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

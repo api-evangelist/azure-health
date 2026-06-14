@@ -1,0 +1,123 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Microsoft Azure Health Data Services
+providerId: microsoft-azure-health-data-services
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Rate Limiting
+  - FHIR
+  - DICOM
+  - De-identification
+  - Healthcare
+  - Microsoft Azure
+description: >-
+  Azure Health Data Services enforces rate limits per service. FHIR service
+  throughput scales with provisioned RU/s (automatically managed by Azure —
+  not manually configurable). DICOM service handles thousands of image ingestions
+  per second but doesn't publish explicit per-second request caps. The
+  de-identification service throttles at 1 MB per 5 seconds or 100 requests
+  per 5 seconds. When limits are exceeded, the service returns HTTP 429
+  (Too Many Requests). Higher throughput is available by submitting a support
+  request.
+sources:
+  - https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview#input-requirements-and-service-limits
+  - https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
+  - https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/overview
+headers:
+  requestId: x-ms-request-id
+  correlationId: x-ms-correlation-request-id
+responseCodes:
+  rateLimitExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - name: De-identification service — request size
+    scope: request
+    metric: payload_size
+    limit: '50 KB'
+    timeFrame: per-request
+    notes: Each synchronous de-identification request body must not exceed 50 KB.
+  - name: De-identification service — throughput (bandwidth)
+    scope: service-instance
+    metric: mb_per_window
+    limit: 1
+    timeFrame: 5_seconds
+    notes: >-
+      Requests are throttled when total data volume exceeds 1 MB per 5-second
+      window. Submit a support request for higher throughput.
+  - name: De-identification service — request rate
+    scope: service-instance
+    metric: requests_per_window
+    limit: 100
+    timeFrame: 5_seconds
+    notes: >-
+      Requests are throttled when request count exceeds 100 per 5-second
+      window. Submit a support request for higher limits.
+  - name: De-identification service — async job documents
+    scope: job
+    metric: documents
+    limit: 10000
+    timeFrame: per-job
+    notes: Each asynchronous batch job can process no more than 10,000 documents.
+  - name: De-identification service — document size (async jobs)
+    scope: document
+    metric: payload_size
+    limit: '2 MB'
+    timeFrame: per-document
+    notes: Each individual document submitted in an async batch job must not exceed 2 MB.
+  - name: De-identification service — free monthly allotment
+    scope: service-instance
+    metric: mb
+    limit: 50
+    timeFrame: month
+    notes: >-
+      50 MB of de-identification included free each month per service instance
+      before usage-based charges apply.
+  - name: FHIR service — throughput (RU/s)
+    scope: service-instance
+    metric: request_units_per_second
+    limit: -1
+    timeFrame: second
+    notes: >-
+      Throughput is automatically managed by Azure and scales elastically.
+      Manual RU/s provisioning is not available in Azure Health Data Services
+      FHIR service (unlike Azure API for FHIR). Contact support for throughput
+      capacity discussions.
+  - name: DICOM service — ingestion capacity
+    scope: service-instance
+    metric: images_per_second
+    limit: -1
+    timeFrame: second
+    notes: >-
+      Designed to ingest multiple thousands of DICOM images per second.
+      Exact cap is not published; scales to petabyte-level imaging archives.
+      Contact support for capacity planning.
+  - name: MedTech service — device messages
+    scope: service-instance
+    metric: messages_per_second
+    limit: -1
+    timeFrame: second
+    notes: >-
+      No documented hard cap per second; throughput scales with the Azure
+      Event Hub partition count configured as the device message input.
+policies:
+  - name: Retry on 429 with exponential backoff
+    description: >-
+      When the de-identification service returns HTTP 429, clients should
+      implement exponential backoff with jitter before retrying. The
+      Retry-After header may indicate the recommended wait time.
+  - name: Support request for higher throughput
+    description: >-
+      For FHIR, DICOM, or de-identification workloads requiring throughput
+      above default limits, submit an Azure support request for consideration
+      of higher capacity allocations.
+  - name: Private Link for network isolation
+    description: >-
+      Enable Azure Private Link to route all API traffic through private
+      endpoints, reducing exposure to public internet throttling and
+      network-layer limitations.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

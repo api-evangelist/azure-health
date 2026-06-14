@@ -1,0 +1,212 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Microsoft Azure Health Data Services
+providerId: microsoft-azure-health-data-services
+created: '2026-06-13'
+modified: '2026-06-13'
+reconciled: true
+tags:
+  - Azure
+  - Healthcare
+  - FHIR
+  - DICOM
+  - MedTech
+  - De-identification
+  - Microsoft Azure
+description: >-
+  Azure Health Data Services uses a pay-as-you-go model billed on service runtime
+  (per hour), structured storage (per GB-month SSD-backed), throughput (RU/s for
+  FHIR), DICOM image storage (per GB-month), MedTech messages processed, and
+  de-identification data volume (per MB). A monthly free allotment is included
+  for trial purposes (50 MB for de-identification; FHIR and DICOM include a
+  free monthly allowance as well). Enterprise customers can use Azure Reserved
+  Capacity for discounted commitments.
+sources:
+  - https://azure.microsoft.com/en-us/pricing/details/health-data-services/
+  - https://learn.microsoft.com/en-us/azure/healthcare-apis/healthcare-apis-overview
+plans:
+  - id: microsoft-azure-health-fhir-pay-as-you-go
+    name: FHIR Service — Pay-As-You-Go
+    type: usage-based
+    description: >-
+      Billed per FHIR service instance runtime (per hour), structured SSD storage
+      (per GB-month), and provisioned throughput (per 100 RU/s). Includes a monthly
+      free allotment. No upfront commitment required.
+    entries:
+      - label: Service Runtime
+        name: fhir_runtime
+        type: metered
+        metric: hour
+        limit: -1
+        timeFrame: hour
+        geo: per-region
+        unit: 1
+        price: 'see Azure Health Data Services pricing page'
+        userMultiplied: false
+      - label: Structured Storage (SSD-backed)
+        name: fhir_storage
+        type: metered
+        metric: gb
+        limit: -1
+        timeFrame: month
+        geo: per-region
+        unit: 1
+        price: 'see Azure Health Data Services pricing page (per GB-month)'
+        userMultiplied: false
+      - label: Provisioned Throughput
+        name: fhir_throughput
+        type: metered
+        metric: ru_per_second
+        limit: -1
+        timeFrame: hour
+        geo: per-region
+        unit: 100
+        price: 'see Azure Health Data Services pricing page (per 100 RU/s)'
+        userMultiplied: false
+    elements:
+      - name: FHIR R4 compliant server
+      - name: SMART on FHIR v1 and v2
+      - name: Microsoft Entra ID RBAC
+      - name: Audit logging
+      - name: HIPAA/HITRUST compliance boundary
+      - name: Multi-region failover
+      - name: Monthly free allotment included
+
+  - id: microsoft-azure-health-dicom-pay-as-you-go
+    name: DICOM Service — Pay-As-You-Go
+    type: usage-based
+    description: >-
+      Billed per DICOM service instance runtime (per hour) and medical imaging
+      storage (per GB-month). Supports petabyte-scale imaging archives with
+      Azure Locally Redundant Storage for automatic replication.
+    entries:
+      - label: Service Runtime
+        name: dicom_runtime
+        type: metered
+        metric: hour
+        limit: -1
+        timeFrame: hour
+        geo: per-region
+        unit: 1
+        price: 'see Azure Health Data Services pricing page'
+        userMultiplied: false
+      - label: Imaging Storage
+        name: dicom_storage
+        type: metered
+        metric: gb
+        limit: -1
+        timeFrame: month
+        geo: per-region
+        unit: 1
+        price: 'see Azure Health Data Services pricing page (per GB-month)'
+        userMultiplied: false
+    elements:
+      - name: DICOMweb STOW-RS, QIDO-RS, WADO-RS
+      - name: Worklist Service (UPS-RS)
+      - name: Extended query tags
+      - name: Change feed
+      - name: PHI compliance (HIPAA, GDPR, CCPA)
+      - name: Azure LRS automatic replication
+      - name: DICOMcast FHIR integration
+
+  - id: microsoft-azure-health-medtech-pay-as-you-go
+    name: MedTech Service — Pay-As-You-Go
+    type: usage-based
+    description: >-
+      Billed per MedTech service instance runtime (per hour) and per device
+      message processed. Device messages are received via Azure Event Hub and
+      transformed to FHIR Observation resources.
+    entries:
+      - label: Service Runtime
+        name: medtech_runtime
+        type: metered
+        metric: hour
+        limit: -1
+        timeFrame: hour
+        geo: per-region
+        unit: 1
+        price: 'see Azure Health Data Services pricing page'
+        userMultiplied: false
+      - label: Device Messages Processed
+        name: medtech_messages
+        type: metered
+        metric: message
+        limit: -1
+        timeFrame: usage
+        geo: per-region
+        unit: 1000
+        price: 'see Azure Health Data Services pricing page (per 1,000 messages)'
+        userMultiplied: false
+    elements:
+      - name: IoMT device data ingestion via Event Hub
+      - name: FHIR Observation resource output
+      - name: Configurable device and FHIR mapping templates
+      - name: Multiple concurrent device type support
+      - name: HIPAA/HITRUST compliance boundary
+
+  - id: microsoft-azure-health-deid-pay-as-you-go
+    name: De-identification Service — Pay-As-You-Go
+    type: usage-based
+    description: >-
+      Billed per MB of clinical text de-identified (TAG, REDACT, or SURROGATE
+      operations). Includes 50 MB free monthly allotment. Synchronous and
+      asynchronous batch endpoints available.
+    entries:
+      - label: Data De-identified (after free allotment)
+        name: deid_mb_processed
+        type: metered
+        metric: mb
+        limit: -1
+        timeFrame: usage
+        geo: per-region
+        unit: 1
+        price: 'see Azure Health Data Services pricing page — Transformation Operations (per MB)'
+        userMultiplied: false
+      - label: Free Monthly Allotment
+        name: deid_free_allotment
+        type: free
+        metric: mb
+        limit: 50
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'free'
+        userMultiplied: false
+    elements:
+      - name: 27 PHI entity types covered
+      - name: HIPAA 18-identifier coverage
+      - name: TAG / REDACT / SURROGATE operations
+      - name: Consistent surrogation within a batch
+      - name: Synchronous and asynchronous batch endpoints
+      - name: GDPR pseudonymization compliant
+      - name: Stateless — data stays in customer tenant
+
+  - id: microsoft-azure-health-enterprise
+    name: Enterprise Reserved Capacity
+    type: enterprise
+    description: >-
+      Pre-committed throughput and storage reservations available for 1- or 3-year
+      terms for large healthcare enterprises. Provides discount over pay-as-you-go
+      rates for predictable high-volume workloads.
+    entries:
+      - label: Reserved Throughput Commitment
+        name: enterprise_reserved_throughput
+        type: subscription
+        metric: capacity
+        limit: -1
+        timeFrame: year
+        geo: per-region
+        unit: 1
+        price: 'contact Microsoft for enterprise pricing'
+        userMultiplied: false
+    elements:
+      - name: 1- or 3-year commitment terms
+      - name: Discounted rates vs pay-as-you-go
+      - name: Dedicated support SLA options
+      - name: Customer-managed encryption keys
+      - name: Private Link support
+      - name: HIPAA BAA available
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
