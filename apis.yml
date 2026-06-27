@@ -60,7 +60,7 @@ apis:
         url: https://github.com/Azure/azure-rest-api-specs/tree/main/specification/healthcareapis
       - type: Authentication
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/authentication-authorization
-      - type: Quickstart
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/get-started-with-fhir
       - type: SMART on FHIR
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/smart-on-fhir
@@ -104,7 +104,7 @@ apis:
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-with-dicom-services
       - type: Conformance Statement
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2
-      - type: Quickstart
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure
       - type: ChangeLog
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/release-notes-2024
@@ -142,7 +142,7 @@ apis:
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/authentication-authorization
       - type: Device Mapping Guide
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings
-      - type: Quickstart
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot
       - type: ChangeLog
         url: https://learn.microsoft.com/en-us/azure/healthcare-apis/release-notes-2024
@@ -238,7 +238,7 @@ common:
     url: https://azure.microsoft.com/en-us/pricing/details/health-data-services/
   - type: PricingCalculator
     url: https://azure.microsoft.com/en-us/pricing/calculator/
-  - type: SignUp
+  - type: Signup
     url: https://azure.microsoft.com/en-us/free/
   - type: ChangeLog
     url: https://learn.microsoft.com/en-us/azure/healthcare-apis/release-notes-2024
