@@ -220,6 +220,12 @@ apis:
         url: https://azure.microsoft.com/en-us/pricing/details/health-data-services/
 
 common:
+  - type: VulnerabilityDisclosure
+    url: security/azure-health-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/azure-health-domain-security.yml
+  - type: Authentication
+    url: authentication/azure-health-authentication.yml
   - type: OAuthScopes
     url: scopes/azure-health-scopes.yml
   - type: Website

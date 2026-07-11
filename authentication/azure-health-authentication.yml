@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/health-data-ai-deid-2024-11-15.json, openapi/healthcare-apis-2024-03-31.json
+summary:
+  types:
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - implicit
+schemes:
+- name: AadToken
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+    scopes: 1
+  description: The Azure Active Directory OAuth2 Flow
+  sources:
+  - openapi/health-data-ai-deid-2024-11-15.json
+- name: azure_auth
+  type: oauth2
+  flows:
+  - flow: implicit
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+    scopes: 1
+  description: Azure Active Directory OAuth2 Flow
+  sources:
+  - openapi/healthcare-apis-2024-03-31.json
