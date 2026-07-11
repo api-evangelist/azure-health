@@ -1,0 +1,29 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/health-data-ai-deid-2024-11-15.json, openapi/healthcare-apis-2024-03-31.json
+schemes:
+- name: AadToken
+  source: openapi/health-data-ai-deid-2024-11-15.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+  description: The Azure Active Directory OAuth2 Flow
+- name: azure_auth
+  source: openapi/healthcare-apis-2024-03-31.json
+  flows:
+  - flow: implicit
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+  description: Azure Active Directory OAuth2 Flow
+scopes:
+- scope: https://deid.azure.com/.default
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/health-data-ai-deid-2024-11-15.json
+- scope: user_impersonation
+  description: impersonate your user account
+  flows:
+  - implicit
+  sources:
+  - openapi/healthcare-apis-2024-03-31.json

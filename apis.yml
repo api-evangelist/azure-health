@@ -220,6 +220,8 @@ apis:
         url: https://azure.microsoft.com/en-us/pricing/details/health-data-services/
 
 common:
+  - type: OAuthScopes
+    url: scopes/azure-health-scopes.yml
   - type: Website
     url: https://azure.microsoft.com/en-us/products/health-data-services
   - type: Documentation
@@ -256,6 +258,8 @@ common:
     url: https://learn.microsoft.com/en-us/azure/healthcare-apis/healthcare-apis-overview
   - type: SDKs
     url: https://learn.microsoft.com/en-us/azure/healthcare-apis/github-projects
+  - url: https://techcommunity.microsoft.com/t5/s/gxcuf89792/rss/board?board.id=HealthcareAndLifeSciencesBlog
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
