@@ -220,6 +220,8 @@ apis:
         url: https://azure.microsoft.com/en-us/pricing/details/health-data-services/
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/azure-health-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/azure-health-vulnerability-disclosure.yml
   - type: DomainSecurity
