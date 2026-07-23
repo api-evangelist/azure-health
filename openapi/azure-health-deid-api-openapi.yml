@@ -1,0 +1,380 @@
+swagger: '2.0'
+info:
+  title: Azure Health Data Services de-identification service Collection Deid API
+  version: '2024-11-15'
+  x-typespec-generated:
+  - emitter: '@azure-tools/typespec-autorest'
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- AadToken:
+  - https://deid.azure.com/.default
+tags:
+- name: Deid
+paths:
+  /deid:
+    post:
+      operationId: DeidentifyText
+      summary: De-identify text.
+      description: A remote procedure call (RPC) operation.
+      parameters:
+      - $ref: '#/parameters/Azure.Core.Foundations.ApiVersionParameter'
+      - $ref: '#/parameters/Azure.Core.ClientRequestIdHeader'
+      - name: body
+        in: body
+        description: Request body for de-identification operation.
+        required: true
+        schema:
+          $ref: '#/definitions/DeidentificationContent'
+      responses:
+        '200':
+          description: The request has succeeded.
+          schema:
+            $ref: '#/definitions/DeidentificationResult'
+          headers:
+            x-ms-client-request-id:
+              type: string
+              format: uuid
+              description: An opaque, globally-unique, client-generated string identifier for the request.
+        default:
+          description: An unexpected error response.
+          schema:
+            $ref: '#/definitions/Azure.Core.Foundations.ErrorResponse'
+          headers:
+            x-ms-error-code:
+              type: string
+              description: String error code indicating what went wrong.
+      x-ms-examples:
+        De-identify text.:
+          $ref: ./examples/DeidentifyText.json
+      tags:
+      - Deid
+definitions:
+  PhiTaggerResult:
+    type: object
+    description: Result of the "Tag" operation.
+    properties:
+      entities:
+        type: array
+        description: List of entities detected in the input.
+        items:
+          $ref: '#/definitions/PhiEntity'
+    required:
+    - entities
+  StringIndex:
+    type: object
+    description: String index encoding model.
+    properties:
+      utf8:
+        type: integer
+        format: int32
+        description: The offset or length of the substring in UTF-8 encoding
+      utf16:
+        type: integer
+        format: int32
+        description: 'The offset or length of the substring in UTF-16 encoding.
+
+
+          Primary encoding used by .NET, Java, and JavaScript.'
+      codePoint:
+        type: integer
+        format: int32
+        description: 'The offset or length of the substring in CodePoint encoding.
+
+
+          Primary encoding used by Python.'
+    required:
+    - utf8
+    - utf16
+    - codePoint
+  Azure.Core.Foundations.ErrorResponse:
+    type: object
+    description: A response containing error details.
+    properties:
+      error:
+        $ref: '#/definitions/Azure.Core.Foundations.Error'
+        description: The error object.
+    required:
+    - error
+  DeidentificationContent:
+    type: object
+    description: Request body for de-identification operation.
+    properties:
+      inputText:
+        type: string
+        description: Input text to de-identify.
+        maxLength: 48000
+      operation:
+        type: string
+        description: Operation to perform on the input documents.
+        default: Surrogate
+        enum:
+        - Redact
+        - Surrogate
+        - Tag
+        x-ms-enum:
+          name: DeidentificationOperationType
+          modelAsString: true
+          values:
+          - name: Redact
+            value: Redact
+            description: Redact Operation will remove all entities of PHI and replace them with a placeholder value.
+          - name: Surrogate
+            value: Surrogate
+            description: Surrogation Operation will replace all entities of PHI with a surrogate value.
+          - name: Tag
+            value: Tag
+            description: Tag Operation will detect all entities of PHI, their type, and return their locations in the document.
+      customizations:
+        $ref: '#/definitions/DeidentificationCustomizationOptions'
+        description: Customization parameters to override default service behaviors.
+    required:
+    - inputText
+  PhiEntity:
+    type: object
+    description: PHI Entity tag in the input.
+    properties:
+      category:
+        $ref: '#/definitions/PhiCategory'
+        description: PHI Category of the entity.
+      offset:
+        $ref: '#/definitions/StringIndex'
+        description: Starting index of the location from within the input text.
+      length:
+        $ref: '#/definitions/StringIndex'
+        description: Length of the input text.
+      text:
+        type: string
+        description: Text of the entity.
+      confidenceScore:
+        type: number
+        format: double
+        description: Confidence score of the category match.
+    required:
+    - category
+    - offset
+    - length
+  Azure.Core.Foundations.InnerError:
+    type: object
+    description: An object containing more specific information about the error. As per Azure REST API guidelines - https://aka.ms/AzureRestApiGuidelines#handling-errors.
+    properties:
+      code:
+        type: string
+        description: One of a server-defined set of error codes.
+      innererror:
+        $ref: '#/definitions/Azure.Core.Foundations.InnerError'
+        description: Inner error.
+  PhiCategory:
+    type: string
+    description: List of PHI Entities.
+    enum:
+    - Unknown
+    - Account
+    - Age
+    - BioID
+    - City
+    - CountryOrRegion
+    - Date
+    - Device
+    - Doctor
+    - Email
+    - Fax
+    - HealthPlan
+    - Hospital
+    - IDNum
+    - IPAddress
+    - License
+    - LocationOther
+    - MedicalRecord
+    - Organization
+    - Patient
+    - Phone
+    - Profession
+    - SocialSecurity
+    - State
+    - Street
+    - Url
+    - Username
+    - Vehicle
+    - Zip
+    x-ms-enum:
+      name: PhiCategory
+      modelAsString: true
+      values:
+      - name: Unknown
+        value: Unknown
+        description: Unknown PHI Type.
+      - name: Account
+        value: Account
+        description: Account Number.
+      - name: Age
+        value: Age
+        description: Age.
+      - name: BioID
+        value: BioID
+        description: Biological Identifier, such as a fingerprint or retinal scan.
+      - name: City
+        value: City
+        description: City.
+      - name: CountryOrRegion
+        value: CountryOrRegion
+        description: Country or Region.
+      - name: Date
+        value: Date
+        description: Date.
+      - name: Device
+        value: Device
+        description: Device ID or serial numbers.
+      - name: Doctor
+        value: Doctor
+        description: Doctor's Name.
+      - name: Email
+        value: Email
+        description: Email Addresses.
+      - name: Fax
+        value: Fax
+        description: Fax Number.
+      - name: HealthPlan
+        value: HealthPlan
+        description: Health Plan ID Numbers.
+      - name: Hospital
+        value: Hospital
+        description: Hospital Name.
+      - name: IDNum
+        value: IDNum
+        description: Id Number, eg. passport number.
+      - name: IPAddress
+        value: IPAddress
+        description: IP Address.
+      - name: License
+        value: License
+        description: License, eg. Driver's license or medical license.
+      - name: LocationOther
+        value: LocationOther
+        description: Location Other, eg. Golden Gate Park.
+      - name: MedicalRecord
+        value: MedicalRecord
+        description: Medical Record Number.
+      - name: Organization
+        value: Organization
+        description: Organization, eg. Microsoft.
+      - name: Patient
+        value: Patient
+        description: Patient Name.
+      - name: Phone
+        value: Phone
+        description: Phone Number.
+      - name: Profession
+        value: Profession
+        description: Profession.
+      - name: SocialSecurity
+        value: SocialSecurity
+        description: Social Security Number.
+      - name: State
+        value: State
+        description: State.
+      - name: Street
+        value: Street
+        description: Street.
+      - name: Url
+        value: Url
+        description: Web URL.
+      - name: Username
+        value: Username
+        description: Usernames, eg. a social media handle.
+      - name: Vehicle
+        value: Vehicle
+        description: Vehicle IDs, eg. license plate or VIN number.
+      - name: Zip
+        value: Zip
+        description: Zip Code.
+  DeidentificationResult:
+    type: object
+    description: Response body for de-identification operation.
+    properties:
+      outputText:
+        type: string
+        description: Output text after de-identification. Not available for "Tag" operation.
+      taggerResult:
+        $ref: '#/definitions/PhiTaggerResult'
+        description: Result of the "Tag" operation. Only available for "Tag" Operation.
+  DeidentificationCustomizationOptions:
+    type: object
+    description: Customizations options to override default service behaviors for synchronous usage.
+    properties:
+      redactionFormat:
+        type: string
+        description: "Format of the redacted output. Only valid when Operation is Redact. \nPlease refer to https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format for more details."
+        minLength: 1
+        maxLength: 16
+      surrogateLocale:
+        type: string
+        description: Locale in which the output surrogates are written.
+        default: en-US
+  Azure.Core.Foundations.Error:
+    type: object
+    description: The error object.
+    properties:
+      code:
+        type: string
+        description: One of a server-defined set of error codes.
+      message:
+        type: string
+        description: A human-readable representation of the error.
+      target:
+        type: string
+        description: The target of the error.
+      details:
+        type: array
+        description: An array of details about specific errors that led to this reported error.
+        items:
+          $ref: '#/definitions/Azure.Core.Foundations.Error'
+      innererror:
+        $ref: '#/definitions/Azure.Core.Foundations.InnerError'
+        description: An object containing more specific information than the current object about the error.
+    required:
+    - code
+    - message
+parameters:
+  Azure.Core.ClientRequestIdHeader:
+    name: x-ms-client-request-id
+    in: header
+    description: An opaque, globally-unique, client-generated string identifier for the request.
+    required: false
+    type: string
+    format: uuid
+    x-ms-parameter-location: method
+    x-ms-client-name: clientRequestId
+  Azure.Core.Foundations.ApiVersionParameter:
+    name: api-version
+    in: query
+    description: The API version to use for this operation.
+    required: true
+    type: string
+    minLength: 1
+    x-ms-parameter-location: method
+    x-ms-client-name: apiVersion
+securityDefinitions:
+  AadToken:
+    type: oauth2
+    description: The Azure Active Directory OAuth2 Flow
+    flow: accessCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    scopes:
+      https://deid.azure.com/.default: ''
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+x-ms-parameterized-host:
+  hostTemplate: '{endpoint}'
+  useSchemePrefix: false
+  parameters:
+  - name: endpoint
+    in: path
+    description: Url of your De-identification Service.
+    required: true
+    type: string
+    format: uri
+    x-ms-skip-url-encoding: true

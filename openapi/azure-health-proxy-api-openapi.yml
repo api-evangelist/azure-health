@@ -1,0 +1,400 @@
+swagger: '2.0'
+info:
+  title: Azure Health Data Services de-identification service Collection Proxy API
+  version: '2024-11-15'
+  x-typespec-generated:
+  - emitter: '@azure-tools/typespec-autorest'
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- AadToken:
+  - https://deid.azure.com/.default
+tags:
+- name: Proxy
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/checkNameAvailability:
+    post:
+      tags:
+      - Proxy
+      description: Check if a service instance name is available.
+      operationId: Services_CheckNameAvailability
+      x-ms-examples:
+        Check name availability:
+          $ref: ./examples/CheckNameAvailabilityPost.json
+      parameters:
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      - name: checkNameAvailabilityInputs
+        in: body
+        description: Set the name parameter in the CheckNameAvailabilityParameters structure to the name of the service instance to check.
+        required: true
+        schema:
+          $ref: '#/definitions/CheckNameAvailabilityParameters'
+      responses:
+        '200':
+          description: This is a synchronous operation. The body contains a JSON-serialized response that specifies whether the service name is available. If the name is not available, the body contains the reason.
+          schema:
+            $ref: '#/definitions/ServicesNameAvailabilityInfo'
+        default:
+          description: DefaultErrorResponse
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+  /providers/Microsoft.HealthcareApis/operations:
+    get:
+      tags:
+      - Proxy
+      description: Lists all of the available operations supported by Microsoft Healthcare resource provider.
+      operationId: Operations_List
+      x-ms-examples:
+        List operations:
+          $ref: ./examples/OperationsList.json
+      x-ms-pageable:
+        nextLinkName: nextLink
+      parameters:
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      responses:
+        '200':
+          description: OK. The request has succeeded.
+          schema:
+            $ref: '#/definitions/ListOperations'
+        default:
+          description: DefaultErrorResponse
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+  ? /subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/locations/{locationName}/operationresults/{operationResultId}
+  : get:
+      tags:
+      - Proxy
+      description: Get the operation result for a long running operation.
+      operationId: OperationResults_Get
+      x-ms-examples:
+        Get operation result:
+          $ref: ./examples/OperationResultsGet.json
+      parameters:
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      - $ref: '#/parameters/locationName'
+      - $ref: '#/parameters/operationResultId'
+      responses:
+        '200':
+          description: The body contains all of the properties of the operation result.
+          schema:
+            $ref: '#/definitions/OperationResultsDescription'
+        default:
+          description: Default error response
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+definitions:
+  OperationProperties:
+    description: Extra Operation properties
+    type: object
+    properties:
+      serviceSpecification:
+        $ref: '#/definitions/ServiceSpecification'
+        description: Service specifications of the operation
+  OperationDisplay:
+    description: The object that represents the operation.
+    type: object
+    properties:
+      provider:
+        readOnly: true
+        type: string
+        description: 'Service provider: Microsoft.HealthcareApis'
+      resource:
+        readOnly: true
+        type: string
+        description: 'Resource Type: Services'
+      operation:
+        readOnly: true
+        type: string
+        description: Name of the operation
+      description:
+        readOnly: true
+        type: string
+        description: Friendly description for the operation,
+  ServicesNameAvailabilityInfo:
+    description: The properties indicating whether a given service name is available.
+    type: object
+    properties:
+      nameAvailable:
+        description: The value which indicates whether the provided name is available.
+        type: boolean
+        readOnly: true
+      reason:
+        description: The reason for unavailability.
+        enum:
+        - Invalid
+        - AlreadyExists
+        type: string
+        readOnly: true
+        x-ms-enum:
+          name: ServiceNameUnavailabilityReason
+          modelAsString: false
+      message:
+        description: The detailed reason message.
+        type: string
+  MetricDimension:
+    description: Specifications of the Dimension of metrics
+    type: object
+    properties:
+      name:
+        description: Name of the dimension
+        type: string
+      displayName:
+        description: Localized friendly display name of the dimension
+        type: string
+      toBeExportedForShoebox:
+        description: Whether this dimension should be included for the Shoebox export scenario
+        type: boolean
+  OperationResultsDescription:
+    description: The properties indicating the operation result of an operation on a service.
+    type: object
+    properties:
+      id:
+        description: The ID of the operation returned.
+        readOnly: true
+        type: string
+      name:
+        description: The name of the operation result.
+        readOnly: true
+        type: string
+      status:
+        description: The status of the operation being performed.
+        enum:
+        - Canceled
+        - Succeeded
+        - Failed
+        - Requested
+        - Running
+        readOnly: true
+        type: string
+        x-ms-enum:
+          name: OperationResultStatus
+          modelAsString: true
+      startTime:
+        description: The time that the operation was started.
+        readOnly: true
+        type: string
+      endTime:
+        description: The time that the operation finished.
+        readOnly: true
+        type: string
+      properties:
+        x-ms-client-flatten: false
+        description: Additional properties of the operation result.
+        type: object
+  ErrorDetails:
+    description: Error details.
+    type: object
+    properties:
+      error:
+        description: Error details
+        $ref: '#/definitions/ErrorDetailsInternal'
+  ListOperations:
+    description: Available operations of the service
+    type: object
+    properties:
+      value:
+        description: Collection of available operation details
+        uniqueItems: false
+        type: array
+        readOnly: true
+        items:
+          $ref: '#/definitions/OperationDetail'
+        x-ms-identifiers:
+        - name
+      nextLink:
+        description: "URL client should use to fetch the next page (per server side paging).\r\nIt's null for now, added for future use."
+        type: string
+  OperationDetail:
+    description: Service REST API operation.
+    type: object
+    properties:
+      name:
+        description: Name of the operation
+        type: string
+        readOnly: true
+      isDataAction:
+        description: Whether the operation applies to data-plane. This is "true" for data-plane operations and "false" for ARM/control-plane operations.
+        type: boolean
+        readOnly: true
+      display:
+        $ref: '#/definitions/OperationDisplay'
+        description: Display of the operation
+      origin:
+        readOnly: true
+        type: string
+        description: Default value is 'user,system'.
+      actionType:
+        description: Enum. Indicates the action type. "Internal" refers to actions that are for internal only APIs.
+        type: string
+        readOnly: true
+        enum:
+        - Internal
+        x-ms-enum:
+          name: ActionType
+          modelAsString: true
+      properties:
+        $ref: '#/definitions/OperationProperties'
+        description: Properties of the operation
+  ErrorDetailsInternal:
+    description: Error details.
+    type: object
+    properties:
+      code:
+        description: The error code.
+        type: string
+        readOnly: true
+      message:
+        description: The error message.
+        type: string
+        readOnly: true
+      target:
+        description: The target of the particular error.
+        type: string
+        readOnly: true
+  CheckNameAvailabilityParameters:
+    description: Input values.
+    type: object
+    properties:
+      name:
+        description: The name of the service instance to check.
+        type: string
+      type:
+        description: The fully qualified resource type which includes provider namespace.
+        type: string
+    required:
+    - name
+    - type
+  LogSpecification:
+    description: Specifications of the Log for Azure Monitoring
+    type: object
+    properties:
+      name:
+        description: Name of the log
+        type: string
+      displayName:
+        description: Localized friendly display name of the log
+        type: string
+      blobDuration:
+        description: Blob duration of the log
+        type: string
+  ServiceSpecification:
+    description: Service specification payload
+    type: object
+    properties:
+      logSpecifications:
+        description: Specifications of the Log for Azure Monitoring
+        uniqueItems: false
+        type: array
+        items:
+          $ref: '#/definitions/LogSpecification'
+        x-ms-identifiers: []
+      metricSpecifications:
+        description: Specifications of the Metrics for Azure Monitoring
+        uniqueItems: false
+        type: array
+        items:
+          $ref: '#/definitions/MetricSpecification'
+        x-ms-identifiers: []
+  MetricSpecification:
+    description: Specifications of the Metrics for Azure Monitoring
+    type: object
+    properties:
+      name:
+        description: Name of the metric
+        type: string
+      displayName:
+        description: Localized friendly display name of the metric
+        type: string
+      displayDescription:
+        description: Localized friendly description of the metric
+        type: string
+      unit:
+        description: Unit that makes sense for the metric
+        type: string
+      category:
+        description: Name of the metric category that the metric belongs to. A metric can only belong to a single category.
+        type: string
+      aggregationType:
+        description: 'Only provide one value for this field. Valid values: Average, Minimum, Maximum, Total, Count.'
+        type: string
+      supportedAggregationTypes:
+        description: Supported aggregation types
+        uniqueItems: false
+        type: array
+        items:
+          type: string
+      supportedTimeGrainTypes:
+        description: Supported time grain types
+        uniqueItems: false
+        type: array
+        items:
+          type: string
+      fillGapWithZero:
+        description: Optional. If set to true, then zero will be returned for time duration where no metric is emitted/published.
+        type: boolean
+      metricFilterPattern:
+        type: string
+        description: Pattern for the filter of the metric.
+      dimensions:
+        description: Dimensions of the metric
+        uniqueItems: false
+        type: array
+        items:
+          $ref: '#/definitions/MetricDimension'
+        x-ms-identifiers: []
+      isInternal:
+        type: boolean
+        description: Whether the metric is internal.
+      sourceMdmAccount:
+        type: string
+        description: The source MDM account.
+      sourceMdmNamespace:
+        type: string
+        description: The source MDM namespace.
+      enableRegionalMdmAccount:
+        type: boolean
+        description: Whether regional MDM account enabled.
+      resourceIdDimensionNameOverride:
+        type: string
+        description: The resource Id dimension name override.
+parameters:
+  locationName:
+    name: locationName
+    in: path
+    description: The location of the operation.
+    required: true
+    type: string
+    x-ms-parameter-location: method
+  operationResultId:
+    name: operationResultId
+    in: path
+    description: The ID of the operation result to get.
+    required: true
+    type: string
+    x-ms-parameter-location: method
+securityDefinitions:
+  AadToken:
+    type: oauth2
+    description: The Azure Active Directory OAuth2 Flow
+    flow: accessCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    scopes:
+      https://deid.azure.com/.default: ''
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+x-ms-parameterized-host:
+  hostTemplate: '{endpoint}'
+  useSchemePrefix: false
+  parameters:
+  - name: endpoint
+    in: path
+    description: Url of your De-identification Service.
+    required: true
+    type: string
+    format: uri
+    x-ms-skip-url-encoding: true

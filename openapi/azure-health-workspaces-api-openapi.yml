@@ -1,0 +1,423 @@
+swagger: '2.0'
+info:
+  title: Azure Health Data Services de-identification service Collection Workspaces API
+  version: '2024-11-15'
+  x-typespec-generated:
+  - emitter: '@azure-tools/typespec-autorest'
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+security:
+- AadToken:
+  - https://deid.azure.com/.default
+tags:
+- name: Workspaces
+paths:
+  /subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/workspaces:
+    get:
+      tags:
+      - Workspaces
+      description: Lists all the available workspaces under the specified subscription.
+      operationId: Workspaces_ListBySubscription
+      x-ms-examples:
+        Get workspaces by subscription:
+          $ref: ./examples/workspaces/Workspaces_ListBySubscription.json
+      parameters:
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      responses:
+        '200':
+          description: This is a synchronous operation. The body contains a JSON-serialized array of the metadata from all the workspaces in the subscription.
+          schema:
+            $ref: '#/definitions/WorkspaceList'
+        default:
+          description: Error response describing why the operation failed
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+      x-ms-pageable:
+        nextLinkName: nextLink
+  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces:
+    get:
+      tags:
+      - Workspaces
+      description: Lists all the available workspaces under the specified resource group.
+      operationId: Workspaces_ListByResourceGroup
+      x-ms-examples:
+        Get workspaces by resource group:
+          $ref: ./examples/workspaces/Workspaces_ListByResourceGroup.json
+      parameters:
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      - $ref: '#/parameters/resourceGroupName'
+      responses:
+        '200':
+          description: This is a synchronous operation. The body contains a JSON-serialized array of the metadata from all the workspaces in the resource group.
+          schema:
+            $ref: '#/definitions/WorkspaceList'
+        default:
+          description: Error response describing why the operation failed
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+      x-ms-pageable:
+        nextLinkName: nextLink
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}
+  : get:
+      tags:
+      - Workspaces
+      description: Gets the properties of the specified workspace.
+      operationId: Workspaces_Get
+      x-ms-examples:
+        Get workspace:
+          $ref: ./examples/workspaces/Workspaces_Get.json
+      parameters:
+      - $ref: '#/parameters/resourceGroupName'
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      - $ref: '#/parameters/workspaceName'
+      responses:
+        '200':
+          description: The request was successful; the request was well-formed and received properly.
+          schema:
+            $ref: '#/definitions/Workspace'
+        default:
+          description: Error response describing why the operation failed
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+    put:
+      tags:
+      - Workspaces
+      description: Creates or updates a workspace resource with the specified parameters.
+      operationId: Workspaces_CreateOrUpdate
+      x-ms-long-running-operation: true
+      x-ms-examples:
+        Create or update a workspace:
+          $ref: ./examples/workspaces/Workspaces_Create.json
+      parameters:
+      - $ref: '#/parameters/resourceGroupName'
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      - $ref: '#/parameters/workspaceName'
+      - name: workspace
+        description: The parameters for creating or updating a healthcare workspace.
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/Workspace'
+      responses:
+        '200':
+          description: Updated - Put request accepted and an existing resource is updated.
+          schema:
+            $ref: '#/definitions/Workspace'
+        '201':
+          description: Created - Put request accepted and an existing resource is being created asynchronously.
+          schema:
+            $ref: '#/definitions/Workspace'
+        '202':
+          description: Accepted - Put request accepted and an existing resource is being updated asynchronously.
+          schema:
+            $ref: '#/definitions/Workspace'
+        default:
+          description: Error response describing why the operation failed
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+    patch:
+      tags:
+      - Workspaces
+      description: Patch workspace details.
+      operationId: Workspaces_Update
+      x-ms-long-running-operation: true
+      x-ms-examples:
+        Update a workspace:
+          $ref: ./examples/workspaces/Workspaces_Patch.json
+      parameters:
+      - $ref: '#/parameters/resourceGroupName'
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      - $ref: '#/parameters/workspaceName'
+      - name: workspacePatchResource
+        description: The parameters for updating a specified workspace.
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/WorkspacePatchResource'
+      responses:
+        '200':
+          description: Updated - Patch request accepted and an existing resource is updated.
+          schema:
+            $ref: '#/definitions/Workspace'
+        '202':
+          description: Accepted - Patch request accepted and an existing resource is being updated asynchronously.
+          schema:
+            $ref: '#/definitions/Workspace'
+        default:
+          description: Error response describing why the operation failed
+          schema:
+            $ref: '#/definitions/ErrorDetails'
+    delete:
+      tags:
+      - Workspaces
+      description: Deletes a specified workspace.
+      operationId: Workspaces_Delete
+      x-ms-long-running-operation: true
+      x-ms-examples:
+        Delete a workspace:
+          $ref: ./examples/workspaces/Workspaces_Delete.json
+      parameters:
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
+      - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
+      - $ref: '#/parameters/resourceGroupName'
+      - $ref: '#/parameters/workspaceName'
+      responses:
+        '200':
+          description: Resource deleted.
+        '202':
+          description: Delete request accepted; the operation will complete asynchronously.
+        '204':
+          description: The resource does not exist.
+        default:
+          description: Error response describing why the operation failed
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  WorkspacePatchResource:
+    type: object
+    description: Workspace patch properties
+    allOf:
+    - $ref: '#/definitions/ResourceTags'
+  TaggedResource:
+    type: object
+    description: The common properties of tracked resources in the service.
+    allOf:
+    - $ref: '#/definitions/ResourceTags'
+    - $ref: '#/definitions/LocationBasedResource'
+    x-ms-azure-resource: true
+  ErrorDetails:
+    description: Error details.
+    type: object
+    properties:
+      error:
+        description: Error details
+        $ref: '#/definitions/ErrorDetailsInternal'
+  ResourceTags:
+    type: object
+    description: List of key value pairs that describe the resource. This will overwrite the existing tags.
+    properties:
+      tags:
+        type: object
+        additionalProperties:
+          type: string
+        x-ms-mutability:
+        - read
+        - create
+        - update
+        description: Resource tags.
+  ResourcePublicNetworkAccess:
+    description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+    enum:
+    - Enabled
+    - Disabled
+    type: string
+    x-ms-enum:
+      name: PublicNetworkAccess
+      modelAsString: true
+    readOnly: true
+  ProvisioningState:
+    description: The provisioning state.
+    enum:
+    - Deleting
+    - Succeeded
+    - Creating
+    - Accepted
+    - Verifying
+    - Updating
+    - Failed
+    - Canceled
+    - Deprovisioned
+    - Moving
+    - Suspended
+    - Warned
+    - SystemMaintenance
+    type: string
+    readOnly: true
+    x-ms-enum:
+      name: provisioningState
+      modelAsString: true
+  Workspace:
+    type: object
+    description: Workspace resource.
+    allOf:
+    - $ref: '#/definitions/TaggedResource'
+    properties:
+      properties:
+        x-ms-client-flatten: false
+        type: object
+        description: Workspaces resource specific properties.
+        properties:
+          provisioningState:
+            description: The provisioning state.
+            $ref: '#/definitions/ProvisioningState'
+          privateEndpointConnections:
+            description: The list of private endpoint connections that are set up for this resource.
+            type: array
+            items:
+              $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
+            readOnly: true
+          publicNetworkAccess:
+            description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+            $ref: '#/definitions/ResourcePublicNetworkAccess'
+      systemData:
+        description: Metadata pertaining to creation and last modification of the resource.
+        $ref: '#/definitions/systemData'
+  ErrorDetailsInternal:
+    description: Error details.
+    type: object
+    properties:
+      code:
+        description: The error code.
+        type: string
+        readOnly: true
+      message:
+        description: The error message.
+        type: string
+        readOnly: true
+      target:
+        description: The target of the particular error.
+        type: string
+        readOnly: true
+  LocationBasedResource:
+    type: object
+    description: The common properties for any location based resource, tracked or proxy.
+    allOf:
+    - $ref: '#/definitions/ResourceCore'
+    properties:
+      location:
+        type: string
+        description: The resource location.
+        x-ms-mutability:
+        - create
+        - read
+    x-ms-azure-resource: true
+  WorkspaceList:
+    description: Collection of workspace object with a next link
+    type: object
+    properties:
+      nextLink:
+        description: The link used to get the next page.
+        type: string
+      value:
+        description: Collection of resources.
+        type: array
+        items:
+          $ref: '#/definitions/Workspace'
+  ResourceCore:
+    type: object
+    description: The common properties for any resource, tracked or proxy.
+    properties:
+      id:
+        readOnly: true
+        type: string
+        description: The resource identifier.
+      name:
+        readOnly: true
+        type: string
+        description: The resource name.
+        pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
+      type:
+        readOnly: true
+        type: string
+        description: The resource type.
+      etag:
+        description: An etag associated with the resource, used for optimistic concurrency when editing it.
+        type: string
+    x-ms-azure-resource: true
+  Error:
+    description: Error details.
+    type: object
+    properties:
+      error:
+        description: Error details
+        $ref: '#/definitions/ErrorDetailsInternal'
+  systemData:
+    description: Metadata pertaining to creation and last modification of the resource.
+    type: object
+    readOnly: true
+    properties:
+      createdBy:
+        type: string
+        description: The identity that created the resource.
+      createdByType:
+        type: string
+        description: The type of identity that created the resource.
+        enum:
+        - User
+        - Application
+        - ManagedIdentity
+        - Key
+        x-ms-enum:
+          name: createdByType
+          modelAsString: true
+      createdAt:
+        type: string
+        format: date-time
+        description: The timestamp of resource creation (UTC).
+      lastModifiedBy:
+        type: string
+        description: The identity that last modified the resource.
+      lastModifiedByType:
+        type: string
+        description: The type of identity that last modified the resource.
+        enum:
+        - User
+        - Application
+        - ManagedIdentity
+        - Key
+        x-ms-enum:
+          name: createdByType
+          modelAsString: true
+      lastModifiedAt:
+        type: string
+        format: date-time
+        description: The timestamp of resource last modification (UTC)
+parameters:
+  resourceGroupName:
+    name: resourceGroupName
+    in: path
+    description: The name of the resource group that contains the service instance.
+    required: true
+    type: string
+    x-ms-parameter-location: method
+    pattern: ^[-\w\._\(\)]+$
+    minLength: 1
+    maxLength: 90
+  workspaceName:
+    name: workspaceName
+    in: path
+    required: true
+    type: string
+    description: The name of workspace resource.
+    x-ms-parameter-location: method
+    minLength: 3
+    maxLength: 24
+securityDefinitions:
+  AadToken:
+    type: oauth2
+    description: The Azure Active Directory OAuth2 Flow
+    flow: accessCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    scopes:
+      https://deid.azure.com/.default: ''
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+x-ms-parameterized-host:
+  hostTemplate: '{endpoint}'
+  useSchemePrefix: false
+  parameters:
+  - name: endpoint
+    in: path
+    description: Url of your De-identification Service.
+    required: true
+    type: string
+    format: uri
+    x-ms-skip-url-encoding: true
