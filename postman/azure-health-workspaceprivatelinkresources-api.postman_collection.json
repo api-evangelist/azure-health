@@ -1,0 +1,511 @@
+{
+  "info": {
+    "_postman_id": "9958b5d5-c8b0-4ae6-8fd7-ffc0adfc1674",
+    "name": "Azure Health Data Services de-identification service Collection WorkspacePrivateLinkResources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:10:16.000Z",
+    "updatedAt": "2026-07-28T01:10:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9958b5d5-c8b0-4ae6-8fd7-ffc0adfc1674"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.HealthcareApis",
+                          "item": [
+                            {
+                              "name": "workspaces",
+                              "item": [
+                                {
+                                  "name": "{workspaceName}",
+                                  "item": [
+                                    {
+                                      "name": "privateLinkResources",
+                                      "item": [
+                                        {
+                                          "name": "{groupName}",
+                                          "item": [
+                                            {
+                                              "name": "Workspace Private Link Resources Get",
+                                              "id": "58cb51c2-47ad-4f21-8f15-4916b1dbe9f9",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateLinkResources/:groupName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateLinkResources",
+                                                    ":groupName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "5a04fb68-2087-4a96-9a92-0b5768665dad",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "5441a998-b51d-46c6-a695-e7095ec9e1a4",
+                                                      "key": "resourceGroupName",
+                                                      "value": "yanfTclgrr",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "26196c8e-ee23-47ee-823e-cb1322fb0ddf",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "ebfc4d29-7264-4099-85e5-b7ee76fcc6cf",
+                                                      "key": "groupName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of the private link resource group."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Gets a private link resource that need to be created for a workspace."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "6459e79d-7e66-416c-aa27-b471c8e96a75",
+                                                  "name": "The request was successful; the request was well-formed and received properly.",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateLinkResources/:groupName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateLinkResources",
+                                                        ":groupName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "groupName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "null",
+                                                  "createdAt": "2026-07-28T01:10:17.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:17.000Z",
+                                                  "uid": "35240-6459e79d-7e66-416c-aa27-b471c8e96a75"
+                                                },
+                                                {
+                                                  "id": "e18e8af9-3aea-4524-ac76-b57c79c13cd0",
+                                                  "name": "DefaultErrorResponse",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateLinkResources/:groupName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateLinkResources",
+                                                        ":groupName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "groupName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:10:17.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:17.000Z",
+                                                  "uid": "35240-e18e8af9-3aea-4524-ac76-b57c79c13cd0"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:10:17.000Z",
+                                              "updatedAt": "2026-07-28T01:10:17.000Z",
+                                              "uid": "35240-58cb51c2-47ad-4f21-8f15-4916b1dbe9f9"
+                                            }
+                                          ],
+                                          "id": "c4b5f045-806b-477a-b617-67530d78981e",
+                                          "createdAt": "2026-07-28T01:10:17.000Z",
+                                          "updatedAt": "2026-07-28T01:10:17.000Z",
+                                          "uid": "35240-c4b5f045-806b-477a-b617-67530d78981e"
+                                        },
+                                        {
+                                          "name": "Workspace Private Link Resources List By Workspace",
+                                          "id": "c6cccb64-cf82-4021-bffe-6487e2fd3b1e",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateLinkResources",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName",
+                                                "privateLinkResources"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "fbb1b6cb-a8fb-4bb9-b3cb-bef38f7ea0e3",
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "id": "8d264b9b-0acc-4dd0-8ba0-42d31cf02d79",
+                                                  "key": "resourceGroupName",
+                                                  "value": "yanfTclgrr",
+                                                  "description": "(Required) The name of the resource group that contains the service instance."
+                                                },
+                                                {
+                                                  "id": "93328d48-47eb-44b0-97ac-e4a631f6138f",
+                                                  "key": "workspaceName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of workspace resource."
+                                                }
+                                              ]
+                                            },
+                                            "description": "Gets the private link resources that need to be created for a workspace."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "50e0381e-056a-4f78-aab5-3d026dfe0f54",
+                                              "name": "The request was successful; the request was well-formed and received properly.",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateLinkResources",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateLinkResources"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "null",
+                                              "createdAt": "2026-07-28T01:10:17.000Z",
+                                              "updatedAt": "2026-07-28T01:10:17.000Z",
+                                              "uid": "35240-50e0381e-056a-4f78-aab5-3d026dfe0f54"
+                                            },
+                                            {
+                                              "id": "583978ec-724d-462e-a3a3-fb4cdae37bfb",
+                                              "name": "DefaultErrorResponse",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateLinkResources",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateLinkResources"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T01:10:17.000Z",
+                                              "updatedAt": "2026-07-28T01:10:17.000Z",
+                                              "uid": "35240-583978ec-724d-462e-a3a3-fb4cdae37bfb"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:10:17.000Z",
+                                          "updatedAt": "2026-07-28T01:10:17.000Z",
+                                          "uid": "35240-c6cccb64-cf82-4021-bffe-6487e2fd3b1e"
+                                        }
+                                      ],
+                                      "id": "5c822582-9f50-42f8-b3ea-32e5b6224eb5",
+                                      "createdAt": "2026-07-28T01:10:17.000Z",
+                                      "updatedAt": "2026-07-28T01:10:17.000Z",
+                                      "uid": "35240-5c822582-9f50-42f8-b3ea-32e5b6224eb5"
+                                    }
+                                  ],
+                                  "id": "8412d8b5-c74e-4cc1-b3ed-098794dc26b4",
+                                  "createdAt": "2026-07-28T01:10:17.000Z",
+                                  "updatedAt": "2026-07-28T01:10:17.000Z",
+                                  "uid": "35240-8412d8b5-c74e-4cc1-b3ed-098794dc26b4"
+                                }
+                              ],
+                              "id": "1b91c24a-ac42-4858-a24d-bcc91ed948ca",
+                              "createdAt": "2026-07-28T01:10:17.000Z",
+                              "updatedAt": "2026-07-28T01:10:17.000Z",
+                              "uid": "35240-1b91c24a-ac42-4858-a24d-bcc91ed948ca"
+                            }
+                          ],
+                          "id": "dc5758c1-855a-42ee-adc9-ae246c98c7fe",
+                          "createdAt": "2026-07-28T01:10:17.000Z",
+                          "updatedAt": "2026-07-28T01:10:17.000Z",
+                          "uid": "35240-dc5758c1-855a-42ee-adc9-ae246c98c7fe"
+                        }
+                      ],
+                      "id": "10b79529-a0db-4c34-8529-e411755f3aac",
+                      "createdAt": "2026-07-28T01:10:17.000Z",
+                      "updatedAt": "2026-07-28T01:10:17.000Z",
+                      "uid": "35240-10b79529-a0db-4c34-8529-e411755f3aac"
+                    }
+                  ],
+                  "id": "e8518932-16a7-42e3-b17e-9a8b1023f6c2",
+                  "createdAt": "2026-07-28T01:10:17.000Z",
+                  "updatedAt": "2026-07-28T01:10:17.000Z",
+                  "uid": "35240-e8518932-16a7-42e3-b17e-9a8b1023f6c2"
+                }
+              ],
+              "id": "dd37f098-8e24-4a70-8765-36f9b2fee8ac",
+              "createdAt": "2026-07-28T01:10:17.000Z",
+              "updatedAt": "2026-07-28T01:10:17.000Z",
+              "uid": "35240-dd37f098-8e24-4a70-8765-36f9b2fee8ac"
+            }
+          ],
+          "id": "63844e21-9c5d-4ebc-864a-60064e79393f",
+          "createdAt": "2026-07-28T01:10:17.000Z",
+          "updatedAt": "2026-07-28T01:10:17.000Z",
+          "uid": "35240-63844e21-9c5d-4ebc-864a-60064e79393f"
+        }
+      ],
+      "id": "6ab8ea65-5f9c-4250-9b65-2a697585aa55",
+      "createdAt": "2026-07-28T01:10:17.000Z",
+      "updatedAt": "2026-07-28T01:10:17.000Z",
+      "uid": "35240-6ab8ea65-5f9c-4250-9b65-2a697585aa55"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}

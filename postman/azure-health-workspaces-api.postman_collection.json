@@ -1,0 +1,1554 @@
+{
+  "info": {
+    "_postman_id": "d4a3b3fc-5bf9-4b5f-98dc-046ec557fcaa",
+    "name": "Azure Health Data Services de-identification service Collection Workspaces API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:10:17.000Z",
+    "updatedAt": "2026-07-28T01:10:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d4a3b3fc-5bf9-4b5f-98dc-046ec557fcaa"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "providers",
+              "item": [
+                {
+                  "name": "Microsoft.HealthcareApis",
+                  "item": [
+                    {
+                      "name": "workspaces",
+                      "item": [
+                        {
+                          "name": "Workspaces List By Subscription",
+                          "id": "1d4758cd-810f-4508-841d-f83f369d0365",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/workspaces",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscriptions",
+                                ":subscriptionId",
+                                "providers",
+                                "Microsoft.HealthcareApis",
+                                "workspaces"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a7af1bc7-00d9-4db8-b851-1f16f7d64b1b",
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            },
+                            "description": "Lists all the available workspaces under the specified subscription."
+                          },
+                          "response": [
+                            {
+                              "id": "8822cdaf-981b-4136-9b9d-83fb1f0ae560",
+                              "name": "This is a synchronous operation. The body contains a JSON-serialized array of the metadata from all the workspaces in the subscription.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/workspaces",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "subscriptions",
+                                    ":subscriptionId",
+                                    "providers",
+                                    "Microsoft.HealthcareApis",
+                                    "workspaces"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "null",
+                              "createdAt": "2026-07-28T01:10:18.000Z",
+                              "updatedAt": "2026-07-28T01:10:18.000Z",
+                              "uid": "35240-8822cdaf-981b-4136-9b9d-83fb1f0ae560"
+                            },
+                            {
+                              "id": "6d151fdc-401d-414c-8fab-ec652d8bb234",
+                              "name": "Error response describing why the operation failed",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/workspaces",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "subscriptions",
+                                    ":subscriptionId",
+                                    "providers",
+                                    "Microsoft.HealthcareApis",
+                                    "workspaces"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:10:18.000Z",
+                              "updatedAt": "2026-07-28T01:10:18.000Z",
+                              "uid": "35240-6d151fdc-401d-414c-8fab-ec652d8bb234"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:10:18.000Z",
+                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                          "uid": "35240-1d4758cd-810f-4508-841d-f83f369d0365"
+                        }
+                      ],
+                      "id": "76b7e772-a8c9-4cfa-9df7-43bf536ef4f7",
+                      "createdAt": "2026-07-28T01:10:18.000Z",
+                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                      "uid": "35240-76b7e772-a8c9-4cfa-9df7-43bf536ef4f7"
+                    }
+                  ],
+                  "id": "a72e3c52-b41e-412b-9883-cf53a6df5b28",
+                  "createdAt": "2026-07-28T01:10:18.000Z",
+                  "updatedAt": "2026-07-28T01:10:18.000Z",
+                  "uid": "35240-a72e3c52-b41e-412b-9883-cf53a6df5b28"
+                }
+              ],
+              "id": "b9adb238-dda6-4979-b2fd-e91b3748a822",
+              "createdAt": "2026-07-28T01:10:18.000Z",
+              "updatedAt": "2026-07-28T01:10:18.000Z",
+              "uid": "35240-b9adb238-dda6-4979-b2fd-e91b3748a822"
+            },
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.HealthcareApis",
+                          "item": [
+                            {
+                              "name": "workspaces",
+                              "item": [
+                                {
+                                  "name": "{workspaceName}",
+                                  "item": [
+                                    {
+                                      "name": "Workspaces Get",
+                                      "id": "fc8fe42c-357d-4549-919d-2d0a6d827777",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "workspaces",
+                                            ":workspaceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "020ba8ed-6005-478e-a4b1-f2bac9a2af55",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "fcc6826a-4101-428d-bbc6-f8c9d8291b46",
+                                              "key": "resourceGroupName",
+                                              "value": "x",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "631ac865-b333-4a46-97c2-189266eb5cec",
+                                              "key": "workspaceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of workspace resource."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Gets the properties of the specified workspace."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "4ec544c3-5d5e-46a4-98af-54dd2882dc56",
+                                          "name": "The request was successful; the request was well-formed and received properly.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "null",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-4ec544c3-5d5e-46a4-98af-54dd2882dc56"
+                                        },
+                                        {
+                                          "id": "03959052-d5b5-46ae-b753-91bd4128ba71",
+                                          "name": "Error response describing why the operation failed",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-03959052-d5b5-46ae-b753-91bd4128ba71"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:10:18.000Z",
+                                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                                      "uid": "35240-fc8fe42c-357d-4549-919d-2d0a6d827777"
+                                    },
+                                    {
+                                      "name": "Workspaces Create Or Update",
+                                      "id": "c2af2c40-9a73-4ce4-8d04-3ba7de0bfa72",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "null",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "workspaces",
+                                            ":workspaceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "db7eeecf-e115-4af2-a741-06a4a25ca48c",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "6abec352-c9ef-41bc-8658-26da1d4e1d6c",
+                                              "key": "resourceGroupName",
+                                              "value": "x",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "947b1505-6067-4990-bc8d-6ca485696723",
+                                              "key": "workspaceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of workspace resource."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Creates or updates a workspace resource with the specified parameters."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "8a83a7fe-7049-4a80-a246-d18ac2afd8e5",
+                                          "name": "Updated - Put request accepted and an existing resource is updated.",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "null",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "null",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-8a83a7fe-7049-4a80-a246-d18ac2afd8e5"
+                                        },
+                                        {
+                                          "id": "ec970d7e-85f6-479d-bef5-29a53d15cab3",
+                                          "name": "Created - Put request accepted and an existing resource is being created asynchronously.",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "null",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Created",
+                                          "code": 201,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "null",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-ec970d7e-85f6-479d-bef5-29a53d15cab3"
+                                        },
+                                        {
+                                          "id": "604e0838-e083-4792-83ee-53f543151c11",
+                                          "name": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "null",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Accepted",
+                                          "code": 202,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "null",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-604e0838-e083-4792-83ee-53f543151c11"
+                                        },
+                                        {
+                                          "id": "3ba85a95-bc24-4ef6-8da9-ed589c9aad4a",
+                                          "name": "Error response describing why the operation failed",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "null",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-3ba85a95-bc24-4ef6-8da9-ed589c9aad4a"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:10:18.000Z",
+                                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                                      "uid": "35240-c2af2c40-9a73-4ce4-8d04-3ba7de0bfa72"
+                                    },
+                                    {
+                                      "name": "Workspaces Update",
+                                      "id": "ba5e4747-dfd8-4bbb-a485-b438e47d172d",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"tags\": {\n    \"officia6\": \"<string>\",\n    \"veniam_5\": \"<string>\"\n  }\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "workspaces",
+                                            ":workspaceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "daca8504-56dc-4dbc-ad6b-853d9951e7b2",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "6dd33a02-b11f-43cd-8b08-fc21e1cc9a80",
+                                              "key": "resourceGroupName",
+                                              "value": "x",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "d790d433-8909-49c3-959d-b2f24c6bd263",
+                                              "key": "workspaceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of workspace resource."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Patch workspace details."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "436b8c1c-7df1-42f0-b1b4-ddbeb6dc24f3",
+                                          "name": "Updated - Patch request accepted and an existing resource is updated.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"tags\": {\n    \"officia6\": \"<string>\",\n    \"veniam_5\": \"<string>\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "null",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-436b8c1c-7df1-42f0-b1b4-ddbeb6dc24f3"
+                                        },
+                                        {
+                                          "id": "48129c66-01e5-4fc6-8b9e-ae5067072c76",
+                                          "name": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"tags\": {\n    \"officia6\": \"<string>\",\n    \"veniam_5\": \"<string>\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Accepted",
+                                          "code": 202,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "null",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-48129c66-01e5-4fc6-8b9e-ae5067072c76"
+                                        },
+                                        {
+                                          "id": "70e11942-8ab0-4ed1-b51f-65b0761d530a",
+                                          "name": "Error response describing why the operation failed",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"tags\": {\n    \"officia6\": \"<string>\",\n    \"veniam_5\": \"<string>\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-70e11942-8ab0-4ed1-b51f-65b0761d530a"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:10:18.000Z",
+                                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                                      "uid": "35240-ba5e4747-dfd8-4bbb-a485-b438e47d172d"
+                                    },
+                                    {
+                                      "name": "Workspaces Delete",
+                                      "id": "176400e5-862b-4869-a46d-c11bcd8266e3",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "workspaces",
+                                            ":workspaceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "767a6064-db90-4339-b2ce-7507bec1851b",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "eda97aeb-568c-4c73-953f-7dc390a5efde",
+                                              "key": "resourceGroupName",
+                                              "value": "x",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "65b22441-8957-48f8-bb7c-4d56dc46dc03",
+                                              "key": "workspaceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of workspace resource."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Deletes a specified workspace."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "ba996315-fdf9-480a-819a-5037dca0d2f9",
+                                          "name": "Resource deleted.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-ba996315-fdf9-480a-819a-5037dca0d2f9"
+                                        },
+                                        {
+                                          "id": "e49f9ba1-dd5b-43ff-aa5e-5dc398669951",
+                                          "name": "Delete request accepted; the operation will complete asynchronously.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Accepted",
+                                          "code": 202,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-e49f9ba1-dd5b-43ff-aa5e-5dc398669951"
+                                        },
+                                        {
+                                          "id": "953de2fe-02b2-48e3-9f22-b09c15419bfa",
+                                          "name": "The resource does not exist.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "No Content",
+                                          "code": 204,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-953de2fe-02b2-48e3-9f22-b09c15419bfa"
+                                        },
+                                        {
+                                          "id": "e4c9db2b-b32c-473c-bc23-6303fd5f270d",
+                                          "name": "Error response describing why the operation failed",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "workspaceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:10:18.000Z",
+                                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                                          "uid": "35240-e4c9db2b-b32c-473c-bc23-6303fd5f270d"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:10:18.000Z",
+                                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                                      "uid": "35240-176400e5-862b-4869-a46d-c11bcd8266e3"
+                                    }
+                                  ],
+                                  "id": "71df136a-9dc9-410b-8030-54327a4b4dd8",
+                                  "createdAt": "2026-07-28T01:10:18.000Z",
+                                  "updatedAt": "2026-07-28T01:10:18.000Z",
+                                  "uid": "35240-71df136a-9dc9-410b-8030-54327a4b4dd8"
+                                },
+                                {
+                                  "name": "Workspaces List By Resource Group",
+                                  "id": "ad3d7065-35b5-4672-9a0b-d11cb2b61b56",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "subscriptions",
+                                        ":subscriptionId",
+                                        "resourceGroups",
+                                        ":resourceGroupName",
+                                        "providers",
+                                        "Microsoft.HealthcareApis",
+                                        "workspaces"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "40ed76ce-8021-4e92-b515-879aa1c607c4",
+                                          "key": "subscriptionId"
+                                        },
+                                        {
+                                          "id": "02f5e798-83e6-48c9-8510-9db623893962",
+                                          "key": "resourceGroupName",
+                                          "value": "x",
+                                          "description": "(Required) The name of the resource group that contains the service instance."
+                                        }
+                                      ]
+                                    },
+                                    "description": "Lists all the available workspaces under the specified resource group."
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "694bcb02-5a63-46b8-846d-c8a7de64f96c",
+                                      "name": "This is a synchronous operation. The body contains a JSON-serialized array of the metadata from all the workspaces in the resource group.",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "workspaces"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "key": "resourceGroupName"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "null",
+                                      "createdAt": "2026-07-28T01:10:18.000Z",
+                                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                                      "uid": "35240-694bcb02-5a63-46b8-846d-c8a7de64f96c"
+                                    },
+                                    {
+                                      "id": "e5623c24-94bb-43d2-9f5f-c30e80487760",
+                                      "name": "Error response describing why the operation failed",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: oauth2",
+                                            "key": "Authorization",
+                                            "value": "<token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "workspaces"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "key": "resourceGroupName"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Internal Server Error",
+                                      "code": 500,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                      "createdAt": "2026-07-28T01:10:18.000Z",
+                                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                                      "uid": "35240-e5623c24-94bb-43d2-9f5f-c30e80487760"
+                                    }
+                                  ],
+                                  "createdAt": "2026-07-28T01:10:18.000Z",
+                                  "updatedAt": "2026-07-28T01:10:18.000Z",
+                                  "uid": "35240-ad3d7065-35b5-4672-9a0b-d11cb2b61b56"
+                                }
+                              ],
+                              "id": "bf2956df-c8ef-4a42-becf-fba1f98080ce",
+                              "createdAt": "2026-07-28T01:10:18.000Z",
+                              "updatedAt": "2026-07-28T01:10:18.000Z",
+                              "uid": "35240-bf2956df-c8ef-4a42-becf-fba1f98080ce"
+                            }
+                          ],
+                          "id": "0d9aa39a-c6d1-4e88-bf41-b7b256330a5c",
+                          "createdAt": "2026-07-28T01:10:18.000Z",
+                          "updatedAt": "2026-07-28T01:10:18.000Z",
+                          "uid": "35240-0d9aa39a-c6d1-4e88-bf41-b7b256330a5c"
+                        }
+                      ],
+                      "id": "847dc1cb-999a-4df6-90bf-c6bdf4cd14b7",
+                      "createdAt": "2026-07-28T01:10:18.000Z",
+                      "updatedAt": "2026-07-28T01:10:18.000Z",
+                      "uid": "35240-847dc1cb-999a-4df6-90bf-c6bdf4cd14b7"
+                    }
+                  ],
+                  "id": "436e0237-1be7-4b5e-b810-6077e82b7f73",
+                  "createdAt": "2026-07-28T01:10:18.000Z",
+                  "updatedAt": "2026-07-28T01:10:18.000Z",
+                  "uid": "35240-436e0237-1be7-4b5e-b810-6077e82b7f73"
+                }
+              ],
+              "id": "9356aab3-6643-49fe-b651-280d9c209c42",
+              "createdAt": "2026-07-28T01:10:18.000Z",
+              "updatedAt": "2026-07-28T01:10:18.000Z",
+              "uid": "35240-9356aab3-6643-49fe-b651-280d9c209c42"
+            }
+          ],
+          "id": "7066692a-38ef-4029-acbf-0eb0cc0dde82",
+          "createdAt": "2026-07-28T01:10:18.000Z",
+          "updatedAt": "2026-07-28T01:10:18.000Z",
+          "uid": "35240-7066692a-38ef-4029-acbf-0eb0cc0dde82"
+        }
+      ],
+      "id": "78367c75-f49c-481f-86fe-9e212c8cbb94",
+      "createdAt": "2026-07-28T01:10:18.000Z",
+      "updatedAt": "2026-07-28T01:10:18.000Z",
+      "uid": "35240-78367c75-f49c-481f-86fe-9e212c8cbb94"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}

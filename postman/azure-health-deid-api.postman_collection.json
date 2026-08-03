@@ -1,0 +1,268 @@
+{
+  "info": {
+    "_postman_id": "d3f9c24f-2206-43d9-824b-27c37466c7b5",
+    "name": "Azure Health Data Services de-identification service Collection Deid API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:17.000Z",
+    "updatedAt": "2026-07-28T01:09:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d3f9c24f-2206-43d9-824b-27c37466c7b5"
+  },
+  "item": [
+    {
+      "name": "deid",
+      "item": [
+        {
+          "name": "De-identify text.",
+          "id": "5ffd75c2-7748-4040-922b-2dbca6b955fd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                "key": "x-ms-client-request-id",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputText\": \"<string>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/deid?api-version=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "deid"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The API version to use for this operation.",
+                  "key": "api-version",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "A remote procedure call (RPC) operation."
+          },
+          "response": [
+            {
+              "id": "a6f6bc62-d4ac-48d6-8e3e-02d6bd0cd3d9",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputText\": \"<string>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/deid?api-version=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deid"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ms-client-request-id",
+                  "value": "<uuid>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"outputText\": \"<string>\",\n  \"taggerResult\": {\n    \"entities\": [\n      {\n        \"category\": \"Date\",\n        \"offset\": {\n          \"utf8\": \"<integer>\",\n          \"utf16\": \"<integer>\",\n          \"codePoint\": \"<integer>\"\n        },\n        \"length\": {\n          \"utf8\": \"<integer>\",\n          \"utf16\": \"<integer>\",\n          \"codePoint\": \"<integer>\"\n        },\n        \"text\": \"<string>\",\n        \"confidenceScore\": \"<double>\"\n      },\n      {\n        \"category\": \"MedicalRecord\",\n        \"offset\": {\n          \"utf8\": \"<integer>\",\n          \"utf16\": \"<integer>\",\n          \"codePoint\": \"<integer>\"\n        },\n        \"length\": {\n          \"utf8\": \"<integer>\",\n          \"utf16\": \"<integer>\",\n          \"codePoint\": \"<integer>\"\n        },\n        \"text\": \"<string>\",\n        \"confidenceScore\": \"<double>\"\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:09:18.000Z",
+              "updatedAt": "2026-07-28T01:09:18.000Z",
+              "uid": "35240-a6f6bc62-d4ac-48d6-8e3e-02d6bd0cd3d9"
+            },
+            {
+              "id": "d2f97a17-3467-4155-a861-59032ec2b991",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputText\": \"<string>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/deid?api-version=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "deid"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "String error code indicating what went wrong.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ms-error-code",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:09:18.000Z",
+              "updatedAt": "2026-07-28T01:09:18.000Z",
+              "uid": "35240-d2f97a17-3467-4155-a861-59032ec2b991"
+            }
+          ],
+          "createdAt": "2026-07-28T01:09:18.000Z",
+          "updatedAt": "2026-07-28T01:09:18.000Z",
+          "uid": "35240-5ffd75c2-7748-4040-922b-2dbca6b955fd"
+        }
+      ],
+      "id": "492505e8-400b-4c63-a9f1-f14008e2f9b0",
+      "createdAt": "2026-07-28T01:09:18.000Z",
+      "updatedAt": "2026-07-28T01:09:18.000Z",
+      "uid": "35240-492505e8-400b-4c63-a9f1-f14008e2f9b0"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}

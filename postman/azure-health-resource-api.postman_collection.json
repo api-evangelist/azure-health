@@ -1,0 +1,1024 @@
+{
+  "info": {
+    "_postman_id": "0e8a5a20-7f00-43c5-b95f-64b48ffb4406",
+    "name": "Azure Health Data Services de-identification service Collection Resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:56.000Z",
+    "updatedAt": "2026-07-28T01:09:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0e8a5a20-7f00-43c5-b95f-64b48ffb4406"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.HealthcareApis",
+                          "item": [
+                            {
+                              "name": "services",
+                              "item": [
+                                {
+                                  "name": "{resourceName}",
+                                  "item": [
+                                    {
+                                      "name": "Services Get",
+                                      "id": "3d99caab-0f59-4904-9ab1-80a06326deac",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "services",
+                                            ":resourceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "af505979-c407-48ad-895f-0fe95b659ea4",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "280491f2-b10c-468a-8251-667f689fb22a",
+                                              "key": "resourceGroupName",
+                                              "value": "PrGN6mE",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "f108322b-6ebd-47da-989e-e6d8a5e9072f",
+                                              "key": "resourceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the service instance."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Get the metadata of a service instance."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "982a9988-62d2-4c0a-9c8b-d46f76cab000",
+                                          "name": "The body contains all of the properties of the service instance.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-982a9988-62d2-4c0a-9c8b-d46f76cab000"
+                                        },
+                                        {
+                                          "id": "93ade542-a74e-4d2e-9026-bf76d3041cd3",
+                                          "name": "Default error response",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-93ade542-a74e-4d2e-9026-bf76d3041cd3"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:56.000Z",
+                                      "updatedAt": "2026-07-28T01:09:56.000Z",
+                                      "uid": "35240-3d99caab-0f59-4904-9ab1-80a06326deac"
+                                    },
+                                    {
+                                      "name": "Services Create Or Update",
+                                      "id": "2c6ba506-0921-4ea8-a901-605fffc1a90f",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PUT",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "services",
+                                            ":resourceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "a96a861a-9110-489d-b6bf-2fc94cdd7096",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "d052eb39-21b2-4322-ad47-5387080bb9d7",
+                                              "key": "resourceGroupName",
+                                              "value": "PrGN6mE",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "2d147cc8-3470-4cee-a359-428dee40d15b",
+                                              "key": "resourceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the service instance."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Create or update the metadata of a service instance."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "811cbbba-2d51-4d2f-a6b4-3223d4a8d39f",
+                                          "name": "Updated - Put request accepted and an existing resource is being updated; the operation will complete asynchronously.",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-811cbbba-2d51-4d2f-a6b4-3223d4a8d39f"
+                                        },
+                                        {
+                                          "id": "d1d993bb-657e-466d-8276-050e42274100",
+                                          "name": "Created - Put request accepted and a new resource was created; the operation will complete asynchronously.",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Created",
+                                          "code": 201,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-d1d993bb-657e-466d-8276-050e42274100"
+                                        },
+                                        {
+                                          "id": "234aa375-75d7-46ca-910f-a6eb26780e72",
+                                          "name": "DefaultErrorResponse",
+                                          "originalRequest": {
+                                            "method": "PUT",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-234aa375-75d7-46ca-910f-a6eb26780e72"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:56.000Z",
+                                      "updatedAt": "2026-07-28T01:09:56.000Z",
+                                      "uid": "35240-2c6ba506-0921-4ea8-a901-605fffc1a90f"
+                                    },
+                                    {
+                                      "name": "Services Update",
+                                      "id": "9d963c06-932d-4419-95a2-252fdf0ad17c",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "PATCH",
+                                        "header": [
+                                          {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                          },
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "body": {
+                                          "mode": "raw",
+                                          "raw": "{\n  \"tags\": {\n    \"cillumbc\": \"<string>\",\n    \"exercitation_d9e\": \"<string>\",\n    \"laboris_1c\": \"<string>\"\n  },\n  \"properties\": {\n    \"publicNetworkAccess\": \"Enabled\"\n  }\n}",
+                                          "options": {
+                                            "raw": {
+                                              "headerFamily": "json",
+                                              "language": "json"
+                                            }
+                                          }
+                                        },
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "services",
+                                            ":resourceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "c9fce8a5-5ba2-4a7f-b384-0e09e9fa1e19",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "329a3c38-d649-4d3a-82d6-8015337c1dc1",
+                                              "key": "resourceGroupName",
+                                              "value": "PrGN6mE",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "dc5eaa94-8654-49da-b0b0-e922c8aa7437",
+                                              "key": "resourceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the service instance."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Update the metadata of a service instance."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "b2fea4c0-67c6-46d5-b3c4-14e6258c97d9",
+                                          "name": "The tags for the resource were updated successfully.",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"tags\": {\n    \"cillumbc\": \"<string>\",\n    \"exercitation_d9e\": \"<string>\",\n    \"laboris_1c\": \"<string>\"\n  },\n  \"properties\": {\n    \"publicNetworkAccess\": \"Enabled\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"location\": \"<string>\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"id\": \"<string>\",\n  \"name\": \"5l39\",\n  \"type\": \"<string>\",\n  \"tags\": {\n    \"dolore7\": \"<string>\",\n    \"reprehenderit01\": \"<string>\",\n    \"sint11\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"<string>\",\n    \"tenantId\": \"<string>\",\n    \"type\": \"SystemAssigned\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-b2fea4c0-67c6-46d5-b3c4-14e6258c97d9"
+                                        },
+                                        {
+                                          "id": "b54321be-7fcd-441d-911e-abafa86ec169",
+                                          "name": "DefaultErrorResponse",
+                                          "originalRequest": {
+                                            "method": "PATCH",
+                                            "header": [
+                                              {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "body": {
+                                              "mode": "raw",
+                                              "raw": "{\n  \"tags\": {\n    \"cillumbc\": \"<string>\",\n    \"exercitation_d9e\": \"<string>\",\n    \"laboris_1c\": \"<string>\"\n  },\n  \"properties\": {\n    \"publicNetworkAccess\": \"Enabled\"\n  }\n}",
+                                              "options": {
+                                                "raw": {
+                                                  "headerFamily": "json",
+                                                  "language": "json"
+                                                }
+                                              }
+                                            },
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-b54321be-7fcd-441d-911e-abafa86ec169"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:56.000Z",
+                                      "updatedAt": "2026-07-28T01:09:56.000Z",
+                                      "uid": "35240-9d963c06-932d-4419-95a2-252fdf0ad17c"
+                                    },
+                                    {
+                                      "name": "Services Delete",
+                                      "id": "8a8d54fa-f487-46e1-a15b-3e225ed15513",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "DELETE",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "resourceGroups",
+                                            ":resourceGroupName",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "services",
+                                            ":resourceName"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "e422dfa4-4d1f-4837-87fa-acc77f020c8d",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "934a5b4f-25cd-4562-8264-0c46d284efc7",
+                                              "key": "resourceGroupName",
+                                              "value": "PrGN6mE",
+                                              "description": "(Required) The name of the resource group that contains the service instance."
+                                            },
+                                            {
+                                              "id": "7e1ee907-bcb6-407b-87d0-c2ebc97ab8fa",
+                                              "key": "resourceName",
+                                              "value": "<string>",
+                                              "description": "(Required) The name of the service instance."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Delete a service instance."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "1d8cb71d-7c3c-4fdc-be5e-c4cacc2e029a",
+                                          "name": "Accepted - Delete request accepted; the operation will complete asynchronously.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Accepted",
+                                          "code": 202,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-1d8cb71d-7c3c-4fdc-be5e-c4cacc2e029a"
+                                        },
+                                        {
+                                          "id": "33f08b02-acce-4065-9e01-84b42e551274",
+                                          "name": "The resource does not exist.",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "No Content",
+                                          "code": 204,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-33f08b02-acce-4065-9e01-84b42e551274"
+                                        },
+                                        {
+                                          "id": "b2a6ef4b-3639-4f68-9bb0-b39488b04514",
+                                          "name": "DefaultErrorResponse",
+                                          "originalRequest": {
+                                            "method": "DELETE",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/services/:resourceName",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "services",
+                                                ":resourceName"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "resourceGroupName"
+                                                },
+                                                {
+                                                  "key": "resourceName"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:56.000Z",
+                                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                                          "uid": "35240-b2a6ef4b-3639-4f68-9bb0-b39488b04514"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:56.000Z",
+                                      "updatedAt": "2026-07-28T01:09:56.000Z",
+                                      "uid": "35240-8a8d54fa-f487-46e1-a15b-3e225ed15513"
+                                    }
+                                  ],
+                                  "id": "4a6c8ae2-1ee3-4841-8cfc-bfc532bcfe1b",
+                                  "createdAt": "2026-07-28T01:09:56.000Z",
+                                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                                  "uid": "35240-4a6c8ae2-1ee3-4841-8cfc-bfc532bcfe1b"
+                                }
+                              ],
+                              "id": "cdceaa59-81ec-4539-8f1a-0916fdcea0cf",
+                              "createdAt": "2026-07-28T01:09:56.000Z",
+                              "updatedAt": "2026-07-28T01:09:56.000Z",
+                              "uid": "35240-cdceaa59-81ec-4539-8f1a-0916fdcea0cf"
+                            }
+                          ],
+                          "id": "efd89456-2e66-4bea-9b9e-1ac74d61b311",
+                          "createdAt": "2026-07-28T01:09:56.000Z",
+                          "updatedAt": "2026-07-28T01:09:56.000Z",
+                          "uid": "35240-efd89456-2e66-4bea-9b9e-1ac74d61b311"
+                        }
+                      ],
+                      "id": "074c10cb-0b42-4a05-a386-4886cb164402",
+                      "createdAt": "2026-07-28T01:09:56.000Z",
+                      "updatedAt": "2026-07-28T01:09:56.000Z",
+                      "uid": "35240-074c10cb-0b42-4a05-a386-4886cb164402"
+                    }
+                  ],
+                  "id": "b33300fb-153a-45ee-993c-90fd935b3958",
+                  "createdAt": "2026-07-28T01:09:56.000Z",
+                  "updatedAt": "2026-07-28T01:09:56.000Z",
+                  "uid": "35240-b33300fb-153a-45ee-993c-90fd935b3958"
+                }
+              ],
+              "id": "dfe2a6ea-e522-4675-89de-16cd2007694e",
+              "createdAt": "2026-07-28T01:09:56.000Z",
+              "updatedAt": "2026-07-28T01:09:56.000Z",
+              "uid": "35240-dfe2a6ea-e522-4675-89de-16cd2007694e"
+            }
+          ],
+          "id": "6b289223-cc3d-4a64-94f8-5d3b8b31b580",
+          "createdAt": "2026-07-28T01:09:56.000Z",
+          "updatedAt": "2026-07-28T01:09:56.000Z",
+          "uid": "35240-6b289223-cc3d-4a64-94f8-5d3b8b31b580"
+        }
+      ],
+      "id": "5661d722-bb9f-4983-b149-5d165fb1e4e5",
+      "createdAt": "2026-07-28T01:09:56.000Z",
+      "updatedAt": "2026-07-28T01:09:56.000Z",
+      "uid": "35240-5661d722-bb9f-4983-b149-5d165fb1e4e5"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}

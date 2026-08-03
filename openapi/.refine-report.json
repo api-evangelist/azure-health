@@ -1,0 +1,38 @@
+{
+  "provider": "azure-health",
+  "sources": [
+    "azure-health-collection-api-openapi.yml",
+    "azure-health-deid-api-openapi.yml",
+    "azure-health-dicomservices-api-openapi.yml",
+    "azure-health-fhirservices-api-openapi.yml",
+    "azure-health-iotconnectors-api-openapi.yml",
+    "azure-health-jobs-api-openapi.yml",
+    "azure-health-privateendpointconnections-api-openapi.yml",
+    "azure-health-privatelinkresources-api-openapi.yml",
+    "azure-health-proxy-api-openapi.yml",
+    "azure-health-resource-api-openapi.yml",
+    "azure-health-workspaceprivateendpointconnections-api-openapi.yml",
+    "azure-health-workspaceprivatelinkresources-api-openapi.yml",
+    "azure-health-workspaces-api-openapi.yml"
+  ],
+  "outputs": [
+    "azure-health-collection-api-openapi.yml",
+    "azure-health-deid-api-openapi.yml",
+    "azure-health-dicomservices-api-openapi.yml",
+    "azure-health-fhirservices-api-openapi.yml",
+    "azure-health-iotconnectors-api-openapi.yml",
+    "azure-health-jobs-api-openapi.yml",
+    "azure-health-privateendpointconnections-api-openapi.yml",
+    "azure-health-privatelinkresources-api-openapi.yml",
+    "azure-health-proxy-api-openapi.yml",
+    "azure-health-resource-api-openapi.yml",
+    "azure-health-workspaceprivateendpointconnections-api-openapi.yml",
+    "azure-health-workspaceprivatelinkresources-api-openapi.yml",
+    "azure-health-workspaces-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

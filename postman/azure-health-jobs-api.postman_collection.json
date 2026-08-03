@@ -1,0 +1,1387 @@
+{
+  "info": {
+    "_postman_id": "cdf8750b-61e3-4ca4-a523-a2fd46a0c0b8",
+    "name": "Azure Health Data Services de-identification service Collection Jobs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:46.000Z",
+    "updatedAt": "2026-07-28T01:09:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cdf8750b-61e3-4ca4-a523-a2fd46a0c0b8"
+  },
+  "item": [
+    {
+      "name": "jobs",
+      "item": [
+        {
+          "name": "{name}",
+          "item": [
+            {
+              "name": "documents",
+              "item": [
+                {
+                  "name": "List processed documents within a job.",
+                  "id": "fef24b56-8a21-4593-bc67-ea9033d1b9fe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name/documents?api-version=<string>&maxpagesize=<integer>&continuationToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name",
+                        "documents"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of result items per page.",
+                          "key": "maxpagesize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Token to continue a previous query.",
+                          "key": "continuationToken",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2f6ce31a-38bd-40fe-8023-d857f354f4eb",
+                          "key": "name",
+                          "value": "pxyp",
+                          "description": "(Required) The name of a job."
+                        }
+                      ]
+                    },
+                    "description": "Resource list operation template."
+                  },
+                  "response": [
+                    {
+                      "id": "cbff5ddf-8433-4986-aa2a-c92aafdeb3bf",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                            "key": "x-ms-client-request-id",
+                            "value": "<uuid>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/jobs/:name/documents?api-version=<string>&maxpagesize=<integer>&continuationToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "jobs",
+                            ":name",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of result items per page.",
+                              "key": "maxpagesize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Token to continue a previous query.",
+                              "key": "continuationToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                            "type": "text/plain"
+                          },
+                          "key": "x-ms-client-request-id",
+                          "value": "<uuid>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"input\": {\n        \"location\": \"<uri>\",\n        \"etag\": \"<string>\"\n      },\n      \"status\": \"Failed\",\n      \"output\": {\n        \"location\": \"<uri>\",\n        \"etag\": \"<string>\"\n      },\n      \"error\": {\n        \"code\": \"<string>\",\n        \"message\": \"<string>\",\n        \"target\": \"<string>\",\n        \"details\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          }\n        ],\n        \"innererror\": {\n          \"code\": \"<string>\",\n          \"innererror\": {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"input\": {\n        \"location\": \"<uri>\",\n        \"etag\": \"<string>\"\n      },\n      \"status\": \"NotStarted\",\n      \"output\": {\n        \"location\": \"<uri>\",\n        \"etag\": \"<string>\"\n      },\n      \"error\": {\n        \"code\": \"<string>\",\n        \"message\": \"<string>\",\n        \"target\": \"<string>\",\n        \"details\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          }\n        ],\n        \"innererror\": {\n          \"code\": \"<string>\",\n          \"innererror\": {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n          }\n        }\n      }\n    }\n  ],\n  \"nextLink\": \"<uri>\"\n}",
+                      "createdAt": "2026-07-28T01:09:46.000Z",
+                      "updatedAt": "2026-07-28T01:09:46.000Z",
+                      "uid": "35240-cbff5ddf-8433-4986-aa2a-c92aafdeb3bf"
+                    },
+                    {
+                      "id": "d4e04fa4-3b3b-401b-95bb-6dc302ed6610",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                            "key": "x-ms-client-request-id",
+                            "value": "<uuid>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/jobs/:name/documents?api-version=<string>&maxpagesize=<integer>&continuationToken=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "jobs",
+                            ":name",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of result items per page.",
+                              "key": "maxpagesize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Token to continue a previous query.",
+                              "key": "continuationToken",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "String error code indicating what went wrong.",
+                            "type": "text/plain"
+                          },
+                          "key": "x-ms-error-code",
+                          "value": "<string>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T01:09:46.000Z",
+                      "updatedAt": "2026-07-28T01:09:46.000Z",
+                      "uid": "35240-d4e04fa4-3b3b-401b-95bb-6dc302ed6610"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-fef24b56-8a21-4593-bc67-ea9033d1b9fe"
+                }
+              ],
+              "id": "2207d099-63c2-4abe-bbd5-ad126f4db8c6",
+              "createdAt": "2026-07-28T01:09:46.000Z",
+              "updatedAt": "2026-07-28T01:09:46.000Z",
+              "uid": "35240-2207d099-63c2-4abe-bbd5-ad126f4db8c6"
+            },
+            {
+              "name": "Get a de-identification job.",
+              "id": "1d6ae28e-65c0-4fb0-86f9-096415628f2b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    ":name"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "8d9ba922-cf5e-436a-8c19-60aa3dc39be5",
+                      "key": "name",
+                      "value": "pxyp",
+                      "description": "(Required) The name of a job."
+                    }
+                  ]
+                },
+                "description": "Resource read operation template."
+              },
+              "response": [
+                {
+                  "id": "9c1a685c-8f08-4281-945d-8e2b7396582e",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-client-request-id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-9c1a685c-8f08-4281-945d-8e2b7396582e"
+                },
+                {
+                  "id": "15963c89-462d-4d5e-9c36-a3bf1cd73800",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "String error code indicating what went wrong.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-error-code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-15963c89-462d-4d5e-9c36-a3bf1cd73800"
+                }
+              ],
+              "createdAt": "2026-07-28T01:09:46.000Z",
+              "updatedAt": "2026-07-28T01:09:46.000Z",
+              "uid": "35240-1d6ae28e-65c0-4fb0-86f9-096415628f2b"
+            },
+            {
+              "name": "Create a de-identification job.",
+              "id": "3e5376ef-f676-4746-834c-4ed8663a6745",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    ":name"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "4ad04d53-2a7c-49e3-9596-46fb099e4a63",
+                      "key": "name",
+                      "value": "pxyp",
+                      "description": "(Required) The name of a job."
+                    }
+                  ]
+                },
+                "description": "Long-running resource create or replace operation template."
+              },
+              "response": [
+                {
+                  "id": "0f33480a-89c5-45b3-bf5f-2a8fc991fffb",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The location for monitoring the operation state.",
+                        "type": "text/plain"
+                      },
+                      "key": "Operation-Location",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-client-request-id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-0f33480a-89c5-45b3-bf5f-2a8fc991fffb"
+                },
+                {
+                  "id": "01745b76-aeb4-4f34-a793-54d87a544a73",
+                  "name": "The request has succeeded and a new resource has been created as a result.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The location for monitoring the operation state.",
+                        "type": "text/plain"
+                      },
+                      "key": "Operation-Location",
+                      "value": "<uri>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-client-request-id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-01745b76-aeb4-4f34-a793-54d87a544a73"
+                },
+                {
+                  "id": "70c07865-9c89-42dd-994c-5250f60f21b4",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "String error code indicating what went wrong.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-error-code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-70c07865-9c89-42dd-994c-5250f60f21b4"
+                }
+              ],
+              "createdAt": "2026-07-28T01:09:46.000Z",
+              "updatedAt": "2026-07-28T01:09:46.000Z",
+              "uid": "35240-3e5376ef-f676-4746-834c-4ed8663a6745"
+            },
+            {
+              "name": "Delete a de-identification job.",
+              "id": "106c10c1-c616-4577-a290-6911a96bf74b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    ":name"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "f2b46990-8a14-4ca3-9e1c-dfd17febf406",
+                      "key": "name",
+                      "value": "pxyp",
+                      "description": "(Required) The name of a job."
+                    }
+                  ]
+                },
+                "description": "Removes the record of the job from the service. Does not delete any documents."
+              },
+              "response": [
+                {
+                  "id": "fcfc9f6c-1d59-4ea3-8ef2-e1ea7253d8d5",
+                  "name": "There is no content to send for this request, but the headers may be useful. ",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-client-request-id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-fcfc9f6c-1d59-4ea3-8ef2-e1ea7253d8d5"
+                },
+                {
+                  "id": "00ba8ee2-fe03-42fe-9c8a-0400f1d9b42f",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/:name?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        ":name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "String error code indicating what went wrong.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-error-code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-00ba8ee2-fe03-42fe-9c8a-0400f1d9b42f"
+                }
+              ],
+              "createdAt": "2026-07-28T01:09:46.000Z",
+              "updatedAt": "2026-07-28T01:09:46.000Z",
+              "uid": "35240-106c10c1-c616-4577-a290-6911a96bf74b"
+            }
+          ],
+          "id": "2c710bad-9d42-41a9-ad63-62e983865b70",
+          "createdAt": "2026-07-28T01:09:46.000Z",
+          "updatedAt": "2026-07-28T01:09:46.000Z",
+          "uid": "35240-2c710bad-9d42-41a9-ad63-62e983865b70"
+        },
+        {
+          "name": "{name}:cancel",
+          "item": [
+            {
+              "name": "Cancel a de-identification job.",
+              "id": "321d2637-1780-4be0-ae78-fc1d5fe67128",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs/{{name}}:cancel?api-version=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs",
+                    "{{name}}:cancel"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Cancels a job that is in progress. \n\nThe job will be marked as canceled and the service will stop processing the job. The service will not delete any documents that have already been processed.\n\nIf the job is already complete, this will have no effect. "
+              },
+              "response": [
+                {
+                  "id": "6070b87d-a21b-46ac-a328-e9fadf13720a",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/{{name}}:cancel?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "{{name}}:cancel"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-client-request-id",
+                      "value": "<uuid>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"name\": \"TwdG3n-0\",\n  \"sourceLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"extensions\": [\n      \"*\"\n    ]\n  },\n  \"targetLocation\": {\n    \"location\": \"<uri>\",\n    \"prefix\": \"<string>\",\n    \"overwrite\": false\n  },\n  \"status\": \"Canceled\",\n  \"lastUpdatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  },\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  },\n  \"startedAt\": \"<dateTime>\",\n  \"summary\": {\n    \"successful\": \"<integer>\",\n    \"failed\": \"<integer>\",\n    \"canceled\": \"<integer>\",\n    \"total\": \"<integer>\",\n    \"bytesProcessed\": \"<long>\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-6070b87d-a21b-46ac-a328-e9fadf13720a"
+                },
+                {
+                  "id": "c9d68209-3704-428e-ace5-1b69d248ce24",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                        "key": "x-ms-client-request-id",
+                        "value": "<uuid>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/jobs/{{name}}:cancel?api-version=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "jobs",
+                        "{{name}}:cancel"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "String error code indicating what went wrong.",
+                        "type": "text/plain"
+                      },
+                      "key": "x-ms-error-code",
+                      "value": "<string>"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T01:09:46.000Z",
+                  "updatedAt": "2026-07-28T01:09:46.000Z",
+                  "uid": "35240-c9d68209-3704-428e-ace5-1b69d248ce24"
+                }
+              ],
+              "createdAt": "2026-07-28T01:09:46.000Z",
+              "updatedAt": "2026-07-28T01:09:46.000Z",
+              "uid": "35240-321d2637-1780-4be0-ae78-fc1d5fe67128"
+            }
+          ],
+          "id": "d7a13171-cec5-4e76-a902-715dca3886f5",
+          "createdAt": "2026-07-28T01:09:46.000Z",
+          "updatedAt": "2026-07-28T01:09:46.000Z",
+          "uid": "35240-d7a13171-cec5-4e76-a902-715dca3886f5"
+        },
+        {
+          "name": "List de-identification jobs.",
+          "id": "ed450325-0c37-4856-bc50-479af7699887",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                "key": "x-ms-client-request-id",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/jobs?api-version=<string>&maxpagesize=<integer>&continuationToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "jobs"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The API version to use for this operation.",
+                  "key": "api-version",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The maximum number of result items per page.",
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Token to continue a previous query.",
+                  "key": "continuationToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Resource list operation template."
+          },
+          "response": [
+            {
+              "id": "e1f4fdda-e277-43ad-9d7e-743b5b206356",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs?api-version=<string>&maxpagesize=<integer>&continuationToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of result items per page.",
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token to continue a previous query.",
+                      "key": "continuationToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ms-client-request-id",
+                  "value": "<uuid>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"name\": \"vCKo-rIXr\",\n      \"sourceLocation\": {\n        \"location\": \"<uri>\",\n        \"prefix\": \"<string>\",\n        \"extensions\": [\n          \"*\"\n        ]\n      },\n      \"targetLocation\": {\n        \"location\": \"<uri>\",\n        \"prefix\": \"<string>\",\n        \"overwrite\": false\n      },\n      \"status\": \"Succeeded\",\n      \"lastUpdatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"operation\": \"Surrogate\",\n      \"customizations\": {\n        \"redactionFormat\": \"<string>\",\n        \"surrogateLocale\": \"en-US\"\n      },\n      \"error\": {\n        \"code\": \"<string>\",\n        \"message\": \"<string>\",\n        \"target\": \"<string>\",\n        \"details\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          }\n        ],\n        \"innererror\": {\n          \"code\": \"<string>\",\n          \"innererror\": {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n          }\n        }\n      },\n      \"startedAt\": \"<dateTime>\",\n      \"summary\": {\n        \"successful\": \"<integer>\",\n        \"failed\": \"<integer>\",\n        \"canceled\": \"<integer>\",\n        \"total\": \"<integer>\",\n        \"bytesProcessed\": \"<long>\"\n      }\n    },\n    {\n      \"name\": \"RKHo5\",\n      \"sourceLocation\": {\n        \"location\": \"<uri>\",\n        \"prefix\": \"<string>\",\n        \"extensions\": [\n          \"*\"\n        ]\n      },\n      \"targetLocation\": {\n        \"location\": \"<uri>\",\n        \"prefix\": \"<string>\",\n        \"overwrite\": false\n      },\n      \"status\": \"Canceled\",\n      \"lastUpdatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"operation\": \"Surrogate\",\n      \"customizations\": {\n        \"redactionFormat\": \"<string>\",\n        \"surrogateLocale\": \"en-US\"\n      },\n      \"error\": {\n        \"code\": \"<string>\",\n        \"message\": \"<string>\",\n        \"target\": \"<string>\",\n        \"details\": [\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          },\n          {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n          }\n        ],\n        \"innererror\": {\n          \"code\": \"<string>\",\n          \"innererror\": {\n            \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n          }\n        }\n      },\n      \"startedAt\": \"<dateTime>\",\n      \"summary\": {\n        \"successful\": \"<integer>\",\n        \"failed\": \"<integer>\",\n        \"canceled\": \"<integer>\",\n        \"total\": \"<integer>\",\n        \"bytesProcessed\": \"<long>\"\n      }\n    }\n  ],\n  \"nextLink\": \"<uri>\"\n}",
+              "createdAt": "2026-07-28T01:09:46.000Z",
+              "updatedAt": "2026-07-28T01:09:46.000Z",
+              "uid": "35240-e1f4fdda-e277-43ad-9d7e-743b5b206356"
+            },
+            {
+              "id": "8057a6ab-20cf-476d-aa2e-39df50b20595",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/jobs?api-version=<string>&maxpagesize=<integer>&continuationToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "jobs"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The maximum number of result items per page.",
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token to continue a previous query.",
+                      "key": "continuationToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "String error code indicating what went wrong.",
+                    "type": "text/plain"
+                  },
+                  "key": "x-ms-error-code",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"<string>\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:09:46.000Z",
+              "updatedAt": "2026-07-28T01:09:46.000Z",
+              "uid": "35240-8057a6ab-20cf-476d-aa2e-39df50b20595"
+            }
+          ],
+          "createdAt": "2026-07-28T01:09:46.000Z",
+          "updatedAt": "2026-07-28T01:09:46.000Z",
+          "uid": "35240-ed450325-0c37-4856-bc50-479af7699887"
+        }
+      ],
+      "id": "636f481d-8c47-4dd1-a6ba-be93701211ef",
+      "createdAt": "2026-07-28T01:09:46.000Z",
+      "updatedAt": "2026-07-28T01:09:46.000Z",
+      "uid": "35240-636f481d-8c47-4dd1-a6ba-be93701211ef"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    },
+    {
+      "key": "name",
+      "value": "pxyp"
+    }
+  ]
+}

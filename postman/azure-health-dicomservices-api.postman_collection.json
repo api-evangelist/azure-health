@@ -1,0 +1,1517 @@
+{
+  "info": {
+    "_postman_id": "95b2130a-4c76-44fb-ad13-4563816c6140",
+    "name": "Azure Health Data Services de-identification service Collection DicomServices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:41.000Z",
+    "updatedAt": "2026-07-28T01:09:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-95b2130a-4c76-44fb-ad13-4563816c6140"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.HealthcareApis",
+                          "item": [
+                            {
+                              "name": "workspaces",
+                              "item": [
+                                {
+                                  "name": "{workspaceName}",
+                                  "item": [
+                                    {
+                                      "name": "dicomservices",
+                                      "item": [
+                                        {
+                                          "name": "{dicomServiceName}",
+                                          "item": [
+                                            {
+                                              "name": "Dicom Services Get",
+                                              "id": "cf835257-0f93-4e60-8a92-3eb724339ac5",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "dicomservices",
+                                                    ":dicomServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "2b70111e-5f68-4cce-8330-37549b46ab05",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "6e974184-4278-4e76-be43-4ef53aaba286",
+                                                      "key": "resourceGroupName",
+                                                      "value": "XFVOQ",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "9dd014fe-4f28-432a-b975-2d897b494a9e",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "80c7494c-16b2-439f-aa65-84134d3a81db",
+                                                      "key": "dicomServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of DICOM Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Gets the properties of the specified DICOM Service."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "e6b8ba02-74dd-40dd-b686-509831fe5c71",
+                                                  "name": "The request was successful; the request was well-formed and received properly.",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-e6b8ba02-74dd-40dd-b686-509831fe5c71"
+                                                },
+                                                {
+                                                  "id": "56ab705b-8bd1-49c5-b320-8f056d117b3d",
+                                                  "name": "Error response describing why the operation failed",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-56ab705b-8bd1-49c5-b320-8f056d117b3d"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:41.000Z",
+                                              "updatedAt": "2026-07-28T01:09:41.000Z",
+                                              "uid": "35240-cf835257-0f93-4e60-8a92-3eb724339ac5"
+                                            },
+                                            {
+                                              "name": "Dicom Services Create Or Update",
+                                              "id": "826c37cf-6a9e-46c5-9843-cf1143d12640",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PUT",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "dicomservices",
+                                                    ":dicomServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "4c030f7c-13e8-49b2-9043-b538542b2525",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "66cd5f9c-b422-46af-abb4-e26d83fe8fec",
+                                                      "key": "resourceGroupName",
+                                                      "value": "XFVOQ",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "eef54d9c-0ac9-49de-93fe-8d95e74742f7",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "308b4c6e-ebb9-44fb-b867-25e729aaaee8",
+                                                      "key": "dicomServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of DICOM Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Creates or updates a DICOM Service resource with the specified parameters."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "f0cad7c8-3431-494e-ab0b-757b3369365e",
+                                                  "name": "Updated - Put request accepted and an existing resource is updated.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-f0cad7c8-3431-494e-ab0b-757b3369365e"
+                                                },
+                                                {
+                                                  "id": "5baf5227-7a3f-4cd2-a926-70b3d66de5f3",
+                                                  "name": "Created - Put request accepted and an existing resource is being created asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Created",
+                                                  "code": 201,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-5baf5227-7a3f-4cd2-a926-70b3d66de5f3"
+                                                },
+                                                {
+                                                  "id": "d6853adb-aef8-47dd-a29b-7dfe2910abba",
+                                                  "name": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-d6853adb-aef8-47dd-a29b-7dfe2910abba"
+                                                },
+                                                {
+                                                  "id": "99603963-05fb-416b-8270-2e4531569796",
+                                                  "name": "Error response describing why the operation failed.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-99603963-05fb-416b-8270-2e4531569796"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:41.000Z",
+                                              "updatedAt": "2026-07-28T01:09:41.000Z",
+                                              "uid": "35240-826c37cf-6a9e-46c5-9843-cf1143d12640"
+                                            },
+                                            {
+                                              "name": "Dicom Services Update",
+                                              "id": "bf363127-c31a-431a-b3b2-af7843049faf",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"tags\": {\n    \"voluptate13f\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"magna9\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "dicomservices",
+                                                    ":dicomServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "0dc8b82c-8bd3-45a7-9fed-4ec3af07810e",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "be3a0d1e-c0a0-4054-bc7e-d28c2be26d96",
+                                                      "key": "resourceGroupName",
+                                                      "value": "XFVOQ",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "7e5d59a8-8702-48c7-899c-7aedf640b4f5",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "7fa20e35-26c6-489a-9329-9725160f613f",
+                                                      "key": "dicomServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of DICOM Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Patch DICOM Service details."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "df06c5e0-3904-41b3-b2f8-af6bcd70980c",
+                                                  "name": "Updated - Patch request accepted and an existing resource is updated.",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"tags\": {\n    \"voluptate13f\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"magna9\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-df06c5e0-3904-41b3-b2f8-af6bcd70980c"
+                                                },
+                                                {
+                                                  "id": "e90b7029-92e1-47e6-aa90-5633ceba8b5e",
+                                                  "name": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"tags\": {\n    \"voluptate13f\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"magna9\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"ullamco8\": \"<string>\",\n    \"eiusmod_4_\": \"<string>\"\n  },\n  \"location\": \"exercitation eu\",\n  \"id\": \"<string>\",\n  \"name\": \"03-lvth286atoocf\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"ad_e37\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      },\n      \"aute_5\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-e90b7029-92e1-47e6-aa90-5633ceba8b5e"
+                                                },
+                                                {
+                                                  "id": "71b1f65f-e7c2-4380-8c28-f642cf537933",
+                                                  "name": "Error response describing why the operation failed.",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"tags\": {\n    \"voluptate13f\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"magna9\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-71b1f65f-e7c2-4380-8c28-f642cf537933"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:41.000Z",
+                                              "updatedAt": "2026-07-28T01:09:41.000Z",
+                                              "uid": "35240-bf363127-c31a-431a-b3b2-af7843049faf"
+                                            },
+                                            {
+                                              "name": "Dicom Services Delete",
+                                              "id": "5b8683e5-b05f-4517-807b-c99bae99261d",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "DELETE",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "dicomservices",
+                                                    ":dicomServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "9962c046-37eb-4c90-87bf-f3a82f37330f",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "49a53f4d-edbf-47fb-b7c4-58b2dd76c471",
+                                                      "key": "resourceGroupName",
+                                                      "value": "XFVOQ",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "5226e7d2-bc43-4ddd-8af8-a39da9cbc979",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "07d3b60e-9e26-48f7-b4db-7459a0fe1a49",
+                                                      "key": "dicomServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of DICOM Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Deletes a DICOM Service."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "ef46eba9-07d6-4b19-9f3e-94d1321aad90",
+                                                  "name": "Resource deleted.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-ef46eba9-07d6-4b19-9f3e-94d1321aad90"
+                                                },
+                                                {
+                                                  "id": "3e02e73a-a94f-4a3e-887e-73bba5d8f058",
+                                                  "name": "Delete request accepted; the operation will complete asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-3e02e73a-a94f-4a3e-887e-73bba5d8f058"
+                                                },
+                                                {
+                                                  "id": "819c8354-8741-4a93-a2d2-af0847038607",
+                                                  "name": "The resource does not exist.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "No Content",
+                                                  "code": 204,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-819c8354-8741-4a93-a2d2-af0847038607"
+                                                },
+                                                {
+                                                  "id": "3e3fdb83-6731-411e-88d6-29645c2468f7",
+                                                  "name": "Error response describing why the operation failed",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices/:dicomServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "dicomservices",
+                                                        ":dicomServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "dicomServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                                  "uid": "35240-3e3fdb83-6731-411e-88d6-29645c2468f7"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:41.000Z",
+                                              "updatedAt": "2026-07-28T01:09:41.000Z",
+                                              "uid": "35240-5b8683e5-b05f-4517-807b-c99bae99261d"
+                                            }
+                                          ],
+                                          "id": "a18cb772-f66f-48f1-94fa-27b378aa354d",
+                                          "createdAt": "2026-07-28T01:09:41.000Z",
+                                          "updatedAt": "2026-07-28T01:09:41.000Z",
+                                          "uid": "35240-a18cb772-f66f-48f1-94fa-27b378aa354d"
+                                        },
+                                        {
+                                          "name": "Dicom Services List By Workspace",
+                                          "id": "6ea090e9-d081-4756-b8c2-ecea25a9dca4",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName",
+                                                "dicomservices"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "6489b355-1f34-467d-b06c-e3a1bcf2ec5a",
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "id": "785d78c2-f216-47f7-b823-61ccb3779874",
+                                                  "key": "resourceGroupName",
+                                                  "value": "XFVOQ",
+                                                  "description": "(Required) The name of the resource group that contains the service instance."
+                                                },
+                                                {
+                                                  "id": "86820b5d-6b33-41af-a31e-0e257ba53760",
+                                                  "key": "workspaceName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of workspace resource."
+                                                }
+                                              ]
+                                            },
+                                            "description": "Lists all DICOM Services for the given workspace"
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "8def55fa-f5a5-4ff6-84a7-01163dd284e7",
+                                              "name": "List of DICOM Services.",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "dicomservices"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"properties\": {},\n      \"systemData\": {},\n      \"tags\": {\n        \"velit_e7\": \"<string>\"\n      },\n      \"location\": \"dolore labore eiusmod\",\n      \"id\": \"<string>\",\n      \"name\": \"hqzv21sf2vhh60f3hg\",\n      \"type\": \"<string>\",\n      \"etag\": \"<string>\",\n      \"identity\": {\n        \"type\": \"SystemAssigned\",\n        \"principalId\": \"<uuid>\",\n        \"tenantId\": \"<uuid>\",\n        \"userAssignedIdentities\": {\n          \"dolore_66\": {\n            \"principalId\": \"<uuid>\",\n            \"clientId\": \"<uuid>\"\n          }\n        }\n      }\n    },\n    {\n      \"properties\": {},\n      \"systemData\": {},\n      \"tags\": {\n        \"est_7e\": \"<string>\"\n      },\n      \"location\": \"eu\",\n      \"id\": \"<string>\",\n      \"name\": \"nl0y\",\n      \"type\": \"<string>\",\n      \"etag\": \"<string>\",\n      \"identity\": {\n        \"type\": \"UserAssigned\",\n        \"principalId\": \"<uuid>\",\n        \"tenantId\": \"<uuid>\",\n        \"userAssignedIdentities\": {\n          \"in51\": {\n            \"principalId\": \"<uuid>\",\n            \"clientId\": \"<uuid>\"\n          },\n          \"in__8d\": {\n            \"principalId\": \"<uuid>\",\n            \"clientId\": \"<uuid>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+                                              "createdAt": "2026-07-28T01:09:41.000Z",
+                                              "updatedAt": "2026-07-28T01:09:41.000Z",
+                                              "uid": "35240-8def55fa-f5a5-4ff6-84a7-01163dd284e7"
+                                            },
+                                            {
+                                              "id": "c765b13f-1d3d-4646-a20d-1d7d9c846e35",
+                                              "name": "Error response describing why the operation failed",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/dicomservices",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "dicomservices"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T01:09:41.000Z",
+                                              "updatedAt": "2026-07-28T01:09:41.000Z",
+                                              "uid": "35240-c765b13f-1d3d-4646-a20d-1d7d9c846e35"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:09:41.000Z",
+                                          "updatedAt": "2026-07-28T01:09:41.000Z",
+                                          "uid": "35240-6ea090e9-d081-4756-b8c2-ecea25a9dca4"
+                                        }
+                                      ],
+                                      "id": "8ffccfa1-1acd-44c5-bb8f-2a7ee178e4f5",
+                                      "createdAt": "2026-07-28T01:09:41.000Z",
+                                      "updatedAt": "2026-07-28T01:09:41.000Z",
+                                      "uid": "35240-8ffccfa1-1acd-44c5-bb8f-2a7ee178e4f5"
+                                    }
+                                  ],
+                                  "id": "54ac7e76-0e3f-4875-9731-f73da5ad56ac",
+                                  "createdAt": "2026-07-28T01:09:41.000Z",
+                                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                                  "uid": "35240-54ac7e76-0e3f-4875-9731-f73da5ad56ac"
+                                }
+                              ],
+                              "id": "80a04efb-ea3b-47a6-8fa6-1efd83d03907",
+                              "createdAt": "2026-07-28T01:09:41.000Z",
+                              "updatedAt": "2026-07-28T01:09:41.000Z",
+                              "uid": "35240-80a04efb-ea3b-47a6-8fa6-1efd83d03907"
+                            }
+                          ],
+                          "id": "d949d071-f4cc-40c2-8be6-933ee3862ce1",
+                          "createdAt": "2026-07-28T01:09:41.000Z",
+                          "updatedAt": "2026-07-28T01:09:41.000Z",
+                          "uid": "35240-d949d071-f4cc-40c2-8be6-933ee3862ce1"
+                        }
+                      ],
+                      "id": "b9637c3f-9ba7-44df-9908-5ccc67186dcc",
+                      "createdAt": "2026-07-28T01:09:41.000Z",
+                      "updatedAt": "2026-07-28T01:09:41.000Z",
+                      "uid": "35240-b9637c3f-9ba7-44df-9908-5ccc67186dcc"
+                    }
+                  ],
+                  "id": "a4f0a408-0575-416c-8ab9-7fa2ac1c3d4a",
+                  "createdAt": "2026-07-28T01:09:41.000Z",
+                  "updatedAt": "2026-07-28T01:09:41.000Z",
+                  "uid": "35240-a4f0a408-0575-416c-8ab9-7fa2ac1c3d4a"
+                }
+              ],
+              "id": "e3fb539c-14b4-4158-875f-1c9761a5612d",
+              "createdAt": "2026-07-28T01:09:41.000Z",
+              "updatedAt": "2026-07-28T01:09:41.000Z",
+              "uid": "35240-e3fb539c-14b4-4158-875f-1c9761a5612d"
+            }
+          ],
+          "id": "7b37229e-377c-4671-b583-e3ad3da3f17b",
+          "createdAt": "2026-07-28T01:09:41.000Z",
+          "updatedAt": "2026-07-28T01:09:41.000Z",
+          "uid": "35240-7b37229e-377c-4671-b583-e3ad3da3f17b"
+        }
+      ],
+      "id": "68533713-0b94-495b-a369-0abd7b809dbb",
+      "createdAt": "2026-07-28T01:09:41.000Z",
+      "updatedAt": "2026-07-28T01:09:41.000Z",
+      "uid": "35240-68533713-0b94-495b-a369-0abd7b809dbb"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}

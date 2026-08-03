@@ -1,0 +1,638 @@
+{
+  "info": {
+    "_postman_id": "8520c87b-91b2-4ec3-ab67-2be6c8e22f06",
+    "name": "Azure Health Data Services de-identification service Collection Proxy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:52.000Z",
+    "updatedAt": "2026-07-28T01:09:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8520c87b-91b2-4ec3-ab67-2be6c8e22f06"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "providers",
+              "item": [
+                {
+                  "name": "Microsoft.HealthcareApis",
+                  "item": [
+                    {
+                      "name": "checkNameAvailability",
+                      "item": [
+                        {
+                          "name": "Services Check Name Availability",
+                          "id": "1abc3b04-9076-4c7a-b32e-b91e903fc872",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/checkNameAvailability",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "subscriptions",
+                                ":subscriptionId",
+                                "providers",
+                                "Microsoft.HealthcareApis",
+                                "checkNameAvailability"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d31c773a-d1bf-4aa8-a697-fae85726368e",
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            },
+                            "description": "Check if a service instance name is available."
+                          },
+                          "response": [
+                            {
+                              "id": "125d0b59-10c7-4825-8164-1a5ef8fecb98",
+                              "name": "This is a synchronous operation. The body contains a JSON-serialized response that specifies whether the service name is available. If the name is not available, the body contains the reason.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/checkNameAvailability",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "subscriptions",
+                                    ":subscriptionId",
+                                    "providers",
+                                    "Microsoft.HealthcareApis",
+                                    "checkNameAvailability"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"nameAvailable\": \"<boolean>\",\n  \"reason\": \"AlreadyExists\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:09:53.000Z",
+                              "updatedAt": "2026-07-28T01:09:53.000Z",
+                              "uid": "35240-125d0b59-10c7-4825-8164-1a5ef8fecb98"
+                            },
+                            {
+                              "id": "19f3c771-a2d0-44ab-aff9-b6e75ae3df53",
+                              "name": "DefaultErrorResponse",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/checkNameAvailability",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "subscriptions",
+                                    ":subscriptionId",
+                                    "providers",
+                                    "Microsoft.HealthcareApis",
+                                    "checkNameAvailability"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                              "createdAt": "2026-07-28T01:09:53.000Z",
+                              "updatedAt": "2026-07-28T01:09:53.000Z",
+                              "uid": "35240-19f3c771-a2d0-44ab-aff9-b6e75ae3df53"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:09:53.000Z",
+                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                          "uid": "35240-1abc3b04-9076-4c7a-b32e-b91e903fc872"
+                        }
+                      ],
+                      "id": "e9f2c513-7c65-451b-927e-d7ae4f670e5c",
+                      "createdAt": "2026-07-28T01:09:53.000Z",
+                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                      "uid": "35240-e9f2c513-7c65-451b-927e-d7ae4f670e5c"
+                    },
+                    {
+                      "name": "locations",
+                      "item": [
+                        {
+                          "name": "{locationName}",
+                          "item": [
+                            {
+                              "name": "operationresults",
+                              "item": [
+                                {
+                                  "name": "{operationResultId}",
+                                  "item": [
+                                    {
+                                      "name": "Operation Results Get",
+                                      "id": "e92d06a9-5b38-4a6c-b797-029570a7c4d4",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/locations/:locationName/operationresults/:operationResultId",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "subscriptions",
+                                            ":subscriptionId",
+                                            "providers",
+                                            "Microsoft.HealthcareApis",
+                                            "locations",
+                                            ":locationName",
+                                            "operationresults",
+                                            ":operationResultId"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "324bbeb1-36bc-4255-b4e3-bacaaa742f48",
+                                              "key": "subscriptionId"
+                                            },
+                                            {
+                                              "id": "10c41d31-a754-401e-a66b-6ec70a89c050",
+                                              "key": "locationName",
+                                              "value": "<string>",
+                                              "description": "(Required) The location of the operation."
+                                            },
+                                            {
+                                              "id": "7cffa5c1-b827-4aff-af45-6da4e05338c2",
+                                              "key": "operationResultId",
+                                              "value": "<string>",
+                                              "description": "(Required) The ID of the operation result to get."
+                                            }
+                                          ]
+                                        },
+                                        "description": "Get the operation result for a long running operation."
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "e9b62c52-4bb9-4c64-85b6-a819fa1865a9",
+                                          "name": "The body contains all of the properties of the operation result.",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/locations/:locationName/operationresults/:operationResultId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "locations",
+                                                ":locationName",
+                                                "operationresults",
+                                                ":operationResultId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "locationName"
+                                                },
+                                                {
+                                                  "key": "operationResultId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"Canceled\",\n  \"startTime\": \"<string>\",\n  \"endTime\": \"<string>\",\n  \"properties\": {}\n}",
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-e9b62c52-4bb9-4c64-85b6-a819fa1865a9"
+                                        },
+                                        {
+                                          "id": "6468de9f-450f-48a9-b0c0-3270cbcf56c7",
+                                          "name": "Default error response",
+                                          "originalRequest": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: oauth2",
+                                                "key": "Authorization",
+                                                "value": "<token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/locations/:locationName/operationresults/:operationResultId",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "locations",
+                                                ":locationName",
+                                                "operationresults",
+                                                ":operationResultId"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "key": "locationName"
+                                                },
+                                                {
+                                                  "key": "operationResultId"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Internal Server Error",
+                                          "code": 500,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                          "createdAt": "2026-07-28T01:09:53.000Z",
+                                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                                          "uid": "35240-6468de9f-450f-48a9-b0c0-3270cbcf56c7"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:09:53.000Z",
+                                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                                      "uid": "35240-e92d06a9-5b38-4a6c-b797-029570a7c4d4"
+                                    }
+                                  ],
+                                  "id": "1c1f3bf1-7e7b-4d70-ab6a-a5ba614107a0",
+                                  "createdAt": "2026-07-28T01:09:53.000Z",
+                                  "updatedAt": "2026-07-28T01:09:53.000Z",
+                                  "uid": "35240-1c1f3bf1-7e7b-4d70-ab6a-a5ba614107a0"
+                                }
+                              ],
+                              "id": "7e29ee76-8d10-4bc0-990b-ab115879ecf3",
+                              "createdAt": "2026-07-28T01:09:53.000Z",
+                              "updatedAt": "2026-07-28T01:09:53.000Z",
+                              "uid": "35240-7e29ee76-8d10-4bc0-990b-ab115879ecf3"
+                            }
+                          ],
+                          "id": "6ccbc532-96c4-471a-9f55-6390361caceb",
+                          "createdAt": "2026-07-28T01:09:53.000Z",
+                          "updatedAt": "2026-07-28T01:09:53.000Z",
+                          "uid": "35240-6ccbc532-96c4-471a-9f55-6390361caceb"
+                        }
+                      ],
+                      "id": "7c089818-ec5d-49b3-a2b3-25c11d396324",
+                      "createdAt": "2026-07-28T01:09:53.000Z",
+                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                      "uid": "35240-7c089818-ec5d-49b3-a2b3-25c11d396324"
+                    }
+                  ],
+                  "id": "450c0b24-b39f-4de6-922e-f9189577d840",
+                  "createdAt": "2026-07-28T01:09:53.000Z",
+                  "updatedAt": "2026-07-28T01:09:53.000Z",
+                  "uid": "35240-450c0b24-b39f-4de6-922e-f9189577d840"
+                }
+              ],
+              "id": "c52bfc79-f0ba-4e54-966d-2987737fbc4d",
+              "createdAt": "2026-07-28T01:09:53.000Z",
+              "updatedAt": "2026-07-28T01:09:53.000Z",
+              "uid": "35240-c52bfc79-f0ba-4e54-966d-2987737fbc4d"
+            }
+          ],
+          "id": "34e2763b-c97f-4923-9f7c-3ccfb7fa4773",
+          "createdAt": "2026-07-28T01:09:53.000Z",
+          "updatedAt": "2026-07-28T01:09:53.000Z",
+          "uid": "35240-34e2763b-c97f-4923-9f7c-3ccfb7fa4773"
+        }
+      ],
+      "id": "fd2ed83e-6dcf-4832-b7cd-54be5387f91d",
+      "createdAt": "2026-07-28T01:09:53.000Z",
+      "updatedAt": "2026-07-28T01:09:53.000Z",
+      "uid": "35240-fd2ed83e-6dcf-4832-b7cd-54be5387f91d"
+    },
+    {
+      "name": "providers",
+      "item": [
+        {
+          "name": "Microsoft.HealthcareApis",
+          "item": [
+            {
+              "name": "operations",
+              "item": [
+                {
+                  "name": "Operations List",
+                  "id": "15730fb1-4848-4323-bf50-c4eefac076c5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/providers/Microsoft.HealthcareApis/operations",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "providers",
+                        "Microsoft.HealthcareApis",
+                        "operations"
+                      ]
+                    },
+                    "description": "Lists all of the available operations supported by Microsoft Healthcare resource provider."
+                  },
+                  "response": [
+                    {
+                      "id": "f306d140-b666-4b08-bc05-4271a842a235",
+                      "name": "OK. The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/providers/Microsoft.HealthcareApis/operations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "providers",
+                            "Microsoft.HealthcareApis",
+                            "operations"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"value\": [\n    {\n      \"name\": \"<string>\",\n      \"isDataAction\": \"<boolean>\",\n      \"display\": {\n        \"provider\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"origin\": \"<string>\",\n      \"actionType\": \"Internal\",\n      \"properties\": {\n        \"serviceSpecification\": {\n          \"logSpecifications\": [\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"blobDuration\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"blobDuration\": \"<string>\"\n            }\n          ],\n          \"metricSpecifications\": [\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"displayDescription\": \"<string>\",\n              \"unit\": \"<string>\",\n              \"category\": \"<string>\",\n              \"aggregationType\": \"<string>\",\n              \"supportedAggregationTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"supportedTimeGrainTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"fillGapWithZero\": \"<boolean>\",\n              \"metricFilterPattern\": \"<string>\",\n              \"dimensions\": [\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                }\n              ],\n              \"isInternal\": \"<boolean>\",\n              \"sourceMdmAccount\": \"<string>\",\n              \"sourceMdmNamespace\": \"<string>\",\n              \"enableRegionalMdmAccount\": \"<boolean>\",\n              \"resourceIdDimensionNameOverride\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"displayDescription\": \"<string>\",\n              \"unit\": \"<string>\",\n              \"category\": \"<string>\",\n              \"aggregationType\": \"<string>\",\n              \"supportedAggregationTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"supportedTimeGrainTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"fillGapWithZero\": \"<boolean>\",\n              \"metricFilterPattern\": \"<string>\",\n              \"dimensions\": [\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                }\n              ],\n              \"isInternal\": \"<boolean>\",\n              \"sourceMdmAccount\": \"<string>\",\n              \"sourceMdmNamespace\": \"<string>\",\n              \"enableRegionalMdmAccount\": \"<boolean>\",\n              \"resourceIdDimensionNameOverride\": \"<string>\"\n            }\n          ]\n        }\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"isDataAction\": \"<boolean>\",\n      \"display\": {\n        \"provider\": \"<string>\",\n        \"resource\": \"<string>\",\n        \"operation\": \"<string>\",\n        \"description\": \"<string>\"\n      },\n      \"origin\": \"<string>\",\n      \"actionType\": \"Internal\",\n      \"properties\": {\n        \"serviceSpecification\": {\n          \"logSpecifications\": [\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"blobDuration\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"blobDuration\": \"<string>\"\n            }\n          ],\n          \"metricSpecifications\": [\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"displayDescription\": \"<string>\",\n              \"unit\": \"<string>\",\n              \"category\": \"<string>\",\n              \"aggregationType\": \"<string>\",\n              \"supportedAggregationTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"supportedTimeGrainTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"fillGapWithZero\": \"<boolean>\",\n              \"metricFilterPattern\": \"<string>\",\n              \"dimensions\": [\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                }\n              ],\n              \"isInternal\": \"<boolean>\",\n              \"sourceMdmAccount\": \"<string>\",\n              \"sourceMdmNamespace\": \"<string>\",\n              \"enableRegionalMdmAccount\": \"<boolean>\",\n              \"resourceIdDimensionNameOverride\": \"<string>\"\n            },\n            {\n              \"name\": \"<string>\",\n              \"displayName\": \"<string>\",\n              \"displayDescription\": \"<string>\",\n              \"unit\": \"<string>\",\n              \"category\": \"<string>\",\n              \"aggregationType\": \"<string>\",\n              \"supportedAggregationTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"supportedTimeGrainTypes\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"fillGapWithZero\": \"<boolean>\",\n              \"metricFilterPattern\": \"<string>\",\n              \"dimensions\": [\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                },\n                {\n                  \"name\": \"<string>\",\n                  \"displayName\": \"<string>\",\n                  \"toBeExportedForShoebox\": \"<boolean>\"\n                }\n              ],\n              \"isInternal\": \"<boolean>\",\n              \"sourceMdmAccount\": \"<string>\",\n              \"sourceMdmNamespace\": \"<string>\",\n              \"enableRegionalMdmAccount\": \"<boolean>\",\n              \"resourceIdDimensionNameOverride\": \"<string>\"\n            }\n          ]\n        }\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:09:53.000Z",
+                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                      "uid": "35240-f306d140-b666-4b08-bc05-4271a842a235"
+                    },
+                    {
+                      "id": "c2bcbd62-9cd7-4954-b593-6ae6563a3404",
+                      "name": "DefaultErrorResponse",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/providers/Microsoft.HealthcareApis/operations",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "providers",
+                            "Microsoft.HealthcareApis",
+                            "operations"
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:09:53.000Z",
+                      "updatedAt": "2026-07-28T01:09:53.000Z",
+                      "uid": "35240-c2bcbd62-9cd7-4954-b593-6ae6563a3404"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:09:53.000Z",
+                  "updatedAt": "2026-07-28T01:09:53.000Z",
+                  "uid": "35240-15730fb1-4848-4323-bf50-c4eefac076c5"
+                }
+              ],
+              "id": "108214db-7493-40f6-964f-1b87dee7112e",
+              "createdAt": "2026-07-28T01:09:53.000Z",
+              "updatedAt": "2026-07-28T01:09:53.000Z",
+              "uid": "35240-108214db-7493-40f6-964f-1b87dee7112e"
+            }
+          ],
+          "id": "d7c117d8-b0c1-4eaa-a9d9-7e0ba2f3c078",
+          "createdAt": "2026-07-28T01:09:53.000Z",
+          "updatedAt": "2026-07-28T01:09:53.000Z",
+          "uid": "35240-d7c117d8-b0c1-4eaa-a9d9-7e0ba2f3c078"
+        }
+      ],
+      "id": "3a0d6aa7-4e23-4af1-9aa4-1e6f86760278",
+      "createdAt": "2026-07-28T01:09:53.000Z",
+      "updatedAt": "2026-07-28T01:09:53.000Z",
+      "uid": "35240-3a0d6aa7-4e23-4af1-9aa4-1e6f86760278"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}

@@ -1,0 +1,1517 @@
+{
+  "info": {
+    "_postman_id": "d34960f1-99b8-4964-b9a3-7e2c2df1ebec",
+    "name": "Azure Health Data Services de-identification service Collection FhirServices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:09:42.000Z",
+    "updatedAt": "2026-07-28T01:09:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d34960f1-99b8-4964-b9a3-7e2c2df1ebec"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.HealthcareApis",
+                          "item": [
+                            {
+                              "name": "workspaces",
+                              "item": [
+                                {
+                                  "name": "{workspaceName}",
+                                  "item": [
+                                    {
+                                      "name": "fhirservices",
+                                      "item": [
+                                        {
+                                          "name": "{fhirServiceName}",
+                                          "item": [
+                                            {
+                                              "name": "Fhir Services Get",
+                                              "id": "685aa543-7723-4bca-8b7c-a77de09be2d2",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "fhirservices",
+                                                    ":fhirServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "cdeea1c8-dda3-462e-b197-aa174f27cb01",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "c9070def-99fe-4979-9d4d-7362fbd95968",
+                                                      "key": "resourceGroupName",
+                                                      "value": "g",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "ad2fe3bb-083c-4fc6-8c6e-bf7c8188bfe3",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "5a625946-6747-44e6-ac4a-049c3c2c66c2",
+                                                      "key": "fhirServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of FHIR Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Gets the properties of the specified FHIR Service."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "4f6ff266-2c54-4aa2-9a4c-017a3bbebe07",
+                                                  "name": "The request was successful; the request was well-formed and received properly.",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-4f6ff266-2c54-4aa2-9a4c-017a3bbebe07"
+                                                },
+                                                {
+                                                  "id": "a7c9b131-9523-4ae9-94c0-915cb5a849af",
+                                                  "name": "Error response describing why the operation failed",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-a7c9b131-9523-4ae9-94c0-915cb5a849af"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:43.000Z",
+                                              "updatedAt": "2026-07-28T01:09:43.000Z",
+                                              "uid": "35240-685aa543-7723-4bca-8b7c-a77de09be2d2"
+                                            },
+                                            {
+                                              "name": "Fhir Services Create Or Update",
+                                              "id": "12e24d50-67c8-411c-a168-5e03c4e97718",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PUT",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "fhirservices",
+                                                    ":fhirServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "bb644161-2142-42d1-9c2d-0ab66a824c32",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "5dc2ae62-e747-44d2-8243-96c2a2135c98",
+                                                      "key": "resourceGroupName",
+                                                      "value": "g",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "5db5afe0-891d-429b-9f76-2678e139a6da",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "db2b90c0-fd6f-489d-8580-a974aa78fdea",
+                                                      "key": "fhirServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of FHIR Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Creates or updates a FHIR Service resource with the specified parameters."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "7f0555db-8509-4868-8f53-d33c16a99c1d",
+                                                  "name": "Updated - Put request accepted and an existing resource is updated.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-7f0555db-8509-4868-8f53-d33c16a99c1d"
+                                                },
+                                                {
+                                                  "id": "dff8555d-0a3d-4316-80b3-476947fb9577",
+                                                  "name": "Created - Put request accepted and an existing resource is being created asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Created",
+                                                  "code": 201,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-dff8555d-0a3d-4316-80b3-476947fb9577"
+                                                },
+                                                {
+                                                  "id": "8bcfe372-9a6c-4cc1-bd3a-a27837a8c3db",
+                                                  "name": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-8bcfe372-9a6c-4cc1-bd3a-a27837a8c3db"
+                                                },
+                                                {
+                                                  "id": "4db0a8d8-47f4-413a-906f-53046efb8aec",
+                                                  "name": "Error response describing why the operation failed",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-4db0a8d8-47f4-413a-906f-53046efb8aec"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:43.000Z",
+                                              "updatedAt": "2026-07-28T01:09:43.000Z",
+                                              "uid": "35240-12e24d50-67c8-411c-a168-5e03c4e97718"
+                                            },
+                                            {
+                                              "name": "Fhir Services Update",
+                                              "id": "d9e6e638-8f14-4e4d-aecd-bec0cd0994ca",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PATCH",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "{\n  \"tags\": {\n    \"nisi_738\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"culpad\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "fhirservices",
+                                                    ":fhirServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "c91f984b-831f-43ea-b0fc-0d87dab962e6",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "aeef78e7-492e-48e5-bd7c-5ffec61265db",
+                                                      "key": "resourceGroupName",
+                                                      "value": "g",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "a9ff0e6d-f4e7-4d35-8bf0-7582cee351f1",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "7069912a-cddb-4771-9ca8-1e6ff98bffb7",
+                                                      "key": "fhirServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of FHIR Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Patch FHIR Service details."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "2c34585c-4196-4678-b732-14f555c09227",
+                                                  "name": "Updated - Patch request accepted and an existing resource is updated.",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"tags\": {\n    \"nisi_738\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"culpad\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-2c34585c-4196-4678-b732-14f555c09227"
+                                                },
+                                                {
+                                                  "id": "cf2b8117-d82c-4ca2-8500-ee1aa2a0e833",
+                                                  "name": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"tags\": {\n    \"nisi_738\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"culpad\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {},\n  \"systemData\": {},\n  \"tags\": {\n    \"sit4a\": \"<string>\"\n  },\n  \"location\": \"exercitation fugiat\",\n  \"id\": \"<string>\",\n  \"name\": \"d73phwoym5e\",\n  \"type\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"dolore__\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-cf2b8117-d82c-4ca2-8500-ee1aa2a0e833"
+                                                },
+                                                {
+                                                  "id": "a3cbb680-e8b3-41c7-a40d-9067a640aaca",
+                                                  "name": "Error response describing why the operation failed.",
+                                                  "originalRequest": {
+                                                    "method": "PATCH",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "{\n  \"tags\": {\n    \"nisi_738\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"SystemAssigned\",\n    \"principalId\": \"<uuid>\",\n    \"tenantId\": \"<uuid>\",\n    \"userAssignedIdentities\": {\n      \"culpad\": {\n        \"principalId\": \"<uuid>\",\n        \"clientId\": \"<uuid>\"\n      }\n    }\n  }\n}",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-a3cbb680-e8b3-41c7-a40d-9067a640aaca"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:43.000Z",
+                                              "updatedAt": "2026-07-28T01:09:43.000Z",
+                                              "uid": "35240-d9e6e638-8f14-4e4d-aecd-bec0cd0994ca"
+                                            },
+                                            {
+                                              "name": "Fhir Services Delete",
+                                              "id": "9792ead2-0b53-417b-90e5-9f120ca66b2f",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "DELETE",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "fhirservices",
+                                                    ":fhirServiceName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "d62506e7-e228-4e86-a0bd-b5478001f8be",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "d3c84ed1-1647-49b5-a866-c7a40918db90",
+                                                      "key": "resourceGroupName",
+                                                      "value": "g",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "0cc08b46-65dc-499b-ab35-9c4082d27a0b",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "8f41fe84-bdeb-4644-91e1-9c6b9cbb02b1",
+                                                      "key": "fhirServiceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of FHIR Service resource."
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Deletes a FHIR Service."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "57780935-c30c-4af2-b683-59523dbf81ac",
+                                                  "name": "Resource deleted.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-57780935-c30c-4af2-b683-59523dbf81ac"
+                                                },
+                                                {
+                                                  "id": "30ad5d68-9179-4e3e-b3db-9a418c747a8b",
+                                                  "name": "Delete request accepted; the operation will complete asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-30ad5d68-9179-4e3e-b3db-9a418c747a8b"
+                                                },
+                                                {
+                                                  "id": "56023314-a8c6-4cc7-a06d-f0ee346f73e8",
+                                                  "name": "The resource does not exist.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "No Content",
+                                                  "code": 204,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-56023314-a8c6-4cc7-a06d-f0ee346f73e8"
+                                                },
+                                                {
+                                                  "id": "84858809-9720-4f56-a7a9-d02f69ca1aba",
+                                                  "name": "Error response describing why the operation failed",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "fhirservices",
+                                                        ":fhirServiceName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "fhirServiceName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                                  "uid": "35240-84858809-9720-4f56-a7a9-d02f69ca1aba"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:09:43.000Z",
+                                              "updatedAt": "2026-07-28T01:09:43.000Z",
+                                              "uid": "35240-9792ead2-0b53-417b-90e5-9f120ca66b2f"
+                                            }
+                                          ],
+                                          "id": "852e7ace-9444-46b7-b2a3-a858e3994df0",
+                                          "createdAt": "2026-07-28T01:09:43.000Z",
+                                          "updatedAt": "2026-07-28T01:09:43.000Z",
+                                          "uid": "35240-852e7ace-9444-46b7-b2a3-a858e3994df0"
+                                        },
+                                        {
+                                          "name": "Fhir Services List By Workspace",
+                                          "id": "26e67d10-7aa6-4c86-a6a2-81551e0a659e",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName",
+                                                "fhirservices"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "bbb2a07e-c63b-4551-83b4-9c5a961e845b",
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "id": "f6cbfd6e-5e09-4b96-8295-32461a1b78eb",
+                                                  "key": "resourceGroupName",
+                                                  "value": "g",
+                                                  "description": "(Required) The name of the resource group that contains the service instance."
+                                                },
+                                                {
+                                                  "id": "0c130e22-6a86-439e-ba28-7c8ac9dff6e0",
+                                                  "key": "workspaceName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of workspace resource."
+                                                }
+                                              ]
+                                            },
+                                            "description": "Lists all FHIR Services for the given workspace"
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "f4098b8c-a1a7-4390-924a-d0a6028bd5bf",
+                                              "name": "List of FHIR Services.",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "fhirservices"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"nextLink\": \"<string>\",\n  \"value\": [\n    {\n      \"kind\": \"fhir-Stu3\",\n      \"properties\": {},\n      \"systemData\": {},\n      \"tags\": {\n        \"aliquipf5\": \"<string>\",\n        \"amet_f\": \"<string>\",\n        \"dolor_59\": \"<string>\"\n      },\n      \"location\": \"nostrud aliqua ex\",\n      \"id\": \"<string>\",\n      \"name\": \"h4n34ohtcqx53rm6\",\n      \"type\": \"<string>\",\n      \"etag\": \"<string>\",\n      \"identity\": {\n        \"type\": \"UserAssigned\",\n        \"principalId\": \"<uuid>\",\n        \"tenantId\": \"<uuid>\",\n        \"userAssignedIdentities\": {\n          \"aliqua_d4\": {\n            \"principalId\": \"<uuid>\",\n            \"clientId\": \"<uuid>\"\n          },\n          \"sed4\": {\n            \"principalId\": \"<uuid>\",\n            \"clientId\": \"<uuid>\"\n          }\n        }\n      }\n    },\n    {\n      \"kind\": \"fhir-Stu3\",\n      \"properties\": {},\n      \"systemData\": {},\n      \"tags\": {\n        \"uta5\": \"<string>\"\n      },\n      \"location\": \"minim aliquip deserunt\",\n      \"id\": \"<string>\",\n      \"name\": \"90eiqp6-92xelc\",\n      \"type\": \"<string>\",\n      \"etag\": \"<string>\",\n      \"identity\": {\n        \"type\": \"None\",\n        \"principalId\": \"<uuid>\",\n        \"tenantId\": \"<uuid>\",\n        \"userAssignedIdentities\": {\n          \"Ut_7\": {\n            \"principalId\": \"<uuid>\",\n            \"clientId\": \"<uuid>\"\n          },\n          \"elit_b36\": {\n            \"principalId\": \"<uuid>\",\n            \"clientId\": \"<uuid>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+                                              "createdAt": "2026-07-28T01:09:43.000Z",
+                                              "updatedAt": "2026-07-28T01:09:43.000Z",
+                                              "uid": "35240-f4098b8c-a1a7-4390-924a-d0a6028bd5bf"
+                                            },
+                                            {
+                                              "id": "96db1fd7-57a0-47e4-9fc7-065549892b9d",
+                                              "name": "Error response describing why the operation failed",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "fhirservices"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T01:09:43.000Z",
+                                              "updatedAt": "2026-07-28T01:09:43.000Z",
+                                              "uid": "35240-96db1fd7-57a0-47e4-9fc7-065549892b9d"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:09:43.000Z",
+                                          "updatedAt": "2026-07-28T01:09:43.000Z",
+                                          "uid": "35240-26e67d10-7aa6-4c86-a6a2-81551e0a659e"
+                                        }
+                                      ],
+                                      "id": "86073074-b386-4474-bc0c-24801578af3c",
+                                      "createdAt": "2026-07-28T01:09:43.000Z",
+                                      "updatedAt": "2026-07-28T01:09:43.000Z",
+                                      "uid": "35240-86073074-b386-4474-bc0c-24801578af3c"
+                                    }
+                                  ],
+                                  "id": "d448ab6a-22c5-489e-9aa4-ab4e99ed4b95",
+                                  "createdAt": "2026-07-28T01:09:43.000Z",
+                                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                                  "uid": "35240-d448ab6a-22c5-489e-9aa4-ab4e99ed4b95"
+                                }
+                              ],
+                              "id": "d91f891c-f9f1-40ad-ae13-234f33d6775b",
+                              "createdAt": "2026-07-28T01:09:43.000Z",
+                              "updatedAt": "2026-07-28T01:09:43.000Z",
+                              "uid": "35240-d91f891c-f9f1-40ad-ae13-234f33d6775b"
+                            }
+                          ],
+                          "id": "bb406220-cbca-464e-b92c-83692e711b76",
+                          "createdAt": "2026-07-28T01:09:43.000Z",
+                          "updatedAt": "2026-07-28T01:09:43.000Z",
+                          "uid": "35240-bb406220-cbca-464e-b92c-83692e711b76"
+                        }
+                      ],
+                      "id": "ec04f11c-915c-471a-ab11-c1564ef2cb8e",
+                      "createdAt": "2026-07-28T01:09:43.000Z",
+                      "updatedAt": "2026-07-28T01:09:43.000Z",
+                      "uid": "35240-ec04f11c-915c-471a-ab11-c1564ef2cb8e"
+                    }
+                  ],
+                  "id": "593a6245-8f41-4a5c-b399-51dc46e30594",
+                  "createdAt": "2026-07-28T01:09:43.000Z",
+                  "updatedAt": "2026-07-28T01:09:43.000Z",
+                  "uid": "35240-593a6245-8f41-4a5c-b399-51dc46e30594"
+                }
+              ],
+              "id": "407bb524-400f-484d-b420-6d7fe4f408d8",
+              "createdAt": "2026-07-28T01:09:43.000Z",
+              "updatedAt": "2026-07-28T01:09:43.000Z",
+              "uid": "35240-407bb524-400f-484d-b420-6d7fe4f408d8"
+            }
+          ],
+          "id": "c5faa11b-0298-465f-a8d6-f1bbf36a55a1",
+          "createdAt": "2026-07-28T01:09:43.000Z",
+          "updatedAt": "2026-07-28T01:09:43.000Z",
+          "uid": "35240-c5faa11b-0298-465f-a8d6-f1bbf36a55a1"
+        }
+      ],
+      "id": "7718c852-9f41-410f-a90f-cb291e421400",
+      "createdAt": "2026-07-28T01:09:43.000Z",
+      "updatedAt": "2026-07-28T01:09:43.000Z",
+      "uid": "35240-7718c852-9f41-410f-a90f-cb291e421400"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}

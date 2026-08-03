@@ -1,0 +1,1038 @@
+{
+  "info": {
+    "_postman_id": "17443911-8db7-43ef-b588-dc5fa339e542",
+    "name": "Azure Health Data Services de-identification service Collection WorkspacePrivateEndpointConnections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:10:01.000Z",
+    "updatedAt": "2026-07-28T01:10:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-17443911-8db7-43ef-b588-dc5fa339e542"
+  },
+  "item": [
+    {
+      "name": "subscriptions",
+      "item": [
+        {
+          "name": "{subscriptionId}",
+          "item": [
+            {
+              "name": "resourceGroups",
+              "item": [
+                {
+                  "name": "{resourceGroupName}",
+                  "item": [
+                    {
+                      "name": "providers",
+                      "item": [
+                        {
+                          "name": "Microsoft.HealthcareApis",
+                          "item": [
+                            {
+                              "name": "workspaces",
+                              "item": [
+                                {
+                                  "name": "{workspaceName}",
+                                  "item": [
+                                    {
+                                      "name": "privateEndpointConnections",
+                                      "item": [
+                                        {
+                                          "name": "{privateEndpointConnectionName}",
+                                          "item": [
+                                            {
+                                              "name": "Workspace Private Endpoint Connections Get",
+                                              "id": "e383f738-76ea-4dcd-8f3d-36b6c770bd74",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateEndpointConnections",
+                                                    ":privateEndpointConnectionName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "d305b7d5-eb4e-4509-8357-c3cdcdd41ac4",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "d5a92e58-18fa-440c-8f0b-beda07910a50",
+                                                      "key": "resourceGroupName",
+                                                      "value": "c2x",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "59c556c5-810e-4ce6-a5be-751ce1bf9291",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "1cb09f43-c790-418b-973d-c3c1c3aecf56",
+                                                      "key": "privateEndpointConnectionName"
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Gets the specified private endpoint connection associated with the workspace."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "51d1aa32-c114-4edb-9365-f37fd9c1cca3",
+                                                  "name": "The request was successful; the request was well-formed and received properly.",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "null",
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-51d1aa32-c114-4edb-9365-f37fd9c1cca3"
+                                                },
+                                                {
+                                                  "id": "582d3c75-9064-4f8e-95fb-86571783d813",
+                                                  "name": "DefaultErrorResponse",
+                                                  "originalRequest": {
+                                                    "method": "GET",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-582d3c75-9064-4f8e-95fb-86571783d813"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:10:01.000Z",
+                                              "updatedAt": "2026-07-28T01:10:01.000Z",
+                                              "uid": "35240-e383f738-76ea-4dcd-8f3d-36b6c770bd74"
+                                            },
+                                            {
+                                              "name": "Workspace Private Endpoint Connections Create Or Update",
+                                              "id": "b3f47368-8bc7-462b-80b4-5e64a257df19",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "PUT",
+                                                "header": [
+                                                  {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "body": {
+                                                  "mode": "raw",
+                                                  "raw": "null",
+                                                  "options": {
+                                                    "raw": {
+                                                      "headerFamily": "json",
+                                                      "language": "json"
+                                                    }
+                                                  }
+                                                },
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateEndpointConnections",
+                                                    ":privateEndpointConnectionName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "acc22558-2d34-408c-ac6e-33646f2dec68",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "170cf8ad-0b34-4e05-87d2-2d4fff73706b",
+                                                      "key": "resourceGroupName",
+                                                      "value": "c2x",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "de59f013-4edc-438f-8fab-d9d7922a0412",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "4705e510-9293-4159-8b90-8c90ef44b72c",
+                                                      "key": "privateEndpointConnectionName"
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Update the state of the specified private endpoint connection associated with the workspace."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "03c3066c-7ccf-4310-a78d-34cf1358e7b5",
+                                                  "name": "The request was successful; the request was well-formed and received properly.",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "null",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "null",
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-03c3066c-7ccf-4310-a78d-34cf1358e7b5"
+                                                },
+                                                {
+                                                  "id": "e18ce08d-93cb-45a9-a7f5-19689fb684cb",
+                                                  "name": "DefaultErrorResponse",
+                                                  "originalRequest": {
+                                                    "method": "PUT",
+                                                    "header": [
+                                                      {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "body": {
+                                                      "mode": "raw",
+                                                      "raw": "null",
+                                                      "options": {
+                                                        "raw": {
+                                                          "headerFamily": "json",
+                                                          "language": "json"
+                                                        }
+                                                      }
+                                                    },
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-e18ce08d-93cb-45a9-a7f5-19689fb684cb"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:10:01.000Z",
+                                              "updatedAt": "2026-07-28T01:10:01.000Z",
+                                              "uid": "35240-b3f47368-8bc7-462b-80b4-5e64a257df19"
+                                            },
+                                            {
+                                              "name": "Workspace Private Endpoint Connections Delete",
+                                              "id": "5bb511b7-ff10-43ee-8060-c081fa050198",
+                                              "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                              },
+                                              "request": {
+                                                "method": "DELETE",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateEndpointConnections",
+                                                    ":privateEndpointConnectionName"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "id": "313670ea-df93-4de6-99f7-16b6650e8d62",
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "id": "145477f8-4f03-4b4b-b017-1c517a570dde",
+                                                      "key": "resourceGroupName",
+                                                      "value": "c2x",
+                                                      "description": "(Required) The name of the resource group that contains the service instance."
+                                                    },
+                                                    {
+                                                      "id": "582dc515-84bf-4bef-a5d2-da3c078d3b8c",
+                                                      "key": "workspaceName",
+                                                      "value": "<string>",
+                                                      "description": "(Required) The name of workspace resource."
+                                                    },
+                                                    {
+                                                      "id": "af545e40-71d3-4730-affa-98f70fa9805c",
+                                                      "key": "privateEndpointConnectionName"
+                                                    }
+                                                  ]
+                                                },
+                                                "description": "Deletes a private endpoint connection."
+                                              },
+                                              "response": [
+                                                {
+                                                  "id": "3e9ab912-1ffb-4422-81d6-b2ed9525e076",
+                                                  "name": "The request was successful; the request was well-formed and received properly.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "OK",
+                                                  "code": 200,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-3e9ab912-1ffb-4422-81d6-b2ed9525e076"
+                                                },
+                                                {
+                                                  "id": "a4369248-a0fe-40b5-8748-7474abb7cb3f",
+                                                  "name": "The request was successful; the operation will complete asynchronously.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Accepted",
+                                                  "code": 202,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-a4369248-a0fe-40b5-8748-7474abb7cb3f"
+                                                },
+                                                {
+                                                  "id": "60006b57-7b61-4a5b-bb6e-95db3863a819",
+                                                  "name": "No Content - The private endpoint connection does not exist.",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "No Content",
+                                                  "code": 204,
+                                                  "_postman_previewlanguage": "text",
+                                                  "header": [],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": null,
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-60006b57-7b61-4a5b-bb6e-95db3863a819"
+                                                },
+                                                {
+                                                  "id": "c53ae222-24ec-496d-b5a5-7cec4007c25b",
+                                                  "name": "DefaultErrorResponse",
+                                                  "originalRequest": {
+                                                    "method": "DELETE",
+                                                    "header": [
+                                                      {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                      },
+                                                      {
+                                                        "description": "Added as a part of security scheme: oauth2",
+                                                        "key": "Authorization",
+                                                        "value": "<token>"
+                                                      }
+                                                    ],
+                                                    "url": {
+                                                      "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+                                                      "host": [
+                                                        "{{baseUrl}}"
+                                                      ],
+                                                      "path": [
+                                                        "subscriptions",
+                                                        ":subscriptionId",
+                                                        "resourceGroups",
+                                                        ":resourceGroupName",
+                                                        "providers",
+                                                        "Microsoft.HealthcareApis",
+                                                        "workspaces",
+                                                        ":workspaceName",
+                                                        "privateEndpointConnections",
+                                                        ":privateEndpointConnectionName"
+                                                      ],
+                                                      "variable": [
+                                                        {
+                                                          "key": "subscriptionId"
+                                                        },
+                                                        {
+                                                          "key": "resourceGroupName"
+                                                        },
+                                                        {
+                                                          "key": "workspaceName"
+                                                        },
+                                                        {
+                                                          "key": "privateEndpointConnectionName"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  "status": "Internal Server Error",
+                                                  "code": 500,
+                                                  "_postman_previewlanguage": "json",
+                                                  "header": [
+                                                    {
+                                                      "key": "Content-Type",
+                                                      "value": "application/json"
+                                                    }
+                                                  ],
+                                                  "cookie": [],
+                                                  "responseTime": null,
+                                                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                                  "uid": "35240-c53ae222-24ec-496d-b5a5-7cec4007c25b"
+                                                }
+                                              ],
+                                              "createdAt": "2026-07-28T01:10:01.000Z",
+                                              "updatedAt": "2026-07-28T01:10:01.000Z",
+                                              "uid": "35240-5bb511b7-ff10-43ee-8060-c081fa050198"
+                                            }
+                                          ],
+                                          "id": "1f2a9684-7568-4040-b596-9341dc49659f",
+                                          "createdAt": "2026-07-28T01:10:01.000Z",
+                                          "updatedAt": "2026-07-28T01:10:01.000Z",
+                                          "uid": "35240-1f2a9684-7568-4040-b596-9341dc49659f"
+                                        },
+                                        {
+                                          "name": "Workspace Private Endpoint Connections List By Workspace",
+                                          "id": "b1fc375f-ae57-48b5-8607-a165bcfe5dfb",
+                                          "protocolProfileBehavior": {
+                                            "disableBodyPruning": true
+                                          },
+                                          "request": {
+                                            "method": "GET",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "subscriptions",
+                                                ":subscriptionId",
+                                                "resourceGroups",
+                                                ":resourceGroupName",
+                                                "providers",
+                                                "Microsoft.HealthcareApis",
+                                                "workspaces",
+                                                ":workspaceName",
+                                                "privateEndpointConnections"
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "id": "6bf482f1-0f45-4e50-9c96-8f89d5ba3d86",
+                                                  "key": "subscriptionId"
+                                                },
+                                                {
+                                                  "id": "232cc221-805a-4d54-80f3-d16fbcf9bbd2",
+                                                  "key": "resourceGroupName",
+                                                  "value": "c2x",
+                                                  "description": "(Required) The name of the resource group that contains the service instance."
+                                                },
+                                                {
+                                                  "id": "13b087bc-7245-4f32-a55d-95580b5af3e7",
+                                                  "key": "workspaceName",
+                                                  "value": "<string>",
+                                                  "description": "(Required) The name of workspace resource."
+                                                }
+                                              ]
+                                            },
+                                            "description": "Lists all private endpoint connections for a workspace."
+                                          },
+                                          "response": [
+                                            {
+                                              "id": "fd7d06cc-09c2-4071-8b21-166fc1fc66c3",
+                                              "name": "The request was successful; the request was well-formed and received properly.",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateEndpointConnections"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "OK",
+                                              "code": 200,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "null",
+                                              "createdAt": "2026-07-28T01:10:01.000Z",
+                                              "updatedAt": "2026-07-28T01:10:01.000Z",
+                                              "uid": "35240-fd7d06cc-09c2-4071-8b21-166fc1fc66c3"
+                                            },
+                                            {
+                                              "id": "8c4869f8-f603-42a7-a95a-22ea74dbd36e",
+                                              "name": "DefaultErrorResponse",
+                                              "originalRequest": {
+                                                "method": "GET",
+                                                "header": [
+                                                  {
+                                                    "key": "Accept",
+                                                    "value": "application/json"
+                                                  },
+                                                  {
+                                                    "description": "Added as a part of security scheme: oauth2",
+                                                    "key": "Authorization",
+                                                    "value": "<token>"
+                                                  }
+                                                ],
+                                                "url": {
+                                                  "raw": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections",
+                                                  "host": [
+                                                    "{{baseUrl}}"
+                                                  ],
+                                                  "path": [
+                                                    "subscriptions",
+                                                    ":subscriptionId",
+                                                    "resourceGroups",
+                                                    ":resourceGroupName",
+                                                    "providers",
+                                                    "Microsoft.HealthcareApis",
+                                                    "workspaces",
+                                                    ":workspaceName",
+                                                    "privateEndpointConnections"
+                                                  ],
+                                                  "variable": [
+                                                    {
+                                                      "key": "subscriptionId"
+                                                    },
+                                                    {
+                                                      "key": "resourceGroupName"
+                                                    },
+                                                    {
+                                                      "key": "workspaceName"
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "status": "Internal Server Error",
+                                              "code": 500,
+                                              "_postman_previewlanguage": "json",
+                                              "header": [
+                                                {
+                                                  "key": "Content-Type",
+                                                  "value": "application/json"
+                                                }
+                                              ],
+                                              "cookie": [],
+                                              "responseTime": null,
+                                              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"target\": \"<string>\"\n  }\n}",
+                                              "createdAt": "2026-07-28T01:10:01.000Z",
+                                              "updatedAt": "2026-07-28T01:10:01.000Z",
+                                              "uid": "35240-8c4869f8-f603-42a7-a95a-22ea74dbd36e"
+                                            }
+                                          ],
+                                          "createdAt": "2026-07-28T01:10:01.000Z",
+                                          "updatedAt": "2026-07-28T01:10:01.000Z",
+                                          "uid": "35240-b1fc375f-ae57-48b5-8607-a165bcfe5dfb"
+                                        }
+                                      ],
+                                      "id": "c3257fcd-95da-47c9-9a6c-17e27c2cdbd9",
+                                      "createdAt": "2026-07-28T01:10:01.000Z",
+                                      "updatedAt": "2026-07-28T01:10:01.000Z",
+                                      "uid": "35240-c3257fcd-95da-47c9-9a6c-17e27c2cdbd9"
+                                    }
+                                  ],
+                                  "id": "42fca329-afab-4160-948b-c0295e6d0240",
+                                  "createdAt": "2026-07-28T01:10:01.000Z",
+                                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                                  "uid": "35240-42fca329-afab-4160-948b-c0295e6d0240"
+                                }
+                              ],
+                              "id": "ab927f74-78ee-4de2-8c39-7990be883bcf",
+                              "createdAt": "2026-07-28T01:10:01.000Z",
+                              "updatedAt": "2026-07-28T01:10:01.000Z",
+                              "uid": "35240-ab927f74-78ee-4de2-8c39-7990be883bcf"
+                            }
+                          ],
+                          "id": "e6fb0bc3-6832-40ae-83f2-fa59a8b97b4e",
+                          "createdAt": "2026-07-28T01:10:01.000Z",
+                          "updatedAt": "2026-07-28T01:10:01.000Z",
+                          "uid": "35240-e6fb0bc3-6832-40ae-83f2-fa59a8b97b4e"
+                        }
+                      ],
+                      "id": "8355a3e1-9866-4b42-a2e5-b4a6479c17e0",
+                      "createdAt": "2026-07-28T01:10:01.000Z",
+                      "updatedAt": "2026-07-28T01:10:01.000Z",
+                      "uid": "35240-8355a3e1-9866-4b42-a2e5-b4a6479c17e0"
+                    }
+                  ],
+                  "id": "988bac4c-0865-4ee1-976a-4d63c66b1bae",
+                  "createdAt": "2026-07-28T01:10:01.000Z",
+                  "updatedAt": "2026-07-28T01:10:01.000Z",
+                  "uid": "35240-988bac4c-0865-4ee1-976a-4d63c66b1bae"
+                }
+              ],
+              "id": "652b02eb-24d6-4cc7-97bd-7244c8d01ec4",
+              "createdAt": "2026-07-28T01:10:01.000Z",
+              "updatedAt": "2026-07-28T01:10:01.000Z",
+              "uid": "35240-652b02eb-24d6-4cc7-97bd-7244c8d01ec4"
+            }
+          ],
+          "id": "5303aa2f-105b-42e5-8290-a81627e168fc",
+          "createdAt": "2026-07-28T01:10:01.000Z",
+          "updatedAt": "2026-07-28T01:10:01.000Z",
+          "uid": "35240-5303aa2f-105b-42e5-8290-a81627e168fc"
+        }
+      ],
+      "id": "129fbda7-a3d3-476b-b190-0a23e5a11f0a",
+      "createdAt": "2026-07-28T01:10:01.000Z",
+      "updatedAt": "2026-07-28T01:10:01.000Z",
+      "uid": "35240-129fbda7-a3d3-476b-b190-0a23e5a11f0a"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "endpoint",
+      "value": "none"
+    },
+    {
+      "key": "baseUrl",
+      "value": "{{endpoint}}"
+    }
+  ]
+}
