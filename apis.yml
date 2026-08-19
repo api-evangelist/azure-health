@@ -41,7 +41,7 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/azure-health/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: azure-health:azure-health-collection-api
   name: Microsoft Azure Health Data Services Collection API
