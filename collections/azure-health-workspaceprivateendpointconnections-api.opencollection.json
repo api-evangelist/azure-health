@@ -1,0 +1,118 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Health Data Services de-identification service Collection WorkspacePrivateEndpointConnections API",
+    "version": "2024-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "WorkspacePrivateEndpointConnections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "WorkspacePrivateEndpointConnections_ListByWorkspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              }
+            ]
+          },
+          "docs": "Lists all private endpoint connections for a workspace."
+        },
+        {
+          "info": {
+            "name": "WorkspacePrivateEndpointConnections_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              }
+            ]
+          },
+          "docs": "Gets the specified private endpoint connection associated with the workspace."
+        },
+        {
+          "info": {
+            "name": "WorkspacePrivateEndpointConnections_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              }
+            ]
+          },
+          "docs": "Update the state of the specified private endpoint connection associated with the workspace."
+        },
+        {
+          "info": {
+            "name": "WorkspacePrivateEndpointConnections_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/privateEndpointConnections/:privateEndpointConnectionName",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              }
+            ]
+          },
+          "docs": "Deletes a private endpoint connection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,280 @@
+{
+  "item": [
+    {
+      "id": "21bb156b-a8e7-4954-bf0a-2a290fa694d8",
+      "name": "Deid",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d53fd76-5f10-43c7-ab44-32c99a627c41",
+          "name": "De-identify text.",
+          "request": {
+            "name": "De-identify text.",
+            "description": {
+              "content": "A remote procedure call (RPC) operation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "<string>",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                "key": "x-ms-client-request-id",
+                "value": "<uuid>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"inputText\": \"<string>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bda4bc58-2b56-4594-893d-c2946cad01f6",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputText\": \"<string>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                  "key": "x-ms-client-request-id",
+                  "value": "adb16a3d-90c9-83f9-9302-d542f9699382"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"outputText\": \"string\",\n  \"taggerResult\": {\n    \"entities\": [\n      {\n        \"category\": \"Organization\",\n        \"offset\": {\n          \"utf8\": 1711,\n          \"utf16\": 6708,\n          \"codePoint\": 4220\n        },\n        \"length\": {\n          \"utf8\": 2212,\n          \"utf16\": 1361,\n          \"codePoint\": 7482\n        },\n        \"text\": \"string\",\n        \"confidenceScore\": 9359.406959041286\n      },\n      {\n        \"category\": \"Street\",\n        \"offset\": {\n          \"utf8\": 8058,\n          \"utf16\": 6832,\n          \"codePoint\": 8012\n        },\n        \"length\": {\n          \"utf8\": 4833,\n          \"utf16\": 5406,\n          \"codePoint\": 6346\n        },\n        \"text\": \"string\",\n        \"confidenceScore\": 355.3035388800718\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a55b9442-2209-4420-a858-8a94f197b256",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An opaque, globally-unique, client-generated string identifier for the request.",
+                    "key": "x-ms-client-request-id",
+                    "value": "<uuid>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"inputText\": \"<string>\",\n  \"operation\": \"Surrogate\",\n  \"customizations\": {\n    \"redactionFormat\": \"<string>\",\n    \"surrogateLocale\": \"en-US\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "String error code indicating what went wrong.",
+                  "key": "x-ms-error-code",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\",\n    \"details\": [\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      },\n      {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.Error detected>\"\n      }\n    ],\n    \"innererror\": {\n      \"code\": \"string\",\n      \"innererror\": {\n        \"value\": \"<Circular reference to #/components/schemas/Azure.Core.Foundations.InnerError detected>\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Url of your De-identification Service.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "none",
+      "key": "endpoint"
+    },
+    {
+      "type": "string",
+      "value": "{{endpoint}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "10613b14-4432-4510-b5d3-9bad4061ef19",
+    "name": "Azure Health Data Services de-identification service Collection Deid API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

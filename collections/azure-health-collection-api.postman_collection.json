@@ -1,0 +1,397 @@
+{
+  "item": [
+    {
+      "id": "e2357dbe-d2db-4575-a148-4932c865beee",
+      "name": "Collection",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "53ed869d-e6fb-4c86-ad07-4459f4daca52",
+          "name": "Services List",
+          "request": {
+            "name": "Services List",
+            "description": {
+              "content": "Get all the service instances in a subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94606b64-441e-4699-84e7-31bf9c3a76d2",
+              "name": "This is a synchronous operation. The body contains a JSON-serialized array of the metadata from all the service instances in the subscription.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextLink\": \"string\",\n  \"value\": [\n    {\n      \"location\": \"string\",\n      \"kind\": \"fhir-R4\",\n      \"properties\": {\n        \"provisioningState\": \"Succeeded\",\n        \"accessPolicies\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"cosmosDbConfiguration\": {\n          \"offerThroughput\": 7076,\n          \"keyVaultKeyUri\": \"string\",\n          \"crossTenantCmkApplicationId\": \"d7FF12AD-EE1dDAf3-9f9B-8a26847DBb0BAceEF66C-efD3-F76b-60C4-888dC42cDb0d656cff44-dFb264ebC6bA-DA9b09b0afFc7fc677f073b1cA5aaD79E81a0a8F45c5\"\n        },\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audience\": \"string\",\n          \"smartProxyEnabled\": false\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 29932,\n          \"allowCredentials\": true\n        },\n        \"exportConfiguration\": {\n          \"storageAccountName\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Disabled\",\n        \"acrConfiguration\": {\n          \"loginServers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ociArtifacts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"importConfiguration\": {\n          \"integrationDataStore\": \"string\",\n          \"initialImportMode\": true,\n          \"enabled\": false\n        }\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"User\",\n        \"createdAt\": \"1995-01-05T01:15:01.041Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"Application\",\n        \"lastModifiedAt\": \"1952-02-29T18:04:07.779Z\"\n      },\n      \"id\": \"string\",\n      \"name\": \"mr-pjbcb0dw8u7vd1pvx\",\n      \"type\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"etag\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"SystemAssigned\"\n      }\n    },\n    {\n      \"location\": \"string\",\n      \"kind\": \"fhir-Stu3\",\n      \"properties\": {\n        \"provisioningState\": \"Succeeded\",\n        \"accessPolicies\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"cosmosDbConfiguration\": {\n          \"offerThroughput\": 4832,\n          \"keyVaultKeyUri\": \"string\",\n          \"crossTenantCmkApplicationId\": \"EA3ee03e18BA26f6-0dFC-E1AE3ea91CA0B2CfdA40-DF3f-8BE9CEE3-3921b94f078e\"\n        },\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audience\": \"string\",\n          \"smartProxyEnabled\": true\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 49116,\n          \"allowCredentials\": true\n        },\n        \"exportConfiguration\": {\n          \"storageAccountName\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Disabled\",\n        \"acrConfiguration\": {\n          \"loginServers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ociArtifacts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"importConfiguration\": {\n          \"integrationDataStore\": \"string\",\n          \"initialImportMode\": false,\n          \"enabled\": false\n        }\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"Key\",\n        \"createdAt\": \"1959-08-23T15:32:51.809Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"Key\",\n        \"lastModifiedAt\": \"1967-11-29T03:17:45.538Z\"\n      },\n      \"id\": \"string\",\n      \"name\": \"xp7e\",\n      \"type\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"etag\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"SystemAssigned\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "633ecacf-7d5c-4531-9fd3-b78bbc15818f",
+              "name": "DefaultErrorResponse",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "abad440f-3f04-4440-b5d8-f2b20bc4722f",
+          "name": "Services List By Resource Group",
+          "request": {
+            "name": "Services List By Resource Group",
+            "description": {
+              "content": "Get all the service instances in a resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "services"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b9fa2de1-1d21-4e01-a073-64436976bdfb",
+              "name": "This is a synchronous operation. The body contains a JSON-serialized array of the metadata from all the service instances in the resource group.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextLink\": \"string\",\n  \"value\": [\n    {\n      \"location\": \"string\",\n      \"kind\": \"fhir-Stu3\",\n      \"properties\": {\n        \"provisioningState\": \"Deleting\",\n        \"accessPolicies\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"cosmosDbConfiguration\": {\n          \"offerThroughput\": 7885,\n          \"keyVaultKeyUri\": \"string\",\n          \"crossTenantCmkApplicationId\": \"5533e455-fBC501eD-C2FfF62c1E7715aB8aDFdE7e1dff-00A3-C2Dae10bf4C85ba38FDfaD38-7944-7edd-481f-67566C7ced3A7Fa198Ee-b14b2d617ABF0cdcE1BEEeDc\"\n        },\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audience\": \"string\",\n          \"smartProxyEnabled\": false\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 52032,\n          \"allowCredentials\": false\n        },\n        \"exportConfiguration\": {\n          \"storageAccountName\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Enabled\",\n        \"acrConfiguration\": {\n          \"loginServers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ociArtifacts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"importConfiguration\": {\n          \"integrationDataStore\": \"string\",\n          \"initialImportMode\": false,\n          \"enabled\": true\n        }\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"Application\",\n        \"createdAt\": \"1987-04-09T06:35:02.395Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"Key\",\n        \"lastModifiedAt\": \"1958-10-06T19:36:18.689Z\"\n      },\n      \"id\": \"string\",\n      \"name\": \"r0lgresn570dn6w3p5m\",\n      \"type\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"etag\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"SystemAssigned\"\n      }\n    },\n    {\n      \"location\": \"string\",\n      \"kind\": \"fhir-Stu3\",\n      \"properties\": {\n        \"provisioningState\": \"Deprovisioned\",\n        \"accessPolicies\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"cosmosDbConfiguration\": {\n          \"offerThroughput\": 2369,\n          \"keyVaultKeyUri\": \"string\",\n          \"crossTenantCmkApplicationId\": \"EFE8d5f3011abbe0-ce86b5CbC11c79195d0c266CbFf4-43CADFb5-97B2e879EEeDCCfC310B-D3ac-1613-B64e-c34ea42E54cC\"\n        },\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audience\": \"string\",\n          \"smartProxyEnabled\": true\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 7292,\n          \"allowCredentials\": false\n        },\n        \"exportConfiguration\": {\n          \"storageAccountName\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Disabled\",\n        \"acrConfiguration\": {\n          \"loginServers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ociArtifacts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"importConfiguration\": {\n          \"integrationDataStore\": \"string\",\n          \"initialImportMode\": false,\n          \"enabled\": true\n        }\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"Key\",\n        \"createdAt\": \"1960-08-16T22:51:58.347Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"Application\",\n        \"lastModifiedAt\": \"1953-06-09T02:36:23.112Z\"\n      },\n      \"id\": \"string\",\n      \"name\": \"8gj80\",\n      \"type\": \"string\",\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"etag\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"SystemAssigned\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf5d0b5f-c9e0-43c7-9cb4-072a43cd781e",
+              "name": "DefaultErrorResponse",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Url of your De-identification Service.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "none",
+      "key": "endpoint"
+    },
+    {
+      "type": "string",
+      "value": "{{endpoint}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bf3638ac-5a3c-4198-a4fe-4ee4e23ad901",
+    "name": "Azure Health Data Services de-identification service Collection API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

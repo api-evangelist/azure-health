@@ -1,0 +1,167 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Health Data Services de-identification service Collection FhirServices API",
+    "version": "2024-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "FhirServices",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "FhirServices_ListByWorkspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              }
+            ]
+          },
+          "docs": "Lists all FHIR Services for the given workspace"
+        },
+        {
+          "info": {
+            "name": "FhirServices_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              },
+              {
+                "name": "fhirServiceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of FHIR Service resource."
+              }
+            ]
+          },
+          "docs": "Gets the properties of the specified FHIR Service."
+        },
+        {
+          "info": {
+            "name": "FhirServices_CreateOrUpdate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              },
+              {
+                "name": "fhirServiceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of FHIR Service resource."
+              }
+            ]
+          },
+          "docs": "Creates or updates a FHIR Service resource with the specified parameters."
+        },
+        {
+          "info": {
+            "name": "FhirServices_Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "fhirServiceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of FHIR Service resource."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              }
+            ]
+          },
+          "docs": "Patch FHIR Service details."
+        },
+        {
+          "info": {
+            "name": "FhirServices_Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.HealthcareApis/workspaces/:workspaceName/fhirservices/:fhirServiceName",
+            "params": [
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the resource group that contains the service instance."
+              },
+              {
+                "name": "fhirServiceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of FHIR Service resource."
+              },
+              {
+                "name": "workspaceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of workspace resource."
+              }
+            ]
+          },
+          "docs": "Deletes a FHIR Service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

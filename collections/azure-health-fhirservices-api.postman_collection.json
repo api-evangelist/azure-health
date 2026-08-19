@@ -1,0 +1,1668 @@
+{
+  "item": [
+    {
+      "id": "c3be2268-0ede-499c-9082-3b4b592a3c2a",
+      "name": "FhirServices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d725462a-65b6-417d-955a-292de67db681",
+          "name": "Fhir Services List By Workspace",
+          "request": {
+            "name": "Fhir Services List By Workspace",
+            "description": {
+              "content": "Lists all FHIR Services for the given workspace",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "fhirservices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1722c922-ea99-4197-99f7-8bc1ae8b4705",
+              "name": "List of FHIR Services.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextLink\": \"string\",\n  \"value\": [\n    {\n      \"kind\": \"fhir-R4\",\n      \"properties\": {\n        \"provisioningState\": \"Accepted\",\n        \"acrConfiguration\": {\n          \"loginServers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ociArtifacts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audience\": \"string\",\n          \"smartProxyEnabled\": false,\n          \"smartIdentityProviders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 24423,\n          \"allowCredentials\": true\n        },\n        \"exportConfiguration\": {\n          \"storageAccountName\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Enabled\",\n        \"eventState\": \"Updating\",\n        \"resourceVersionPolicyConfiguration\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"importConfiguration\": {\n          \"integrationDataStore\": \"string\",\n          \"initialImportMode\": true,\n          \"enabled\": true\n        },\n        \"implementationGuidesConfiguration\": {\n          \"usCoreMissingData\": false\n        },\n        \"encryption\": {\n          \"customerManagedKeyEncryption\": {\n            \"keyEncryptionKeyUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"Key\",\n        \"createdAt\": \"1956-08-30T12:22:21.521Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"ManagedIdentity\",\n        \"lastModifiedAt\": \"1991-03-22T06:01:42.373Z\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"location\": \"string\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"etag\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identity\": {\n        \"type\": \"SystemAssigned\",\n        \"principalId\": \"3f326752-ea48-501c-f2e5-d7607e4bc759\",\n        \"tenantId\": \"b39c9de9-d391-fbc0-20a3-ee8ef3c8ee39\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"kind\": \"fhir-R4\",\n      \"properties\": {\n        \"provisioningState\": \"Succeeded\",\n        \"acrConfiguration\": {\n          \"loginServers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"ociArtifacts\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audience\": \"string\",\n          \"smartProxyEnabled\": true,\n          \"smartIdentityProviders\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 40501,\n          \"allowCredentials\": true\n        },\n        \"exportConfiguration\": {\n          \"storageAccountName\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Enabled\",\n        \"eventState\": \"Disabled\",\n        \"resourceVersionPolicyConfiguration\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"importConfiguration\": {\n          \"integrationDataStore\": \"string\",\n          \"initialImportMode\": true,\n          \"enabled\": true\n        },\n        \"implementationGuidesConfiguration\": {\n          \"usCoreMissingData\": true\n        },\n        \"encryption\": {\n          \"customerManagedKeyEncryption\": {\n            \"keyEncryptionKeyUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"User\",\n        \"createdAt\": \"1971-11-10T13:30:59.825Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"Key\",\n        \"lastModifiedAt\": \"1948-01-16T22:29:06.801Z\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"location\": \"string\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"etag\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identity\": {\n        \"type\": \"SystemAssigned,UserAssigned\",\n        \"principalId\": \"d099fef1-08dc-181c-d1ab-afe3879e7574\",\n        \"tenantId\": \"b8a4a2a4-4cb3-67c3-d2e4-3bdb3b61c945\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27c9e857-10aa-4b62-97ab-79debbe7a586",
+              "name": "Error response describing why the operation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aadc0d2c-03dd-4783-9fa4-ffeefd8d685b",
+          "name": "Fhir Services Get",
+          "request": {
+            "name": "Fhir Services Get",
+            "description": {
+              "content": "Gets the properties of the specified FHIR Service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "fhirservices",
+                ":fhirServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fhirServiceName",
+                  "description": "(Required) The name of FHIR Service resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c73609ee-b4b9-4124-9d2c-fa2d22faf962",
+              "name": "The request was successful; the request was well-formed and received properly.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"fhir-R4\",\n  \"properties\": {\n    \"provisioningState\": \"Moving\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"string\",\n          \"imageName\": \"string\",\n          \"digest\": \"string\"\n        },\n        {\n          \"loginServer\": \"string\",\n          \"imageName\": \"string\",\n          \"digest\": \"string\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audience\": \"string\",\n      \"smartProxyEnabled\": true,\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"string\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"string\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"hTTps://NcItQpTi.3Xf03s4.Gy84BiW.:1\",\n        \"htTp://v4DGsW0.:0486\"\n      ],\n      \"headers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"methods\": [\n        \"string\",\n        \"string\"\n      ],\n      \"maxAge\": 31035,\n      \"allowCredentials\": false\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"string\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"Enabled\",\n    \"eventState\": \"Enabled\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"versioned\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"versioned\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"string\",\n      \"initialImportMode\": false,\n      \"enabled\": true\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": true\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"string\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"string\",\n    \"createdByType\": \"User\",\n    \"createdAt\": \"2007-04-26T15:22:09.745Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedByType\": \"User\",\n    \"lastModifiedAt\": \"1965-09-02T20:15:16.877Z\"\n  },\n  \"tags\": {\n    \"key_0\": \"string\"\n  },\n  \"location\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"oqlvtj-0of-emhtc948-p6\",\n  \"type\": \"string\",\n  \"etag\": \"string\",\n  \"identity\": {\n    \"type\": \"SystemAssigned,UserAssigned\",\n    \"principalId\": \"a774ef45-7d4d-c616-10cc-f50f09025b48\",\n    \"tenantId\": \"6d86e597-e980-0016-a6ce-14c709da464e\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"4ee521b6-804e-81bf-32b9-9c1feb90dcc8\",\n        \"clientId\": \"cd447e0f-2167-6ff2-f590-386ad7634853\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a72ff4a6-f65d-4ca5-ac6a-53e417ff2fe2",
+              "name": "Error response describing why the operation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdb3ef3d-b694-42f8-b4f4-d3e4cf252187",
+          "name": "Fhir Services Create Or Update",
+          "request": {
+            "name": "Fhir Services Create Or Update",
+            "description": {
+              "content": "Creates or updates a FHIR Service resource with the specified parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "fhirservices",
+                ":fhirServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fhirServiceName",
+                  "description": "(Required) The name of FHIR Service resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b5f31a10-e13c-4a47-8596-047902e8ffd8",
+              "name": "Updated - Put request accepted and an existing resource is updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"t6mj4d766d\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"77f93e30-31d6-ee45-2d85-42ead6fedad4\",\n    \"tenantId\": \"e85aae1f-c88a-c7e5-dc36-ec1222d8cb9c\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"926847d2-a98e-ad8f-06ea-00f13905d5e6\",\n        \"clientId\": \"48beee08-27cb-6795-2cc7-0c7790c62254\"\n      },\n      \"key_1\": {\n        \"principalId\": \"b0fcb0bf-3384-ee1b-e553-a6026057eeaf\",\n        \"clientId\": \"f076290b-2b97-6e8e-6413-d17480506c2c\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87a34179-3eba-418b-8bc8-14f45439eb40",
+              "name": "Created - Put request accepted and an existing resource is being created asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"t6mj4d766d\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"77f93e30-31d6-ee45-2d85-42ead6fedad4\",\n    \"tenantId\": \"e85aae1f-c88a-c7e5-dc36-ec1222d8cb9c\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"926847d2-a98e-ad8f-06ea-00f13905d5e6\",\n        \"clientId\": \"48beee08-27cb-6795-2cc7-0c7790c62254\"\n      },\n      \"key_1\": {\n        \"principalId\": \"b0fcb0bf-3384-ee1b-e553-a6026057eeaf\",\n        \"clientId\": \"f076290b-2b97-6e8e-6413-d17480506c2c\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5377c8a4-7a43-4cbb-a554-450a1ff0cfce",
+              "name": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"t6mj4d766d\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"77f93e30-31d6-ee45-2d85-42ead6fedad4\",\n    \"tenantId\": \"e85aae1f-c88a-c7e5-dc36-ec1222d8cb9c\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"926847d2-a98e-ad8f-06ea-00f13905d5e6\",\n        \"clientId\": \"48beee08-27cb-6795-2cc7-0c7790c62254\"\n      },\n      \"key_1\": {\n        \"principalId\": \"b0fcb0bf-3384-ee1b-e553-a6026057eeaf\",\n        \"clientId\": \"f076290b-2b97-6e8e-6413-d17480506c2c\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ab45d598-3adf-4b84-b00e-cfda3f947410",
+              "name": "Error response describing why the operation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27031dae-3995-43aa-bff7-279e5e7050e1",
+          "name": "Fhir Services Update",
+          "request": {
+            "name": "Fhir Services Update",
+            "description": {
+              "content": "Patch FHIR Service details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "fhirservices",
+                ":fhirServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fhirServiceName",
+                  "description": "(Required) The name of FHIR Service resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35aa27b2-2a0c-41ac-98c6-d7087202d176",
+              "name": "Updated - Patch request accepted and an existing resource is updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"t6mj4d766d\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"77f93e30-31d6-ee45-2d85-42ead6fedad4\",\n    \"tenantId\": \"e85aae1f-c88a-c7e5-dc36-ec1222d8cb9c\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"926847d2-a98e-ad8f-06ea-00f13905d5e6\",\n        \"clientId\": \"48beee08-27cb-6795-2cc7-0c7790c62254\"\n      },\n      \"key_1\": {\n        \"principalId\": \"b0fcb0bf-3384-ee1b-e553-a6026057eeaf\",\n        \"clientId\": \"f076290b-2b97-6e8e-6413-d17480506c2c\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78309f8a-d68e-492b-80ea-c76340721ee1",
+              "name": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\",\n      \"smartIdentityProviders\": [\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"authority\": \"<string>\",\n          \"applications\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"resourceVersionPolicyConfiguration\": {\n      \"default\": \"<string>\",\n      \"resourceTypeOverrides\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"implementationGuidesConfiguration\": {\n      \"usCoreMissingData\": \"<boolean>\"\n    },\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"t6mj4d766d\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"77f93e30-31d6-ee45-2d85-42ead6fedad4\",\n    \"tenantId\": \"e85aae1f-c88a-c7e5-dc36-ec1222d8cb9c\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"926847d2-a98e-ad8f-06ea-00f13905d5e6\",\n        \"clientId\": \"48beee08-27cb-6795-2cc7-0c7790c62254\"\n      },\n      \"key_1\": {\n        \"principalId\": \"b0fcb0bf-3384-ee1b-e553-a6026057eeaf\",\n        \"clientId\": \"f076290b-2b97-6e8e-6413-d17480506c2c\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4b08204-c625-41c4-a0fa-8787c8159e79",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {},\n      \"key_1\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7616bb27-3f58-45cc-95e2-6f3f7cae9589",
+          "name": "Fhir Services Delete",
+          "request": {
+            "name": "Fhir Services Delete",
+            "description": {
+              "content": "Deletes a FHIR Service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "fhirservices",
+                ":fhirServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "fhirServiceName",
+                  "description": "(Required) The name of FHIR Service resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2eb46fdf-495f-4bc6-8ce9-ecb85a19af7e",
+              "name": "Resource deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "571f36d3-0d3d-41ff-9def-d5099b46d6d3",
+              "name": "Delete request accepted; the operation will complete asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0ac2a238-f063-4c47-a729-fed353291a0d",
+              "name": "The resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3dab3ad6-fd32-48a7-a239-49fe27912127",
+              "name": "Error response describing why the operation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "fhirservices",
+                    ":fhirServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "fhirServiceName",
+                      "description": "(Required) The name of FHIR Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Url of your De-identification Service.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "none",
+      "key": "endpoint"
+    },
+    {
+      "type": "string",
+      "value": "{{endpoint}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "671c377f-9cdd-4cdc-b80e-7d7fdccf4c22",
+    "name": "Azure Health Data Services de-identification service Collection FhirServices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

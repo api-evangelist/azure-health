@@ -1,0 +1,1668 @@
+{
+  "item": [
+    {
+      "id": "0beb0c4f-8cec-4fa8-b813-9c335f651e3b",
+      "name": "DicomServices",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4581c1c8-9a5e-4a17-8247-32b6a15d42be",
+          "name": "Dicom Services List By Workspace",
+          "request": {
+            "name": "Dicom Services List By Workspace",
+            "description": {
+              "content": "Lists all DICOM Services for the given workspace",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "dicomservices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e664c7f6-b6b4-4f47-8c20-c20d4a35912d",
+              "name": "List of DICOM Services.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextLink\": \"string\",\n  \"value\": [\n    {\n      \"properties\": {\n        \"provisioningState\": \"Deprovisioned\",\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audiences\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 75335,\n          \"allowCredentials\": true\n        },\n        \"serviceUrl\": \"string\",\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Disabled\",\n        \"eventState\": \"Disabled\",\n        \"encryption\": {\n          \"customerManagedKeyEncryption\": {\n            \"keyEncryptionKeyUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"storageConfiguration\": {\n          \"storageResourceId\": \"string\",\n          \"fileSystemName\": \"string\"\n        },\n        \"enableDataPartitions\": false\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"User\",\n        \"createdAt\": \"1982-09-25T16:51:03.849Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"ManagedIdentity\",\n        \"lastModifiedAt\": \"1972-05-07T02:53:56.060Z\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"location\": \"string\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"etag\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identity\": {\n        \"type\": \"UserAssigned\",\n        \"principalId\": \"64af7dbc-63a4-7be5-8ee3-e304a423637b\",\n        \"tenantId\": \"ed14b666-22bd-e3bf-3db9-914f2b7203e9\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"properties\": {\n        \"provisioningState\": \"Moving\",\n        \"authenticationConfiguration\": {\n          \"authority\": \"string\",\n          \"audiences\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        \"corsConfiguration\": {\n          \"origins\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"headers\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"methods\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"maxAge\": 10913,\n          \"allowCredentials\": true\n        },\n        \"serviceUrl\": \"string\",\n        \"privateEndpointConnections\": [\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          },\n          {\n            \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n          }\n        ],\n        \"publicNetworkAccess\": \"Disabled\",\n        \"eventState\": \"Updating\",\n        \"encryption\": {\n          \"customerManagedKeyEncryption\": {\n            \"keyEncryptionKeyUrl\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"storageConfiguration\": {\n          \"storageResourceId\": \"string\",\n          \"fileSystemName\": \"string\"\n        },\n        \"enableDataPartitions\": true\n      },\n      \"systemData\": {\n        \"createdBy\": \"string\",\n        \"createdByType\": \"Key\",\n        \"createdAt\": \"2008-07-06T21:53:58.534Z\",\n        \"lastModifiedBy\": \"string\",\n        \"lastModifiedByType\": \"User\",\n        \"lastModifiedAt\": \"1971-05-09T02:00:46.102Z\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"location\": \"string\",\n      \"id\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"name\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"etag\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"identity\": {\n        \"type\": \"SystemAssigned,UserAssigned\",\n        \"principalId\": \"e9a31357-7ef5-2a9c-00ce-36b7e86d9dcd\",\n        \"tenantId\": \"dec00a72-9697-31cd-23fb-d30cb41e38b3\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "781278e3-5f45-4e70-82fa-c80398c557c7",
+              "name": "Error response describing why the operation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d9f0a2b-fe46-4253-a2b0-0348377dce09",
+          "name": "Dicom Services Get",
+          "request": {
+            "name": "Dicom Services Get",
+            "description": {
+              "content": "Gets the properties of the specified DICOM Service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "dicomservices",
+                ":dicomServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dicomServiceName",
+                  "description": "(Required) The name of DICOM Service resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d994d96-ed8a-4654-a981-f259b05b6310",
+              "name": "The request was successful; the request was well-formed and received properly.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"provisioningState\": \"Suspended\",\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audiences\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"*\",\n        \"HtTP://IL.C0r1wxd2JTGvbSk.EGBO3-yxvY33DhEB5.s:613\"\n      ],\n      \"headers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"methods\": [\n        \"string\",\n        \"string\"\n      ],\n      \"maxAge\": 68304,\n      \"allowCredentials\": false\n    },\n    \"serviceUrl\": \"string\",\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"Disabled\",\n    \"eventState\": \"Updating\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"string\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"string\",\n      \"fileSystemName\": \"string\"\n    },\n    \"enableDataPartitions\": false\n  },\n  \"systemData\": {\n    \"createdBy\": \"string\",\n    \"createdByType\": \"Key\",\n    \"createdAt\": \"1964-05-20T00:56:23.139Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedByType\": \"Key\",\n    \"lastModifiedAt\": \"1983-07-15T23:51:54.658Z\"\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"location\": \"string\",\n  \"id\": \"string\",\n  \"name\": \"pjyrkjeehc\",\n  \"type\": \"string\",\n  \"etag\": \"string\",\n  \"identity\": {\n    \"type\": \"UserAssigned\",\n    \"principalId\": \"483c78e0-d630-0f56-a49c-e036d147c371\",\n    \"tenantId\": \"5dae014f-ff03-cb61-a8b2-69d7377cbdb4\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"d1391d33-fcf1-4f04-2709-06b332893282\",\n        \"clientId\": \"94da2054-b2a6-2dd9-91b5-15d8b097928d\"\n      },\n      \"key_1\": {\n        \"principalId\": \"57326b75-a627-9264-bc63-69d7fa5445f9\",\n        \"clientId\": \"c274b08d-8855-ef67-c35b-3bf762bf70ac\"\n      },\n      \"key_2\": {\n        \"principalId\": \"c422270c-010e-d0af-4886-c60cb9d20090\",\n        \"clientId\": \"60586191-c306-7f2e-85cd-43f8eb4b7346\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ff3c774-76c2-493e-9b0c-423848c2aad3",
+              "name": "Error response describing why the operation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d62fba9-86bb-4add-909b-0e71b1b66421",
+          "name": "Dicom Services Create Or Update",
+          "request": {
+            "name": "Dicom Services Create Or Update",
+            "description": {
+              "content": "Creates or updates a DICOM Service resource with the specified parameters.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "dicomservices",
+                ":dicomServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dicomServiceName",
+                  "description": "(Required) The name of DICOM Service resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0e3bdf07-1ace-4972-93be-344743af0f2f",
+              "name": "Updated - Put request accepted and an existing resource is updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {},\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audiences\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"serviceUrl\": \"string\",\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"pvy39r1rnp8qfgslbgcr35\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"b1c2ed1c-737a-53dc-416e-86b6d073659d\",\n    \"tenantId\": \"43c98ac9-8324-e5e2-b6b4-266ab50f9895\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"1237fcc4-ef11-a446-6749-9eb0e6717daa\",\n        \"clientId\": \"47d07c96-e819-9b7b-932f-c667bdeb5035\"\n      },\n      \"key_1\": {\n        \"principalId\": \"fc9d0079-70b6-6938-aaca-5fdce0bfa767\",\n        \"clientId\": \"ccec7631-1f99-688f-0654-1188dafb0d01\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5cd5b148-b589-41b7-b3aa-56bf9e7bba0a",
+              "name": "Created - Put request accepted and an existing resource is being created asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {},\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audiences\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"serviceUrl\": \"string\",\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"pvy39r1rnp8qfgslbgcr35\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"b1c2ed1c-737a-53dc-416e-86b6d073659d\",\n    \"tenantId\": \"43c98ac9-8324-e5e2-b6b4-266ab50f9895\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"1237fcc4-ef11-a446-6749-9eb0e6717daa\",\n        \"clientId\": \"47d07c96-e819-9b7b-932f-c667bdeb5035\"\n      },\n      \"key_1\": {\n        \"principalId\": \"fc9d0079-70b6-6938-aaca-5fdce0bfa767\",\n        \"clientId\": \"ccec7631-1f99-688f-0654-1188dafb0d01\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98be20e2-1350-45e5-883a-85310d94820d",
+              "name": "Accepted - Put request accepted and an existing resource is being updated asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {},\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audiences\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"serviceUrl\": \"string\",\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"pvy39r1rnp8qfgslbgcr35\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"b1c2ed1c-737a-53dc-416e-86b6d073659d\",\n    \"tenantId\": \"43c98ac9-8324-e5e2-b6b4-266ab50f9895\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"1237fcc4-ef11-a446-6749-9eb0e6717daa\",\n        \"clientId\": \"47d07c96-e819-9b7b-932f-c667bdeb5035\"\n      },\n      \"key_1\": {\n        \"principalId\": \"fc9d0079-70b6-6938-aaca-5fdce0bfa767\",\n        \"clientId\": \"ccec7631-1f99-688f-0654-1188dafb0d01\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbf94eda-711c-4be6-92e7-23c497abfa9f",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {},\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e218878d-32ef-4065-8f47-68bc49389de1",
+          "name": "Dicom Services Update",
+          "request": {
+            "name": "Dicom Services Update",
+            "description": {
+              "content": "Patch DICOM Service details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "dicomservices",
+                ":dicomServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dicomServiceName",
+                  "description": "(Required) The name of DICOM Service resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adc1d9a0-8004-49fa-a343-0747c25e0b10",
+              "name": "Updated - Patch request accepted and an existing resource is updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audiences\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"serviceUrl\": \"string\",\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"pvy39r1rnp8qfgslbgcr35\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"b1c2ed1c-737a-53dc-416e-86b6d073659d\",\n    \"tenantId\": \"43c98ac9-8324-e5e2-b6b4-266ab50f9895\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"1237fcc4-ef11-a446-6749-9eb0e6717daa\",\n        \"clientId\": \"47d07c96-e819-9b7b-932f-c667bdeb5035\"\n      },\n      \"key_1\": {\n        \"principalId\": \"fc9d0079-70b6-6938-aaca-5fdce0bfa767\",\n        \"clientId\": \"ccec7631-1f99-688f-0654-1188dafb0d01\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c12e35fa-c196-410e-98f8-4c6b9403e966",
+              "name": "Accepted - Patch request accepted and an existing resource is being updated asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audiences\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"serviceUrl\": \"string\",\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"eventState\": \"<string>\",\n    \"encryption\": {\n      \"customerManagedKeyEncryption\": {\n        \"keyEncryptionKeyUrl\": \"<string>\"\n      }\n    },\n    \"storageConfiguration\": {\n      \"storageResourceId\": \"<string>\",\n      \"fileSystemName\": \"<string>\"\n    },\n    \"enableDataPartitions\": \"<boolean>\"\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\",\n    \"key_4\": \"<string>\"\n  },\n  \"location\": \"<string>\",\n  \"id\": \"string\",\n  \"name\": \"pvy39r1rnp8qfgslbgcr35\",\n  \"type\": \"string\",\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"principalId\": \"b1c2ed1c-737a-53dc-416e-86b6d073659d\",\n    \"tenantId\": \"43c98ac9-8324-e5e2-b6b4-266ab50f9895\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"principalId\": \"1237fcc4-ef11-a446-6749-9eb0e6717daa\",\n        \"clientId\": \"47d07c96-e819-9b7b-932f-c667bdeb5035\"\n      },\n      \"key_1\": {\n        \"principalId\": \"fc9d0079-70b6-6938-aaca-5fdce0bfa767\",\n        \"clientId\": \"ccec7631-1f99-688f-0654-1188dafb0d01\"\n      }\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69d5225e-98a5-4f3e-bf9d-251b21a6462f",
+              "name": "Error response describing why the operation failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {}\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ebdfcfd-7355-4902-9514-74d8fa566345",
+          "name": "Dicom Services Delete",
+          "request": {
+            "name": "Dicom Services Delete",
+            "description": {
+              "content": "Deletes a DICOM Service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "workspaces",
+                ":workspaceName",
+                "dicomservices",
+                ":dicomServiceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dicomServiceName",
+                  "description": "(Required) The name of DICOM Service resource."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceName",
+                  "description": "(Required) The name of workspace resource."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0e2e8ea-3b4f-4e45-82ea-d9b390927b77",
+              "name": "Resource deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b72b2957-8817-4b5a-8a6d-7269fbf174ea",
+              "name": "Delete request accepted; the operation will complete asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5c8b72a9-56f7-47b7-9b90-a0c7b47620a9",
+              "name": "The resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ef29d3d7-3c97-44ec-8b5e-154c7f5f1c2c",
+              "name": "Error response describing why the operation failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "workspaces",
+                    ":workspaceName",
+                    "dicomservices",
+                    ":dicomServiceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dicomServiceName",
+                      "description": "(Required) The name of DICOM Service resource."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceName",
+                      "description": "(Required) The name of workspace resource."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Url of your De-identification Service.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "none",
+      "key": "endpoint"
+    },
+    {
+      "type": "string",
+      "value": "{{endpoint}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "03325415-e7e3-40d8-a528-3709e15e6e9f",
+    "name": "Azure Health Data Services de-identification service Collection DicomServices API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

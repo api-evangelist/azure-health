@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Health Data Services de-identification service Collection Deid API",
+    "version": "2024-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deid",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "De-identify text.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/deid",
+            "headers": [
+              {
+                "name": "x-ms-client-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ]
+          },
+          "docs": "A remote procedure call (RPC) operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

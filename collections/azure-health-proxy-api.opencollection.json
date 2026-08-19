@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Health Data Services de-identification service Collection Proxy API",
+    "version": "2024-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Proxy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Services_CheckNameAvailability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/checkNameAvailability"
+          },
+          "docs": "Check if a service instance name is available."
+        },
+        {
+          "info": {
+            "name": "Operations_List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/providers/Microsoft.HealthcareApis/operations"
+          },
+          "docs": "Lists all of the available operations supported by Microsoft Healthcare resource provider."
+        },
+        {
+          "info": {
+            "name": "OperationResults_Get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/subscriptions/:subscriptionId/providers/Microsoft.HealthcareApis/locations/:locationName/operationresults/:operationResultId",
+            "params": [
+              {
+                "name": "locationName",
+                "value": "",
+                "type": "path",
+                "description": "The location of the operation."
+              },
+              {
+                "name": "operationResultId",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the operation result to get."
+              }
+            ]
+          },
+          "docs": "Get the operation result for a long running operation."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

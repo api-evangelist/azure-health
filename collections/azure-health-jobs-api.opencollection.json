@@ -1,0 +1,222 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Health Data Services de-identification service Collection Jobs API",
+    "version": "2024-11-15"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List de-identification jobs.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs",
+            "headers": [
+              {
+                "name": "x-ms-client-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              },
+              {
+                "name": "maxpagesize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of result items per page."
+              },
+              {
+                "name": "continuationToken",
+                "value": "",
+                "type": "query",
+                "description": "Token to continue a previous query."
+              }
+            ]
+          },
+          "docs": "Resource list operation template."
+        },
+        {
+          "info": {
+            "name": "Get a de-identification job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:name",
+            "headers": [
+              {
+                "name": "x-ms-client-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of a job."
+              }
+            ]
+          },
+          "docs": "Resource read operation template."
+        },
+        {
+          "info": {
+            "name": "Create a de-identification job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/jobs/:name",
+            "headers": [
+              {
+                "name": "x-ms-client-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of a job."
+              }
+            ]
+          },
+          "docs": "Long-running resource create or replace operation template."
+        },
+        {
+          "info": {
+            "name": "Delete a de-identification job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/jobs/:name",
+            "headers": [
+              {
+                "name": "x-ms-client-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of a job."
+              }
+            ]
+          },
+          "docs": "Removes the record of the job from the service. Does not delete any documents."
+        },
+        {
+          "info": {
+            "name": "Cancel a de-identification job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/jobs/:name:cancel",
+            "headers": [
+              {
+                "name": "x-ms-client-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of a job."
+              }
+            ]
+          },
+          "docs": "Cancels a job that is in progress. \n\nThe job will be marked as canceled and the service will stop processing the job. The service will not delete any documents that have already been processed.\n\nIf the job is already complete, this will have no effect. "
+        },
+        {
+          "info": {
+            "name": "List processed documents within a job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/jobs/:name/documents",
+            "headers": [
+              {
+                "name": "x-ms-client-request-id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "path",
+                "description": "The name of a job."
+              },
+              {
+                "name": "maxpagesize",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of result items per page."
+              },
+              {
+                "name": "continuationToken",
+                "value": "",
+                "type": "query",
+                "description": "Token to continue a previous query."
+              }
+            ]
+          },
+          "docs": "Resource list operation template."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

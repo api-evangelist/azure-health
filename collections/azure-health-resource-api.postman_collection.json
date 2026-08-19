@@ -1,0 +1,1082 @@
+{
+  "item": [
+    {
+      "id": "5d5d20bd-753b-454d-8e36-67ea49ddf601",
+      "name": "Resource",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2980ca2c-2c4a-4367-b39d-b96a3d544ec5",
+          "name": "Services Get",
+          "request": {
+            "name": "Services Get",
+            "description": {
+              "content": "Get the metadata of a service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "services",
+                ":resourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The name of the service instance."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba31f435-43bc-4c8d-9cc1-3ae2135b2d50",
+              "name": "The body contains all of the properties of the service instance.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location\": \"string\",\n  \"kind\": \"fhir-Stu3\",\n  \"properties\": {\n    \"provisioningState\": \"Accepted\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"68A9cD5a-d2c3BBED8BA3-baa58afB62c200bbFB074D4E95AE27DDbe4Ec9A6605cB36d4dcC-aE6380cB-b50A-4aA38464c396DAE795dEb36BA2A1bD8F2bdA7f612f5EBdCE0EAc-E5E9ceb6491dfD0718c47EA3\"\n      },\n      {\n        \"objectId\": \"47Ca9031-C8Be-bB9CD166-0eeCA55d6cE70edf8bD8-b83B9aF3-0dCB859a21284B9E20E9B41d-3acf989FA7DC766343e6008200BaBaBc-AFC6-f6ddbc3e-C212BF96BAd7F7F9A0f7bF7cAEa70EEc58824aFAb3dc6ACB5fCaAbF7-33aB-f82B-f5Cc7EEbeCac2a725D4E9D6c-c5e0405e7a7Decdd5B25BB1cc433-75fA-dadcBcfA08254D28CBdd4c1aBd0b-b55E-1EC4-be1bA2f03bEadABeD34D2971-0878Cf85-DdcE2d43F63a2B14\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": 6734,\n      \"keyVaultKeyUri\": \"string\",\n      \"crossTenantCmkApplicationId\": \"Bfbe8BbC-B54A68621dcDDcFEBddF3BDaE2EFEff0-5a1f0dAB2e7FE091e09d4a8DEcDBCA9d-7d39-6D2d-Fc52-0610eACfd32f\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"string\",\n      \"audience\": \"string\",\n      \"smartProxyEnabled\": false\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"*\",\n        \"HTTp://idvDU7Uj.990tWq4.ilZG2T.MYSwl1yO-o.xL9emWa1o1V\"\n      ],\n      \"headers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"methods\": [\n        \"string\",\n        \"string\"\n      ],\n      \"maxAge\": 16786,\n      \"allowCredentials\": true\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"string\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"Enabled\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"string\",\n        \"string\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"string\",\n          \"imageName\": \"string\",\n          \"digest\": \"string\"\n        },\n        {\n          \"loginServer\": \"string\",\n          \"imageName\": \"string\",\n          \"digest\": \"string\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"string\",\n      \"initialImportMode\": false,\n      \"enabled\": false\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"string\",\n    \"createdByType\": \"User\",\n    \"createdAt\": \"2023-03-30T14:53:58.085Z\",\n    \"lastModifiedBy\": \"string\",\n    \"lastModifiedByType\": \"ManagedIdentity\",\n    \"lastModifiedAt\": \"1968-01-24T17:33:51.048Z\"\n  },\n  \"id\": \"string\",\n  \"name\": \"wik5fyhiif\",\n  \"type\": \"string\",\n  \"tags\": {\n    \"key_0\": \"string\"\n  },\n  \"etag\": \"string\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"None\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a598346-d307-4ac2-aade-d751f28456ee",
+              "name": "Default error response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "534a4409-f4b7-4e27-90d0-b50db08063ed",
+          "name": "Services Create Or Update",
+          "request": {
+            "name": "Services Create Or Update",
+            "description": {
+              "content": "Create or update the metadata of a service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "services",
+                ":resourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The name of the service instance."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"<string>\"\n      },\n      {\n        \"objectId\": \"<string>\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": \"<integer>\",\n      \"keyVaultKeyUri\": \"<string>\",\n      \"crossTenantCmkApplicationId\": \"<string>\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\"\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62d8593a-5515-4c70-9d5a-51bba185246d",
+              "name": "Updated - Put request accepted and an existing resource is being updated; the operation will complete asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"<string>\"\n      },\n      {\n        \"objectId\": \"<string>\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": \"<integer>\",\n      \"keyVaultKeyUri\": \"<string>\",\n      \"crossTenantCmkApplicationId\": \"<string>\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\"\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"<string>\"\n      },\n      {\n        \"objectId\": \"<string>\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": \"<integer>\",\n      \"keyVaultKeyUri\": \"<string>\",\n      \"crossTenantCmkApplicationId\": \"<string>\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\"\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"id\": \"string\",\n  \"name\": \"07p7yszcc5aym\",\n  \"type\": \"string\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1dc578ac-aa5e-4b94-bd58-93adca3b332a",
+              "name": "Created - Put request accepted and a new resource was created; the operation will complete asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"<string>\"\n      },\n      {\n        \"objectId\": \"<string>\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": \"<integer>\",\n      \"keyVaultKeyUri\": \"<string>\",\n      \"crossTenantCmkApplicationId\": \"<string>\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\"\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"<string>\"\n      },\n      {\n        \"objectId\": \"<string>\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": \"<integer>\",\n      \"keyVaultKeyUri\": \"<string>\",\n      \"crossTenantCmkApplicationId\": \"<string>\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\"\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"id\": \"string\",\n  \"name\": \"07p7yszcc5aym\",\n  \"type\": \"string\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d6792b2-6a23-4848-bbff-6739fecab9a2",
+              "name": "DefaultErrorResponse",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"location\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"<string>\"\n      },\n      {\n        \"objectId\": \"<string>\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": \"<integer>\",\n      \"keyVaultKeyUri\": \"<string>\",\n      \"crossTenantCmkApplicationId\": \"<string>\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\"\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"type\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd1a74b3-b7c2-4eae-8d3d-3747c49c3154",
+          "name": "Services Update",
+          "request": {
+            "name": "Services Update",
+            "description": {
+              "content": "Update the metadata of a service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "services",
+                ":resourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The name of the service instance."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"properties\": {\n    \"publicNetworkAccess\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "19baf2c2-c135-4ae3-8acf-fa362e613669",
+              "name": "The tags for the resource were updated successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"properties\": {\n    \"publicNetworkAccess\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"location\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"provisioningState\": \"<string>\",\n    \"accessPolicies\": [\n      {\n        \"objectId\": \"<string>\"\n      },\n      {\n        \"objectId\": \"<string>\"\n      }\n    ],\n    \"cosmosDbConfiguration\": {\n      \"offerThroughput\": \"<integer>\",\n      \"keyVaultKeyUri\": \"<string>\",\n      \"crossTenantCmkApplicationId\": \"<string>\"\n    },\n    \"authenticationConfiguration\": {\n      \"authority\": \"<string>\",\n      \"audience\": \"<string>\",\n      \"smartProxyEnabled\": \"<boolean>\"\n    },\n    \"corsConfiguration\": {\n      \"origins\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"headers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"methods\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"maxAge\": \"<integer>\",\n      \"allowCredentials\": \"<boolean>\"\n    },\n    \"exportConfiguration\": {\n      \"storageAccountName\": \"<string>\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      },\n      {\n        \"value\": \"reference ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection not found in the OpenAPI spec\"\n      }\n    ],\n    \"publicNetworkAccess\": \"<string>\",\n    \"acrConfiguration\": {\n      \"loginServers\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ociArtifacts\": [\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        },\n        {\n          \"loginServer\": \"<string>\",\n          \"imageName\": \"<string>\",\n          \"digest\": \"<string>\"\n        }\n      ]\n    },\n    \"importConfiguration\": {\n      \"integrationDataStore\": \"<string>\",\n      \"initialImportMode\": \"<boolean>\",\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"systemData\": {\n    \"createdBy\": \"<string>\",\n    \"createdByType\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedBy\": \"<string>\",\n    \"lastModifiedByType\": \"<string>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"id\": \"string\",\n  \"name\": \"07p7yszcc5aym\",\n  \"type\": \"string\",\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"etag\": \"<string>\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"<string>\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6d8f05c-87f8-4dca-aca4-dd8b51ee7258",
+              "name": "DefaultErrorResponse",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  },\n  \"properties\": {\n    \"publicNetworkAccess\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d74c2b8-2f07-4337-8ecf-c2ad9c429e71",
+          "name": "Services Delete",
+          "request": {
+            "name": "Services Delete",
+            "description": {
+              "content": "Delete a service instance.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.HealthcareApis",
+                "services",
+                ":resourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The name of the resource group that contains the service instance."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceName",
+                  "description": "(Required) The name of the service instance."
+                },
+                {
+                  "description": "Url of your De-identification Service.",
+                  "type": "any",
+                  "value": "{{endpoint}}",
+                  "key": "endpoint"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "840e57e0-a7db-442a-8084-e5f35d62e15e",
+              "name": "Accepted - Delete request accepted; the operation will complete asynchronously.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "512522d6-bd04-40a4-bccf-0a5cf0fae54c",
+              "name": "The resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40226660-9d7a-46f0-9e63-c9d30e2afe50",
+              "name": "DefaultErrorResponse",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.HealthcareApis",
+                    "services",
+                    ":resourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The name of the resource group that contains the service instance."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceName",
+                      "description": "(Required) The name of the service instance."
+                    },
+                    {
+                      "description": "Url of your De-identification Service.",
+                      "type": "any",
+                      "value": "{{endpoint}}",
+                      "key": "endpoint"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": \"string\",\n    \"target\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Url of your De-identification Service.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "none",
+      "key": "endpoint"
+    },
+    {
+      "type": "string",
+      "value": "{{endpoint}}",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://deid.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "48fd75b2-4a28-4fd4-b9f9-4d96daadeec4",
+    "name": "Azure Health Data Services de-identification service Collection Resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}
