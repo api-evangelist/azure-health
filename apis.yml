@@ -368,6 +368,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
   baseURL: https://{workspace-name}-{fhir-service-name}.fhir.azurehealthcareapis.com
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
