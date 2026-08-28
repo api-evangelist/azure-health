@@ -11,6 +11,20 @@ description: >-
   compliance boundary in an Azure workspace and authenticate via Microsoft Entra ID
   OAuth 2.0 bearer tokens.
 type: Index
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
