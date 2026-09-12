@@ -33,6 +33,21 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "azure-health-collection-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-deid-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-dicomservices-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-fhirservices-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-iotconnectors-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-jobs-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-privateendpointconnections-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-privatelinkresources-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-proxy-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-resource-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-workspaceprivateendpointconnections-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-workspaceprivatelinkresources-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "azure-health-workspaces-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }

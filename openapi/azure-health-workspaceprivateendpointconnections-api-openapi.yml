@@ -1,15 +1,9 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection WorkspacePrivateEndpointConnections API
+  title: Azure Health Data Services de-identification service Collection Workspace Private Endpoint Connections API
   version: '2024-11-15'
   x-typespec-generated:
   - emitter: '@azure-tools/typespec-autorest'
-schemes:
-- https
-consumes:
-- application/json
-produces:
-- application/json
 security:
 - AadToken:
   - https://deid.azure.com/.default
@@ -25,17 +19,21 @@ paths:
       parameters:
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
-      - $ref: '#/parameters/resourceGroupName'
-      - $ref: '#/parameters/workspaceName'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/workspaceName'
       responses:
         '200':
           description: The request was successful; the request was well-formed and received properly.
-          schema:
-            $ref: '#/definitions/PrivateEndpointConnectionListResultDescription'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateEndpointConnectionListResultDescription'
         default:
           description: DefaultErrorResponse
-          schema:
-            $ref: '#/definitions/ErrorDetails'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
       x-ms-examples:
         WorkspacePrivateEndpointConnection_List:
           $ref: ./examples/privatelink/WorkspaceListPrivateEndpointConnections.json
@@ -50,18 +48,22 @@ paths:
       parameters:
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
-      - $ref: '#/parameters/resourceGroupName'
-      - $ref: '#/parameters/workspaceName'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/workspaceName'
       - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/parameters/PrivateEndpointConnectionName
       responses:
         '200':
           description: The request was successful; the request was well-formed and received properly.
-          schema:
-            $ref: '#/definitions/PrivateEndpointConnectionDescription'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
         default:
           description: DefaultErrorResponse
-          schema:
-            $ref: '#/definitions/ErrorDetails'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
       x-ms-examples:
         WorkspacePrivateEndpointConnection_GetConnection:
           $ref: ./examples/privatelink/WorkspaceGetPrivateEndpointConnection.json
@@ -73,28 +75,33 @@ paths:
       parameters:
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
-      - $ref: '#/parameters/resourceGroupName'
-      - $ref: '#/parameters/workspaceName'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/workspaceName'
       - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/parameters/PrivateEndpointConnectionName
-      - name: properties
-        in: body
-        required: true
-        schema:
-          $ref: '#/definitions/PrivateEndpointConnectionDescription'
-        description: The private endpoint connection properties.
       responses:
         '200':
           description: The request was successful; the request was well-formed and received properly.
-          schema:
-            $ref: '#/definitions/PrivateEndpointConnectionDescription'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
         default:
           description: DefaultErrorResponse
-          schema:
-            $ref: '#/definitions/ErrorDetails'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
       x-ms-examples:
         WorkspacePrivateEndpointConnection_CreateOrUpdate:
           $ref: ./examples/privatelink/WorkspaceCreatePrivateEndpointConnection.json
       x-ms-long-running-operation: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
+        description: The private endpoint connection properties.
+        required: true
     delete:
       tags:
       - WorkspacePrivateEndpointConnections
@@ -103,8 +110,8 @@ paths:
       parameters:
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/ApiVersionParameter
       - $ref: ../../../../../../common-types/resource-management/v3/types.json#/parameters/SubscriptionIdParameter
-      - $ref: '#/parameters/resourceGroupName'
-      - $ref: '#/parameters/workspaceName'
+      - $ref: '#/components/parameters/resourceGroupName'
+      - $ref: '#/components/parameters/workspaceName'
       - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/parameters/PrivateEndpointConnectionName
       responses:
         '200':
@@ -115,83 +122,89 @@ paths:
           description: No Content - The private endpoint connection does not exist.
         default:
           description: DefaultErrorResponse
-          schema:
-            $ref: '#/definitions/ErrorDetails'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorDetails'
       x-ms-examples:
         WorkspacePrivateEndpointConnections_Delete:
           $ref: ./examples/privatelink/WorkspaceDeletePrivateEndpointConnection.json
       x-ms-long-running-operation: true
-definitions:
-  ErrorDetails:
-    description: Error details.
-    type: object
-    properties:
-      error:
-        description: Error details
-        $ref: '#/definitions/ErrorDetailsInternal'
-  PrivateEndpointConnectionListResultDescription:
-    type: object
-    properties:
-      value:
-        type: array
-        description: Array of private endpoint connections
-        items:
-          $ref: '#/definitions/PrivateEndpointConnectionDescription'
-    description: List of private endpoint connection associated with the specified storage account
-  PrivateEndpointConnectionDescription:
-    type: object
-    properties:
-      systemData:
-        description: Metadata pertaining to creation and last modification of the resource.
-        $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
-    allOf:
-    - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
-    description: The Private Endpoint Connection resource.
-  ErrorDetailsInternal:
-    description: Error details.
-    type: object
-    properties:
-      code:
-        description: The error code.
+components:
+  parameters:
+    workspaceName:
+      name: workspaceName
+      in: path
+      required: true
+      description: The name of workspace resource.
+      x-ms-parameter-location: method
+      schema:
         type: string
-        readOnly: true
-      message:
-        description: The error message.
+        maxLength: 24
+        minLength: 3
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      description: The name of the resource group that contains the service instance.
+      required: true
+      x-ms-parameter-location: method
+      schema:
         type: string
-        readOnly: true
-      target:
-        description: The target of the particular error.
-        type: string
-        readOnly: true
-parameters:
-  workspaceName:
-    name: workspaceName
-    in: path
-    required: true
-    type: string
-    description: The name of workspace resource.
-    x-ms-parameter-location: method
-    minLength: 3
-    maxLength: 24
-  resourceGroupName:
-    name: resourceGroupName
-    in: path
-    description: The name of the resource group that contains the service instance.
-    required: true
-    type: string
-    x-ms-parameter-location: method
-    pattern: ^[-\w\._\(\)]+$
-    minLength: 1
-    maxLength: 90
-securityDefinitions:
-  AadToken:
-    type: oauth2
-    description: The Azure Active Directory OAuth2 Flow
-    flow: accessCode
-    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-    scopes:
-      https://deid.azure.com/.default: ''
-    tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+        maxLength: 90
+        minLength: 1
+        pattern: ^[-\w\._\(\)]+$
+  schemas:
+    PrivateEndpointConnectionListResultDescription:
+      type: object
+      properties:
+        value:
+          type: array
+          description: Array of private endpoint connections
+          items:
+            $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
+      description: List of private endpoint connection associated with the specified storage account
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    PrivateEndpointConnectionDescription:
+      type: object
+      properties:
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
+      allOf:
+      - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
+      description: The Private Endpoint Connection resource.
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
+  securitySchemes:
+    AadToken:
+      type: oauth2
+      flows:
+        authorizationCode:
+          scopes:
+            https://deid.azure.com/.default: ''
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
+      description: The Azure Active Directory OAuth2 Flow
 x-ms-parameterized-host:
   hostTemplate: '{endpoint}'
   useSchemePrefix: false
