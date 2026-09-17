@@ -441,71 +441,6 @@ apis:
     url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/workspaces
   - type: Workspace Overview
     url: https://learn.microsoft.com/en-us/azure/healthcare-apis/workspace-overview
-- aid: azure-health:azure-health-privateendpointconnections-api
-  name: Microsoft Azure Health Data Services PrivateEndpointConnections API
-  description: >-
-    The PrivateEndpointConnections API from Microsoft Azure Health Data Services — 2 operation(s) for
-    privateendpointconnections.
-  humanURL: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
-  baseURL: https://{workspace-name}-{fhir-service-name}.fhir.azurehealthcareapis.com
-  tags:
-  - PrivateEndpointConnections
-  properties:
-  - type: OpenAPI
-    url: openapi/azure-health-privateendpointconnections-api-openapi.yml
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
-  - type: REST API Reference
-    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/fhir-services
-  - type: Authentication
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/authentication-authorization
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/get-started-with-fhir
-  - type: SMART on FHIR
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/smart-on-fhir
-  - type: Search Reference
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview-of-search
-  - type: ChangeLog
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/release-notes-2024
-  - type: Pricing
-    url: https://azure.microsoft.com/en-us/pricing/details/health-data-services/
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/overview
-  - type: REST API Reference
-    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/dicom-services
-  - type: DICOMweb Standard APIs Guide
-    url: >-
-      https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-with-dicom-services
-  - type: Conformance Statement
-    url: >-
-      https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2
-  - type: GettingStarted
-    url: >-
-      https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/iot-connector-overview
-  - type: REST API Reference
-    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/iot-connector
-  - type: Device Mapping Guide
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings
-  - type: GettingStarted
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview
-  - type: REST API Reference
-    url: >-
-      https://learn.microsoft.com/en-us/rest/api/health-dataplane/deidentify-text/deidentify-text
-  - type: SDK Overview
-    url: https://learn.microsoft.com/dotnet/api/overview/azure/Health.Deidentification-readme
-  - type: Service Limits
-    url: >-
-      https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview#input-requirements-and-service-limits
-  - type: Documentation
-    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/
-  - type: REST API Reference
-    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/workspaces
-  - type: Workspace Overview
-    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/workspace-overview
 - aid: azure-health:azure-health-privatelinkresources-api
   name: Microsoft Azure Health Data Services PrivateLinkResources API
   description: >-
@@ -838,6 +773,71 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/azure-health-workspaces-api-openapi.yml
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
+  - type: REST API Reference
+    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/fhir-services
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/authentication-authorization
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/get-started-with-fhir
+  - type: SMART on FHIR
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/smart-on-fhir
+  - type: Search Reference
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview-of-search
+  - type: ChangeLog
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/release-notes-2024
+  - type: Pricing
+    url: https://azure.microsoft.com/en-us/pricing/details/health-data-services/
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/overview
+  - type: REST API Reference
+    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/dicom-services
+  - type: DICOMweb Standard APIs Guide
+    url: >-
+      https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-with-dicom-services
+  - type: Conformance Statement
+    url: >-
+      https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2
+  - type: GettingStarted
+    url: >-
+      https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/iot-connector-overview
+  - type: REST API Reference
+    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/iot-connector
+  - type: Device Mapping Guide
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mappings
+  - type: GettingStarted
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/iot/get-started-with-iot
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview
+  - type: REST API Reference
+    url: >-
+      https://learn.microsoft.com/en-us/rest/api/health-dataplane/deidentify-text/deidentify-text
+  - type: SDK Overview
+    url: https://learn.microsoft.com/dotnet/api/overview/azure/Health.Deidentification-readme
+  - type: Service Limits
+    url: >-
+      https://learn.microsoft.com/en-us/azure/healthcare-apis/deidentification/overview#input-requirements-and-service-limits
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/
+  - type: REST API Reference
+    url: https://learn.microsoft.com/en-us/rest/api/healthcareapis/workspaces
+  - type: Workspace Overview
+    url: https://learn.microsoft.com/en-us/azure/healthcare-apis/workspace-overview
+- aid: azure-health:azure-health-private-endpoint-connections-api
+  name: Microsoft Azure Health Data Services Private Endpoint Connections API
+  description: >-
+    The Private Endpoint Connections API from Microsoft Azure Health Data Services — 2 operation(s) for
+    private endpoint connections.
+  humanURL: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
+  baseURL: https://{workspace-name}-{fhir-service-name}.fhir.azurehealthcareapis.com
+  tags:
+  - Private Endpoint Connections
+  properties:
+  - type: OpenAPI
+    url: openapi/azure-health-private-endpoint-connections-api-openapi.yml
   - type: Documentation
     url: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
   - type: REST API Reference
