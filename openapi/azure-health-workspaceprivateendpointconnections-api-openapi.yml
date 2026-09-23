@@ -1,12 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection Workspace Private Endpoint Connections API
-  version: '2024-11-15'
-  x-typespec-generated:
-  - emitter: '@azure-tools/typespec-autorest'
+  version: '2024-03-31'
+  title: HealthcareApisClient Workspace Private Endpoint Connections…
+  description: Use this API to manage Microsoft HealthcareApis services in your Azure subscription.
+servers:
+- url: https://management.azure.com
 security:
-- AadToken:
-  - https://deid.azure.com/.default
+- azure_auth:
+  - user_impersonation
 tags:
 - name: WorkspacePrivateEndpointConnections
 paths:
@@ -39,6 +40,8 @@ paths:
           $ref: ./examples/privatelink/WorkspaceListPrivateEndpointConnections.json
       x-ms-pageable:
         nextLinkName: null
+      summary: Workspace private endpoint connections list by workspace
+      x-summary-source: derived
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName}
   : get:
       tags:
@@ -67,6 +70,8 @@ paths:
       x-ms-examples:
         WorkspacePrivateEndpointConnection_GetConnection:
           $ref: ./examples/privatelink/WorkspaceGetPrivateEndpointConnection.json
+      summary: Workspace private endpoint connections get
+      x-summary-source: derived
     put:
       tags:
       - WorkspacePrivateEndpointConnections
@@ -102,6 +107,8 @@ paths:
               $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
         description: The private endpoint connection properties.
         required: true
+      summary: Workspace private endpoint connections create or update
+      x-summary-source: derived
     delete:
       tags:
       - WorkspacePrivateEndpointConnections
@@ -130,29 +137,9 @@ paths:
         WorkspacePrivateEndpointConnections_Delete:
           $ref: ./examples/privatelink/WorkspaceDeletePrivateEndpointConnection.json
       x-ms-long-running-operation: true
+      summary: Workspace private endpoint connections delete
+      x-summary-source: derived
 components:
-  parameters:
-    workspaceName:
-      name: workspaceName
-      in: path
-      required: true
-      description: The name of workspace resource.
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 24
-        minLength: 3
-    resourceGroupName:
-      name: resourceGroupName
-      in: path
-      description: The name of the resource group that contains the service instance.
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 90
-        minLength: 1
-        pattern: ^[-\w\._\(\)]+$
   schemas:
     PrivateEndpointConnectionListResultDescription:
       type: object
@@ -195,24 +182,34 @@ components:
           description: The target of the particular error.
           type: string
           readOnly: true
+  parameters:
+    workspaceName:
+      name: workspaceName
+      in: path
+      required: true
+      description: The name of workspace resource.
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 24
+        minLength: 3
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      description: The name of the resource group that contains the service instance.
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 90
+        minLength: 1
+        pattern: ^[-\w\._\(\)]+$
   securitySchemes:
-    AadToken:
+    azure_auth:
       type: oauth2
       flows:
-        authorizationCode:
+        implicit:
           scopes:
-            https://deid.azure.com/.default: ''
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
-      description: The Azure Active Directory OAuth2 Flow
-x-ms-parameterized-host:
-  hostTemplate: '{endpoint}'
-  useSchemePrefix: false
-  parameters:
-  - name: endpoint
-    in: path
-    description: Url of your De-identification Service.
-    required: true
-    type: string
-    format: uri
-    x-ms-skip-url-encoding: true
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow

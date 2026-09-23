@@ -1,12 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection Workspace Private Link Resources API
-  version: '2024-11-15'
-  x-typespec-generated:
-  - emitter: '@azure-tools/typespec-autorest'
+  version: '2024-03-31'
+  title: HealthcareApisClient Workspace Private Link Resources API
+  description: Use this API to manage Microsoft HealthcareApis services in your Azure subscription.
+servers:
+- url: https://management.azure.com
 security:
-- AadToken:
-  - https://deid.azure.com/.default
+- azure_auth:
+  - user_impersonation
 tags:
 - name: WorkspacePrivateLinkResources
 paths:
@@ -39,6 +40,8 @@ paths:
           $ref: ./examples/privatelink/PrivateLinkResourcesListByWorkspace.json
       x-ms-pageable:
         nextLinkName: null
+      summary: Workspace private link resources list by workspace
+      x-summary-source: derived
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/privateLinkResources/{groupName}
   : get:
       tags:
@@ -72,30 +75,19 @@ paths:
       x-ms-examples:
         WorkspacePrivateLinkResources_Get:
           $ref: ./examples/privatelink/WorkspacePrivateLinkResourceGet.json
+      summary: Workspace private link resources get
+      x-summary-source: derived
 components:
-  parameters:
-    workspaceName:
-      name: workspaceName
-      in: path
-      required: true
-      description: The name of workspace resource.
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 24
-        minLength: 3
-    resourceGroupName:
-      name: resourceGroupName
-      in: path
-      description: The name of the resource group that contains the service instance.
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 90
-        minLength: 1
-        pattern: ^[-\w\._\(\)]+$
   schemas:
+    PrivateLinkResourceListResultDescription:
+      type: object
+      properties:
+        value:
+          type: array
+          description: Array of private link resources
+          items:
+            $ref: '#/components/schemas/PrivateLinkResourceDescription'
+      description: A list of private link resources
     ErrorDetails:
       description: Error details.
       type: object
@@ -128,33 +120,34 @@ components:
           description: The target of the particular error.
           type: string
           readOnly: true
-    PrivateLinkResourceListResultDescription:
-      type: object
-      properties:
-        value:
-          type: array
-          description: Array of private link resources
-          items:
-            $ref: '#/components/schemas/PrivateLinkResourceDescription'
-      description: A list of private link resources
+  parameters:
+    workspaceName:
+      name: workspaceName
+      in: path
+      required: true
+      description: The name of workspace resource.
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 24
+        minLength: 3
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      description: The name of the resource group that contains the service instance.
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 90
+        minLength: 1
+        pattern: ^[-\w\._\(\)]+$
   securitySchemes:
-    AadToken:
+    azure_auth:
       type: oauth2
       flows:
-        authorizationCode:
+        implicit:
           scopes:
-            https://deid.azure.com/.default: ''
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
-      description: The Azure Active Directory OAuth2 Flow
-x-ms-parameterized-host:
-  hostTemplate: '{endpoint}'
-  useSchemePrefix: false
-  parameters:
-  - name: endpoint
-    in: path
-    description: Url of your De-identification Service.
-    required: true
-    type: string
-    format: uri
-    x-ms-skip-url-encoding: true
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow

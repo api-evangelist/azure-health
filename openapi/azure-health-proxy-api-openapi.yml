@@ -1,12 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection Proxy API
-  version: '2024-11-15'
-  x-typespec-generated:
-  - emitter: '@azure-tools/typespec-autorest'
+  version: '2024-03-31'
+  title: HealthcareApisClient Proxy API
+  description: Use this API to manage Microsoft HealthcareApis services in your Azure subscription.
+servers:
+- url: https://management.azure.com
 security:
-- AadToken:
-  - https://deid.azure.com/.default
+- azure_auth:
+  - user_impersonation
 tags:
 - name: Proxy
 paths:
@@ -42,6 +43,8 @@ paths:
               $ref: '#/components/schemas/CheckNameAvailabilityParameters'
         description: Set the name parameter in the CheckNameAvailabilityParameters structure to the name of the service instance to check.
         required: true
+      summary: Services check name availability
+      x-summary-source: derived
   /providers/Microsoft.HealthcareApis/operations:
     get:
       tags:
@@ -68,6 +71,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDetails'
+      summary: Operations list
+      x-summary-source: derived
   ? /subscriptions/{subscriptionId}/providers/Microsoft.HealthcareApis/locations/{locationName}/operationresults/{operationResultId}
   : get:
       tags:
@@ -95,8 +100,23 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDetails'
+      summary: Operation results get
+      x-summary-source: derived
 components:
   schemas:
+    CheckNameAvailabilityParameters:
+      description: Input values.
+      type: object
+      properties:
+        name:
+          description: The name of the service instance to check.
+          type: string
+        type:
+          description: The fully qualified resource type which includes provider namespace.
+          type: string
+      required:
+      - name
+      - type
     OperationDetail:
       description: Service REST API operation.
       type: object
@@ -128,71 +148,19 @@ components:
         properties:
           $ref: '#/components/schemas/OperationProperties'
           description: Properties of the operation
-    ServiceSpecification:
-      description: Service specification payload
-      type: object
-      properties:
-        logSpecifications:
-          description: Specifications of the Log for Azure Monitoring
-          uniqueItems: false
-          type: array
-          items:
-            $ref: '#/components/schemas/LogSpecification'
-          x-ms-identifiers: []
-        metricSpecifications:
-          description: Specifications of the Metrics for Azure Monitoring
-          uniqueItems: false
-          type: array
-          items:
-            $ref: '#/components/schemas/MetricSpecification'
-          x-ms-identifiers: []
-    OperationProperties:
-      description: Extra Operation properties
-      type: object
-      properties:
-        serviceSpecification:
-          $ref: '#/components/schemas/ServiceSpecification'
-          description: Service specifications of the operation
-    OperationDisplay:
-      description: The object that represents the operation.
-      type: object
-      properties:
-        provider:
-          readOnly: true
-          type: string
-          description: 'Service provider: Microsoft.HealthcareApis'
-        resource:
-          readOnly: true
-          type: string
-          description: 'Resource Type: Services'
-        operation:
-          readOnly: true
-          type: string
-          description: Name of the operation
-        description:
-          readOnly: true
-          type: string
-          description: Friendly description for the operation,
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    CheckNameAvailabilityParameters:
-      description: Input values.
+    LogSpecification:
+      description: Specifications of the Log for Azure Monitoring
       type: object
       properties:
         name:
-          description: The name of the service instance to check.
+          description: Name of the log
           type: string
-        type:
-          description: The fully qualified resource type which includes provider namespace.
+        displayName:
+          description: Localized friendly display name of the log
           type: string
-      required:
-      - name
-      - type
+        blobDuration:
+          description: Blob duration of the log
+          type: string
     MetricSpecification:
       description: Specifications of the Metrics for Azure Monitoring
       type: object
@@ -255,56 +223,6 @@ components:
         resourceIdDimensionNameOverride:
           type: string
           description: The resource Id dimension name override.
-    LogSpecification:
-      description: Specifications of the Log for Azure Monitoring
-      type: object
-      properties:
-        name:
-          description: Name of the log
-          type: string
-        displayName:
-          description: Localized friendly display name of the log
-          type: string
-        blobDuration:
-          description: Blob duration of the log
-          type: string
-    ServicesNameAvailabilityInfo:
-      description: The properties indicating whether a given service name is available.
-      type: object
-      properties:
-        nameAvailable:
-          description: The value which indicates whether the provided name is available.
-          type: boolean
-          readOnly: true
-        reason:
-          description: The reason for unavailability.
-          enum:
-          - Invalid
-          - AlreadyExists
-          type: string
-          readOnly: true
-          x-ms-enum:
-            name: ServiceNameUnavailabilityReason
-            modelAsString: false
-        message:
-          description: The detailed reason message.
-          type: string
-    ErrorDetailsInternal:
-      description: Error details.
-      type: object
-      properties:
-        code:
-          description: The error code.
-          type: string
-          readOnly: true
-        message:
-          description: The error message.
-          type: string
-          readOnly: true
-        target:
-          description: The target of the particular error.
-          type: string
-          readOnly: true
     OperationResultsDescription:
       description: The properties indicating the operation result of an operation on a service.
       type: object
@@ -342,19 +260,40 @@ components:
           x-ms-client-flatten: false
           description: Additional properties of the operation result.
           type: object
-    MetricDimension:
-      description: Specifications of the Dimension of metrics
+    ErrorDetails:
+      description: Error details.
       type: object
       properties:
-        name:
-          description: Name of the dimension
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    OperationProperties:
+      description: Extra Operation properties
+      type: object
+      properties:
+        serviceSpecification:
+          $ref: '#/components/schemas/ServiceSpecification'
+          description: Service specifications of the operation
+    OperationDisplay:
+      description: The object that represents the operation.
+      type: object
+      properties:
+        provider:
+          readOnly: true
           type: string
-        displayName:
-          description: Localized friendly display name of the dimension
+          description: 'Service provider: Microsoft.HealthcareApis'
+        resource:
+          readOnly: true
           type: string
-        toBeExportedForShoebox:
-          description: Whether this dimension should be included for the Shoebox export scenario
-          type: boolean
+          description: 'Resource Type: Services'
+        operation:
+          readOnly: true
+          type: string
+          description: Name of the operation
+        description:
+          readOnly: true
+          type: string
+          description: Friendly description for the operation,
     ListOperations:
       description: Available operations of the service
       type: object
@@ -373,6 +312,74 @@ components:
 
             It''s null for now, added for future use.'
           type: string
+    ServiceSpecification:
+      description: Service specification payload
+      type: object
+      properties:
+        logSpecifications:
+          description: Specifications of the Log for Azure Monitoring
+          uniqueItems: false
+          type: array
+          items:
+            $ref: '#/components/schemas/LogSpecification'
+          x-ms-identifiers: []
+        metricSpecifications:
+          description: Specifications of the Metrics for Azure Monitoring
+          uniqueItems: false
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricSpecification'
+          x-ms-identifiers: []
+    ServicesNameAvailabilityInfo:
+      description: The properties indicating whether a given service name is available.
+      type: object
+      properties:
+        nameAvailable:
+          description: The value which indicates whether the provided name is available.
+          type: boolean
+          readOnly: true
+        reason:
+          description: The reason for unavailability.
+          enum:
+          - Invalid
+          - AlreadyExists
+          type: string
+          readOnly: true
+          x-ms-enum:
+            name: ServiceNameUnavailabilityReason
+            modelAsString: false
+        message:
+          description: The detailed reason message.
+          type: string
+    MetricDimension:
+      description: Specifications of the Dimension of metrics
+      type: object
+      properties:
+        name:
+          description: Name of the dimension
+          type: string
+        displayName:
+          description: Localized friendly display name of the dimension
+          type: string
+        toBeExportedForShoebox:
+          description: Whether this dimension should be included for the Shoebox export scenario
+          type: boolean
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
   parameters:
     operationResultId:
       name: operationResultId
@@ -391,23 +398,11 @@ components:
       schema:
         type: string
   securitySchemes:
-    AadToken:
+    azure_auth:
       type: oauth2
       flows:
-        authorizationCode:
+        implicit:
           scopes:
-            https://deid.azure.com/.default: ''
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
-      description: The Azure Active Directory OAuth2 Flow
-x-ms-parameterized-host:
-  hostTemplate: '{endpoint}'
-  useSchemePrefix: false
-  parameters:
-  - name: endpoint
-    in: path
-    description: Url of your De-identification Service.
-    required: true
-    type: string
-    format: uri
-    x-ms-skip-url-encoding: true
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow

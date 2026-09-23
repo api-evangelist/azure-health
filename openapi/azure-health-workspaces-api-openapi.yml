@@ -1,12 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection Workspaces API
-  version: '2024-11-15'
-  x-typespec-generated:
-  - emitter: '@azure-tools/typespec-autorest'
+  version: '2024-03-31'
+  title: HealthcareApisClient Workspaces API
+  description: Use this API to manage Microsoft HealthcareApis services in your Azure subscription.
+servers:
+- url: https://management.azure.com
 security:
-- AadToken:
-  - https://deid.azure.com/.default
+- azure_auth:
+  - user_impersonation
 tags:
 - name: Workspaces
 paths:
@@ -37,6 +38,8 @@ paths:
                 $ref: '#/components/schemas/ErrorDetails'
       x-ms-pageable:
         nextLinkName: nextLink
+      summary: Workspaces list by subscription
+      x-summary-source: derived
   /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces:
     get:
       tags:
@@ -65,6 +68,8 @@ paths:
                 $ref: '#/components/schemas/ErrorDetails'
       x-ms-pageable:
         nextLinkName: nextLink
+      summary: Workspaces list by resource group
+      x-summary-source: derived
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}
   : get:
       tags:
@@ -92,6 +97,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDetails'
+      summary: Workspaces get
+      x-summary-source: derived
     put:
       tags:
       - Workspaces
@@ -138,6 +145,8 @@ paths:
               $ref: '#/components/schemas/Workspace'
         description: The parameters for creating or updating a healthcare workspace.
         required: true
+      summary: Workspaces create or update
+      x-summary-source: derived
     patch:
       tags:
       - Workspaces
@@ -178,6 +187,8 @@ paths:
               $ref: '#/components/schemas/WorkspacePatchResource'
         description: The parameters for updating a specified workspace.
         required: true
+      summary: Workspaces update
+      x-summary-source: derived
     delete:
       tags:
       - Workspaces
@@ -205,27 +216,30 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      summary: Workspaces delete
+      x-summary-source: derived
 components:
   schemas:
-    ResourceTags:
+    ResourceCore:
       type: object
-      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
+      description: The common properties for any resource, tracked or proxy.
       properties:
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-          x-ms-mutability:
-          - read
-          - create
-          - update
-          description: Resource tags.
-    TaggedResource:
-      type: object
-      description: The common properties of tracked resources in the service.
-      allOf:
-      - $ref: '#/components/schemas/ResourceTags'
-      - $ref: '#/components/schemas/LocationBasedResource'
+        id:
+          readOnly: true
+          type: string
+          description: The resource identifier.
+        name:
+          readOnly: true
+          type: string
+          description: The resource name.
+          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
+        type:
+          readOnly: true
+          type: string
+          description: The resource type.
+        etag:
+          description: An etag associated with the resource, used for optimistic concurrency when editing it.
+          type: string
       x-ms-azure-resource: true
     WorkspaceList:
       description: Collection of workspace object with a next link
@@ -239,6 +253,108 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Workspace'
+    WorkspacePatchResource:
+      type: object
+      description: Workspace patch properties
+      allOf:
+      - $ref: '#/components/schemas/ResourceTags'
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    LocationBasedResource:
+      type: object
+      description: The common properties for any location based resource, tracked or proxy.
+      allOf:
+      - $ref: '#/components/schemas/ResourceCore'
+      properties:
+        location:
+          type: string
+          description: The resource location.
+          x-ms-mutability:
+          - create
+          - read
+      x-ms-azure-resource: true
+    Workspace:
+      type: object
+      description: Workspace resource.
+      allOf:
+      - $ref: '#/components/schemas/TaggedResource'
+      properties:
+        properties:
+          x-ms-client-flatten: false
+          type: object
+          description: Workspaces resource specific properties.
+          properties:
+            provisioningState:
+              description: The provisioning state.
+              $ref: '#/components/schemas/ProvisioningState'
+            privateEndpointConnections:
+              description: The list of private endpoint connections that are set up for this resource.
+              type: array
+              items:
+                $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
+              readOnly: true
+            publicNetworkAccess:
+              description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+              $ref: '#/components/schemas/ResourcePublicNetworkAccess'
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: '#/components/schemas/systemData'
+    ProvisioningState:
+      description: The provisioning state.
+      enum:
+      - Deleting
+      - Succeeded
+      - Creating
+      - Accepted
+      - Verifying
+      - Updating
+      - Failed
+      - Canceled
+      - Deprovisioned
+      - Moving
+      - Suspended
+      - Warned
+      - SystemMaintenance
+      type: string
+      readOnly: true
+      x-ms-enum:
+        name: provisioningState
+        modelAsString: true
+    Error:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    ResourceTags:
+      type: object
+      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
+      properties:
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          x-ms-mutability:
+          - read
+          - create
+          - update
+          description: Resource tags.
+    ResourcePublicNetworkAccess:
+      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+      enum:
+      - Enabled
+      - Disabled
+      type: string
+      x-ms-enum:
+        name: PublicNetworkAccess
+        modelAsString: true
+      readOnly: true
     systemData:
       description: Metadata pertaining to creation and last modification of the resource.
       type: object
@@ -280,77 +396,6 @@ components:
           type: string
           format: date-time
           description: The timestamp of resource last modification (UTC)
-    Error:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    Workspace:
-      type: object
-      description: Workspace resource.
-      allOf:
-      - $ref: '#/components/schemas/TaggedResource'
-      properties:
-        properties:
-          x-ms-client-flatten: false
-          type: object
-          description: Workspaces resource specific properties.
-          properties:
-            provisioningState:
-              description: The provisioning state.
-              $ref: '#/components/schemas/ProvisioningState'
-            privateEndpointConnections:
-              description: The list of private endpoint connections that are set up for this resource.
-              type: array
-              items:
-                $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
-              readOnly: true
-            publicNetworkAccess:
-              description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-              $ref: '#/components/schemas/ResourcePublicNetworkAccess'
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: '#/components/schemas/systemData'
-    ResourcePublicNetworkAccess:
-      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-      enum:
-      - Enabled
-      - Disabled
-      type: string
-      x-ms-enum:
-        name: PublicNetworkAccess
-        modelAsString: true
-      readOnly: true
-    ProvisioningState:
-      description: The provisioning state.
-      enum:
-      - Deleting
-      - Succeeded
-      - Creating
-      - Accepted
-      - Verifying
-      - Updating
-      - Failed
-      - Canceled
-      - Deprovisioned
-      - Moving
-      - Suspended
-      - Warned
-      - SystemMaintenance
-      type: string
-      readOnly: true
-      x-ms-enum:
-        name: provisioningState
-        modelAsString: true
     ErrorDetailsInternal:
       description: Error details.
       type: object
@@ -367,45 +412,13 @@ components:
           description: The target of the particular error.
           type: string
           readOnly: true
-    LocationBasedResource:
+    TaggedResource:
       type: object
-      description: The common properties for any location based resource, tracked or proxy.
-      allOf:
-      - $ref: '#/components/schemas/ResourceCore'
-      properties:
-        location:
-          type: string
-          description: The resource location.
-          x-ms-mutability:
-          - create
-          - read
-      x-ms-azure-resource: true
-    ResourceCore:
-      type: object
-      description: The common properties for any resource, tracked or proxy.
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The resource identifier.
-        name:
-          readOnly: true
-          type: string
-          description: The resource name.
-          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
-        type:
-          readOnly: true
-          type: string
-          description: The resource type.
-        etag:
-          description: An etag associated with the resource, used for optimistic concurrency when editing it.
-          type: string
-      x-ms-azure-resource: true
-    WorkspacePatchResource:
-      type: object
-      description: Workspace patch properties
+      description: The common properties of tracked resources in the service.
       allOf:
       - $ref: '#/components/schemas/ResourceTags'
+      - $ref: '#/components/schemas/LocationBasedResource'
+      x-ms-azure-resource: true
   parameters:
     workspaceName:
       name: workspaceName
@@ -429,23 +442,11 @@ components:
         minLength: 1
         pattern: ^[-\w\._\(\)]+$
   securitySchemes:
-    AadToken:
+    azure_auth:
       type: oauth2
       flows:
-        authorizationCode:
+        implicit:
           scopes:
-            https://deid.azure.com/.default: ''
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
-      description: The Azure Active Directory OAuth2 Flow
-x-ms-parameterized-host:
-  hostTemplate: '{endpoint}'
-  useSchemePrefix: false
-  parameters:
-  - name: endpoint
-    in: path
-    description: Url of your De-identification Service.
-    required: true
-    type: string
-    format: uri
-    x-ms-skip-url-encoding: true
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow

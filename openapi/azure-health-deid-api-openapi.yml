@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection Deid API
+  title: Azure Health Data Services de-identification service Deid…
   version: '2024-11-15'
   x-typespec-generated:
   - emitter: '@azure-tools/typespec-autorest'
@@ -13,7 +13,7 @@ paths:
   /deid:
     post:
       operationId: DeidentifyText
-      summary: De-identify text.
+      summary: De-identify text
       description: A remote procedure call (RPC) operation.
       parameters:
       - $ref: '#/components/parameters/Azure.Core.Foundations.ApiVersionParameter'
@@ -45,8 +45,6 @@ paths:
       x-ms-examples:
         De-identify text.:
           $ref: ./examples/DeidentifyText.json
-      tags:
-      - Deid
       requestBody:
         content:
           application/json:
@@ -54,29 +52,36 @@ paths:
               $ref: '#/components/schemas/DeidentificationContent'
         description: Request body for de-identification operation.
         required: true
+      tags:
+      - Deid
 components:
   schemas:
-    Azure.Core.Foundations.InnerError:
+    StringIndex:
       type: object
-      description: An object containing more specific information about the error. As per Azure REST API guidelines - https://aka.ms/AzureRestApiGuidelines#handling-errors.
+      description: String index encoding model.
       properties:
-        code:
-          type: string
-          description: One of a server-defined set of error codes.
-        innererror:
-          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
-          description: Inner error.
-    PhiTaggerResult:
-      type: object
-      description: Result of the "Tag" operation.
-      properties:
-        entities:
-          type: array
-          description: List of entities detected in the input.
-          items:
-            $ref: '#/components/schemas/PhiEntity'
+        utf8:
+          type: integer
+          format: int32
+          description: The offset or length of the substring in UTF-8 encoding
+        utf16:
+          type: integer
+          format: int32
+          description: 'The offset or length of the substring in UTF-16 encoding.
+
+
+            Primary encoding used by .NET, Java, and JavaScript.'
+        codePoint:
+          type: integer
+          format: int32
+          description: 'The offset or length of the substring in CodePoint encoding.
+
+
+            Primary encoding used by Python.'
       required:
-      - entities
+      - utf8
+      - utf16
+      - codePoint
     PhiCategory:
       type: string
       description: List of PHI Entities.
@@ -201,29 +206,26 @@ components:
         - name: Zip
           value: Zip
           description: Zip Code.
-    DeidentificationResult:
+    Azure.Core.Foundations.ErrorResponse:
       type: object
-      description: Response body for de-identification operation.
+      description: A response containing error details.
       properties:
-        outputText:
-          type: string
-          description: Output text after de-identification. Not available for "Tag" operation.
-        taggerResult:
-          $ref: '#/components/schemas/PhiTaggerResult'
-          description: Result of the "Tag" operation. Only available for "Tag" Operation.
-    DeidentificationCustomizationOptions:
+        error:
+          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
+          description: The error object.
+      required:
+      - error
+    PhiTaggerResult:
       type: object
-      description: Customizations options to override default service behaviors for synchronous usage.
+      description: Result of the "Tag" operation.
       properties:
-        redactionFormat:
-          type: string
-          description: "Format of the redacted output. Only valid when Operation is Redact. \nPlease refer to https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format for more details."
-          minLength: 1
-          maxLength: 16
-        surrogateLocale:
-          type: string
-          description: Locale in which the output surrogates are written.
-          default: en-US
+        entities:
+          type: array
+          description: List of entities detected in the input.
+          items:
+            $ref: '#/components/schemas/PhiEntity'
+      required:
+      - entities
     PhiEntity:
       type: object
       description: PHI Entity tag in the input.
@@ -248,41 +250,6 @@ components:
       - category
       - offset
       - length
-    Azure.Core.Foundations.ErrorResponse:
-      type: object
-      description: A response containing error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
-          description: The error object.
-      required:
-      - error
-    StringIndex:
-      type: object
-      description: String index encoding model.
-      properties:
-        utf8:
-          type: integer
-          format: int32
-          description: The offset or length of the substring in UTF-8 encoding
-        utf16:
-          type: integer
-          format: int32
-          description: 'The offset or length of the substring in UTF-16 encoding.
-
-
-            Primary encoding used by .NET, Java, and JavaScript.'
-        codePoint:
-          type: integer
-          format: int32
-          description: 'The offset or length of the substring in CodePoint encoding.
-
-
-            Primary encoding used by Python.'
-      required:
-      - utf8
-      - utf16
-      - codePoint
     DeidentificationContent:
       type: object
       description: Request body for de-identification operation.
@@ -341,17 +308,40 @@ components:
       required:
       - code
       - message
+    DeidentificationCustomizationOptions:
+      type: object
+      description: Customizations options to override default service behaviors for synchronous usage.
+      properties:
+        redactionFormat:
+          type: string
+          description: "Format of the redacted output. Only valid when Operation is Redact. \nPlease refer to https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format for more details."
+          minLength: 1
+          maxLength: 16
+        surrogateLocale:
+          type: string
+          description: Locale in which the output surrogates are written.
+          default: en-US
+    Azure.Core.Foundations.InnerError:
+      type: object
+      description: An object containing more specific information about the error. As per Azure REST API guidelines - https://aka.ms/AzureRestApiGuidelines#handling-errors.
+      properties:
+        code:
+          type: string
+          description: One of a server-defined set of error codes.
+        innererror:
+          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
+          description: Inner error.
+    DeidentificationResult:
+      type: object
+      description: Response body for de-identification operation.
+      properties:
+        outputText:
+          type: string
+          description: Output text after de-identification. Not available for "Tag" operation.
+        taggerResult:
+          $ref: '#/components/schemas/PhiTaggerResult'
+          description: Result of the "Tag" operation. Only available for "Tag" Operation.
   parameters:
-    Azure.Core.ClientRequestIdHeader:
-      name: x-ms-client-request-id
-      in: header
-      description: An opaque, globally-unique, client-generated string identifier for the request.
-      required: false
-      x-ms-parameter-location: method
-      x-ms-client-name: clientRequestId
-      schema:
-        type: string
-        format: uuid
     Azure.Core.Foundations.ApiVersionParameter:
       name: api-version
       in: query
@@ -362,6 +352,16 @@ components:
       schema:
         type: string
         minLength: 1
+    Azure.Core.ClientRequestIdHeader:
+      name: x-ms-client-request-id
+      in: header
+      description: An opaque, globally-unique, client-generated string identifier for the request.
+      required: false
+      x-ms-parameter-location: method
+      x-ms-client-name: clientRequestId
+      schema:
+        type: string
+        format: uuid
   securitySchemes:
     AadToken:
       type: oauth2

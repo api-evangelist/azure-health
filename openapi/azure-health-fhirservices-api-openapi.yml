@@ -1,12 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection Fhir Services API
-  version: '2024-11-15'
-  x-typespec-generated:
-  - emitter: '@azure-tools/typespec-autorest'
+  version: '2024-03-31'
+  title: HealthcareApisClient Fhir Services API
+  description: Use this API to manage Microsoft HealthcareApis services in your Azure subscription.
+servers:
+- url: https://management.azure.com
 security:
-- AadToken:
-  - https://deid.azure.com/.default
+- azure_auth:
+  - user_impersonation
 tags:
 - name: FhirServices
 paths:
@@ -39,6 +40,8 @@ paths:
                 $ref: '#/components/schemas/ErrorDetails'
       x-ms-pageable:
         nextLinkName: nextLink
+      summary: Fhir services list by workspace
+      x-summary-source: derived
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/fhirservices/{fhirServiceName}
   : get:
       tags:
@@ -67,6 +70,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDetails'
+      summary: Fhir services get
+      x-summary-source: derived
     put:
       tags:
       - FhirServices
@@ -114,6 +119,8 @@ paths:
               $ref: '#/components/schemas/FhirService'
         description: The parameters for creating or updating a Fhir Service resource.
         required: true
+      summary: Fhir services create or update
+      x-summary-source: derived
     patch:
       tags:
       - FhirServices
@@ -155,6 +162,8 @@ paths:
               $ref: '#/components/schemas/FhirServicePatchResource'
         description: The parameters for updating a Fhir Service.
         required: true
+      summary: Fhir services update
+      x-summary-source: derived
     delete:
       tags:
       - FhirServices
@@ -183,244 +192,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      summary: Fhir services delete
+      x-summary-source: derived
 components:
   schemas:
-    CorsConfigurationOriginEntry:
-      description: An origin for CORS.
-      type: string
-      pattern: ^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\:\/\/(?:[a-zA-Z0-9-]+[.]?)+(?:\:[0-9]{1,5})?|[*]))$
-    ResourceVersionPolicyConfiguration:
-      description: The settings for history tracking for FHIR resources.
-      type: object
-      properties:
-        default:
-          description: The default value for tracking history across all resources.
-          $ref: '#/components/schemas/FhirResourceVersionPolicy'
-        resourceTypeOverrides:
-          description: A list of FHIR Resources and their version policy overrides.
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/FhirResourceVersionPolicy'
-    Error:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    UserAssignedIdentity:
-      type: object
-      description: User assigned identity properties
-      properties:
-        principalId:
-          description: The principal ID of the assigned identity.
-          format: uuid
-          type: string
-          readOnly: true
-        clientId:
-          description: The client ID of the assigned identity.
-          format: uuid
-          type: string
-          readOnly: true
-    Encryption:
-      description: Settings to encrypt a service
-      type: object
-      properties:
-        customerManagedKeyEncryption:
-          type: object
-          description: The encryption settings for the customer-managed key
-          readOnly: false
-          properties:
-            keyEncryptionKeyUrl:
-              type: string
-              description: The URL of the key to use for encryption
-              readOnly: false
-    ResourcePublicNetworkAccess:
-      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-      enum:
-      - Enabled
-      - Disabled
-      type: string
-      x-ms-enum:
-        name: PublicNetworkAccess
-        modelAsString: true
-      readOnly: true
-    SmartDataActions:
-      type: string
-      description: The Data Actions that can be enabled for a Smart Identity Provider Application.
-      enum:
-      - Read
-      x-ms-enum:
-        name: SmartDataActions
-        modelAsString: true
-    FhirServiceCorsConfiguration:
-      description: The settings for the CORS configuration of the service instance.
-      type: object
-      properties:
-        origins:
-          type: array
-          description: The origins to be allowed via CORS.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/CorsConfigurationOriginEntry'
-        headers:
-          type: array
-          description: The headers to be allowed via CORS.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/CorsConfigurationHeaderEntry'
-        methods:
-          type: array
-          description: The methods to be allowed via CORS.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/CorsConfigurationMethodEntry'
-        maxAge:
-          type: integer
-          format: int32
-          description: The max age to be allowed via CORS.
-          readOnly: false
-          minimum: 0
-          maximum: 99999
-        allowCredentials:
-          type: boolean
-          description: If credentials are allowed via CORS.
-          readOnly: false
-    FhirResourceVersionPolicy:
-      type: string
-      description: Controls how resources are versioned on the FHIR service
-      enum:
-      - no-version
-      - versioned
-      - versioned-update
-      x-ms-enum:
-        name: FhirResourceVersionPolicy
-        modelAsString: true
-    ServiceOciArtifactEntry:
-      description: An Open Container Initiative (OCI) artifact.
-      type: object
-      properties:
-        loginServer:
-          description: The Azure Container Registry login server.
-          type: string
-        imageName:
-          description: The artifact name.
-          type: string
-        digest:
-          description: The artifact digest.
-          type: string
-    systemData:
-      description: Metadata pertaining to creation and last modification of the resource.
-      type: object
-      readOnly: true
-      properties:
-        createdBy:
-          type: string
-          description: The identity that created the resource.
-        createdByType:
-          type: string
-          description: The type of identity that created the resource.
-          enum:
-          - User
-          - Application
-          - ManagedIdentity
-          - Key
-          x-ms-enum:
-            name: createdByType
-            modelAsString: true
-        createdAt:
-          type: string
-          format: date-time
-          description: The timestamp of resource creation (UTC).
-        lastModifiedBy:
-          type: string
-          description: The identity that last modified the resource.
-        lastModifiedByType:
-          type: string
-          description: The type of identity that last modified the resource.
-          enum:
-          - User
-          - Application
-          - ManagedIdentity
-          - Key
-          x-ms-enum:
-            name: createdByType
-            modelAsString: true
-        lastModifiedAt:
-          type: string
-          format: date-time
-          description: The timestamp of resource last modification (UTC)
-    FhirServiceImportConfiguration:
-      description: Import operation configuration information
-      type: object
-      properties:
-        integrationDataStore:
-          type: string
-          description: The name of the default integration storage account.
-          readOnly: false
-        initialImportMode:
-          type: boolean
-          description: If the FHIR service is in InitialImportMode.
-          readOnly: false
-        enabled:
-          type: boolean
-          description: If the import operation is enabled.
-          readOnly: false
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    CorsConfigurationMethodEntry:
-      description: A method for CORS.
-      type: string
-    FhirService:
-      type: object
-      description: The description of Fhir Service
-      allOf:
-      - $ref: '#/components/schemas/TaggedResource'
-      - $ref: '#/components/schemas/ServiceManagedIdentity'
-      properties:
-        kind:
-          readOnly: false
-          type: string
-          description: The kind of the service.
-          enum:
-          - fhir-Stu3
-          - fhir-R4
-          x-ms-enum:
-            name: fhirServiceKind
-            modelAsString: true
-        properties:
-          description: Fhir Service configuration.
-          $ref: '#/components/schemas/FhirServiceProperties'
-          x-ms-client-flatten: true
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: '#/components/schemas/systemData'
-    ProvisioningState:
-      description: The provisioning state.
-      enum:
-      - Deleting
-      - Succeeded
-      - Creating
-      - Accepted
-      - Verifying
-      - Updating
-      - Failed
-      - Canceled
-      - Deprovisioned
-      - Moving
-      - Suspended
-      - Warned
-      - SystemMaintenance
-      type: string
-      readOnly: true
-      x-ms-enum:
-        name: provisioningState
-        modelAsString: true
     FhirServiceAuthenticationConfiguration:
       description: Authentication configuration information
       type: object
@@ -444,91 +219,27 @@ components:
           items:
             $ref: '#/components/schemas/SmartIdentityProviderConfiguration'
           x-ms-identifiers: []
-    FhirServiceExportConfiguration:
-      description: Export operation configuration information
+    ResourceCore:
       type: object
+      description: The common properties for any resource, tracked or proxy.
       properties:
-        storageAccountName:
-          type: string
-          description: The name of the default export storage account.
-          readOnly: false
-    SmartIdentityProviderConfiguration:
-      description: An object to configure an identity provider for use with SMART on FHIR authentication.
-      type: object
-      properties:
-        authority:
-          description: The identity provider token authority also known as the token issuing authority.
-          type: string
-        applications:
-          type: array
-          description: The array of identity provider applications for SMART on FHIR authentication.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/SmartIdentityProviderApplication'
-          x-ms-identifiers: []
-    ErrorDetailsInternal:
-      description: Error details.
-      type: object
-      properties:
-        code:
-          description: The error code.
-          type: string
+        id:
           readOnly: true
-        message:
-          description: The error message.
           type: string
+          description: The resource identifier.
+        name:
           readOnly: true
-        target:
-          description: The target of the particular error.
           type: string
+          description: The resource name.
+          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
+        type:
           readOnly: true
-    UserAssignedIdentities:
-      title: User-Assigned Identities
-      description: 'The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: ''/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.'
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/UserAssignedIdentity'
-    ResourceTags:
-      type: object
-      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
-      properties:
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-          x-ms-mutability:
-          - read
-          - create
-          - update
-          description: Resource tags.
-    ResourceEventState:
-      type: string
-      description: Indicates the current status of event support for the resource.
-      enum:
-      - Disabled
-      - Enabled
-      - Updating
-      x-ms-enum:
-        name: ServiceEventState
-        modelAsString: true
-      readOnly: true
-    ImplementationGuidesConfiguration:
-      description: The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
-      type: object
-      properties:
-        usCoreMissingData:
-          type: boolean
-          description: If US Core Missing Data requirement is enabled.
-          readOnly: false
-    FhirServicePatchResource:
-      type: object
-      description: FhirService patch properties
-      allOf:
-      - $ref: '#/components/schemas/ResourceTags'
-      - $ref: '#/components/schemas/ServiceManagedIdentity'
-    CorsConfigurationHeaderEntry:
-      description: A header for CORS.
-      type: string
+          type: string
+          description: The resource type.
+        etag:
+          description: An etag associated with the resource, used for optimistic concurrency when editing it.
+          type: string
+      x-ms-azure-resource: true
     SmartIdentityProviderApplication:
       description: An Application configured in the Identity Provider used to access FHIR resources.
       type: object
@@ -587,29 +298,88 @@ components:
         encryption:
           description: The encryption settings of the FHIR service
           $ref: '#/components/schemas/Encryption'
-    TaggedResource:
-      type: object
-      description: The common properties of tracked resources in the service.
-      allOf:
-      - $ref: '#/components/schemas/ResourceTags'
-      - $ref: '#/components/schemas/LocationBasedResource'
-      x-ms-azure-resource: true
-    FhirServiceAcrConfiguration:
-      description: Azure container registry configuration information
+    ErrorDetails:
+      description: Error details.
       type: object
       properties:
-        loginServers:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    ProvisioningState:
+      description: The provisioning state.
+      enum:
+      - Deleting
+      - Succeeded
+      - Creating
+      - Accepted
+      - Verifying
+      - Updating
+      - Failed
+      - Canceled
+      - Deprovisioned
+      - Moving
+      - Suspended
+      - Warned
+      - SystemMaintenance
+      type: string
+      readOnly: true
+      x-ms-enum:
+        name: provisioningState
+        modelAsString: true
+    FhirResourceVersionPolicy:
+      type: string
+      description: Controls how resources are versioned on the FHIR service
+      enum:
+      - no-version
+      - versioned
+      - versioned-update
+      x-ms-enum:
+        name: FhirResourceVersionPolicy
+        modelAsString: true
+    FhirService:
+      type: object
+      description: The description of Fhir Service
+      allOf:
+      - $ref: '#/components/schemas/TaggedResource'
+      - $ref: '#/components/schemas/ServiceManagedIdentity'
+      properties:
+        kind:
+          readOnly: false
+          type: string
+          description: The kind of the service.
+          enum:
+          - fhir-Stu3
+          - fhir-R4
+          x-ms-enum:
+            name: fhirServiceKind
+            modelAsString: true
+        properties:
+          description: Fhir Service configuration.
+          $ref: '#/components/schemas/FhirServiceProperties'
+          x-ms-client-flatten: true
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: '#/components/schemas/systemData'
+    Error:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    SmartIdentityProviderConfiguration:
+      description: An object to configure an identity provider for use with SMART on FHIR authentication.
+      type: object
+      properties:
+        authority:
+          description: The identity provider token authority also known as the token issuing authority.
+          type: string
+        applications:
           type: array
-          description: The list of the Azure container registry login servers.
+          description: The array of identity provider applications for SMART on FHIR authentication.
           readOnly: false
           items:
-            type: string
-        ociArtifacts:
-          type: array
-          description: The list of Open Container Initiative (OCI) artifacts.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/ServiceOciArtifactEntry'
+            $ref: '#/components/schemas/SmartIdentityProviderApplication'
           x-ms-identifiers: []
     ServiceManagedIdentity:
       type: object
@@ -644,6 +414,178 @@ components:
               $ref: '#/components/schemas/UserAssignedIdentities'
           required:
           - type
+    FhirServiceCorsConfiguration:
+      description: The settings for the CORS configuration of the service instance.
+      type: object
+      properties:
+        origins:
+          type: array
+          description: The origins to be allowed via CORS.
+          readOnly: false
+          items:
+            $ref: '#/components/schemas/CorsConfigurationOriginEntry'
+        headers:
+          type: array
+          description: The headers to be allowed via CORS.
+          readOnly: false
+          items:
+            $ref: '#/components/schemas/CorsConfigurationHeaderEntry'
+        methods:
+          type: array
+          description: The methods to be allowed via CORS.
+          readOnly: false
+          items:
+            $ref: '#/components/schemas/CorsConfigurationMethodEntry'
+        maxAge:
+          type: integer
+          format: int32
+          description: The max age to be allowed via CORS.
+          readOnly: false
+          minimum: 0
+          maximum: 99999
+        allowCredentials:
+          type: boolean
+          description: If credentials are allowed via CORS.
+          readOnly: false
+    ResourceVersionPolicyConfiguration:
+      description: The settings for history tracking for FHIR resources.
+      type: object
+      properties:
+        default:
+          description: The default value for tracking history across all resources.
+          $ref: '#/components/schemas/FhirResourceVersionPolicy'
+        resourceTypeOverrides:
+          description: A list of FHIR Resources and their version policy overrides.
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FhirResourceVersionPolicy'
+    FhirServiceExportConfiguration:
+      description: Export operation configuration information
+      type: object
+      properties:
+        storageAccountName:
+          type: string
+          description: The name of the default export storage account.
+          readOnly: false
+    FhirServiceAcrConfiguration:
+      description: Azure container registry configuration information
+      type: object
+      properties:
+        loginServers:
+          type: array
+          description: The list of the Azure container registry login servers.
+          readOnly: false
+          items:
+            type: string
+        ociArtifacts:
+          type: array
+          description: The list of Open Container Initiative (OCI) artifacts.
+          readOnly: false
+          items:
+            $ref: '#/components/schemas/ServiceOciArtifactEntry'
+          x-ms-identifiers: []
+    ResourceTags:
+      type: object
+      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
+      properties:
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          x-ms-mutability:
+          - read
+          - create
+          - update
+          description: Resource tags.
+    ResourcePublicNetworkAccess:
+      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+      enum:
+      - Enabled
+      - Disabled
+      type: string
+      x-ms-enum:
+        name: PublicNetworkAccess
+        modelAsString: true
+      readOnly: true
+    systemData:
+      description: Metadata pertaining to creation and last modification of the resource.
+      type: object
+      readOnly: true
+      properties:
+        createdBy:
+          type: string
+          description: The identity that created the resource.
+        createdByType:
+          type: string
+          description: The type of identity that created the resource.
+          enum:
+          - User
+          - Application
+          - ManagedIdentity
+          - Key
+          x-ms-enum:
+            name: createdByType
+            modelAsString: true
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp of resource creation (UTC).
+        lastModifiedBy:
+          type: string
+          description: The identity that last modified the resource.
+        lastModifiedByType:
+          type: string
+          description: The type of identity that last modified the resource.
+          enum:
+          - User
+          - Application
+          - ManagedIdentity
+          - Key
+          x-ms-enum:
+            name: createdByType
+            modelAsString: true
+        lastModifiedAt:
+          type: string
+          format: date-time
+          description: The timestamp of resource last modification (UTC)
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
+    CorsConfigurationMethodEntry:
+      description: A method for CORS.
+      type: string
+    CorsConfigurationHeaderEntry:
+      description: A header for CORS.
+      type: string
+    FhirServiceImportConfiguration:
+      description: Import operation configuration information
+      type: object
+      properties:
+        integrationDataStore:
+          type: string
+          description: The name of the default integration storage account.
+          readOnly: false
+        initialImportMode:
+          type: boolean
+          description: If the FHIR service is in InitialImportMode.
+          readOnly: false
+        enabled:
+          type: boolean
+          description: If the import operation is enabled.
+          readOnly: false
     LocationBasedResource:
       type: object
       description: The common properties for any location based resource, tracked or proxy.
@@ -657,27 +599,6 @@ components:
           - create
           - read
       x-ms-azure-resource: true
-    ResourceCore:
-      type: object
-      description: The common properties for any resource, tracked or proxy.
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The resource identifier.
-        name:
-          readOnly: true
-          type: string
-          description: The resource name.
-          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
-        type:
-          readOnly: true
-          type: string
-          description: The resource type.
-        etag:
-          description: An etag associated with the resource, used for optimistic concurrency when editing it.
-          type: string
-      x-ms-azure-resource: true
     FhirServiceCollection:
       description: A collection of Fhir services.
       type: object
@@ -690,27 +611,97 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FhirService'
+    ResourceEventState:
+      type: string
+      description: Indicates the current status of event support for the resource.
+      enum:
+      - Disabled
+      - Enabled
+      - Updating
+      x-ms-enum:
+        name: ServiceEventState
+        modelAsString: true
+      readOnly: true
+    FhirServicePatchResource:
+      type: object
+      description: FhirService patch properties
+      allOf:
+      - $ref: '#/components/schemas/ResourceTags'
+      - $ref: '#/components/schemas/ServiceManagedIdentity'
+    ImplementationGuidesConfiguration:
+      description: The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
+      type: object
+      properties:
+        usCoreMissingData:
+          type: boolean
+          description: If US Core Missing Data requirement is enabled.
+          readOnly: false
+    CorsConfigurationOriginEntry:
+      description: An origin for CORS.
+      type: string
+      pattern: ^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\:\/\/(?:[a-zA-Z0-9-]+[.]?)+(?:\:[0-9]{1,5})?|[*]))$
+    TaggedResource:
+      type: object
+      description: The common properties of tracked resources in the service.
+      allOf:
+      - $ref: '#/components/schemas/ResourceTags'
+      - $ref: '#/components/schemas/LocationBasedResource'
+      x-ms-azure-resource: true
+    UserAssignedIdentity:
+      type: object
+      description: User assigned identity properties
+      properties:
+        principalId:
+          description: The principal ID of the assigned identity.
+          format: uuid
+          type: string
+          readOnly: true
+        clientId:
+          description: The client ID of the assigned identity.
+          format: uuid
+          type: string
+          readOnly: true
+    Encryption:
+      description: Settings to encrypt a service
+      type: object
+      properties:
+        customerManagedKeyEncryption:
+          type: object
+          description: The encryption settings for the customer-managed key
+          readOnly: false
+          properties:
+            keyEncryptionKeyUrl:
+              type: string
+              description: The URL of the key to use for encryption
+              readOnly: false
+    SmartDataActions:
+      type: string
+      description: The Data Actions that can be enabled for a Smart Identity Provider Application.
+      enum:
+      - Read
+      x-ms-enum:
+        name: SmartDataActions
+        modelAsString: true
+    UserAssignedIdentities:
+      title: User-Assigned Identities
+      description: 'The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: ''/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.'
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/UserAssignedIdentity'
+    ServiceOciArtifactEntry:
+      description: An Open Container Initiative (OCI) artifact.
+      type: object
+      properties:
+        loginServer:
+          description: The Azure Container Registry login server.
+          type: string
+        imageName:
+          description: The artifact name.
+          type: string
+        digest:
+          description: The artifact digest.
+          type: string
   parameters:
-    fhirServiceName:
-      name: fhirServiceName
-      in: path
-      required: true
-      description: The name of FHIR Service resource.
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 24
-        minLength: 3
-    workspaceName:
-      name: workspaceName
-      in: path
-      required: true
-      description: The name of workspace resource.
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 24
-        minLength: 3
     resourceGroupName:
       name: resourceGroupName
       in: path
@@ -722,24 +713,32 @@ components:
         maxLength: 90
         minLength: 1
         pattern: ^[-\w\._\(\)]+$
+    workspaceName:
+      name: workspaceName
+      in: path
+      required: true
+      description: The name of workspace resource.
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 24
+        minLength: 3
+    fhirServiceName:
+      name: fhirServiceName
+      in: path
+      required: true
+      description: The name of FHIR Service resource.
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 24
+        minLength: 3
   securitySchemes:
-    AadToken:
+    azure_auth:
       type: oauth2
       flows:
-        authorizationCode:
+        implicit:
           scopes:
-            https://deid.azure.com/.default: ''
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
-      description: The Azure Active Directory OAuth2 Flow
-x-ms-parameterized-host:
-  hostTemplate: '{endpoint}'
-  useSchemePrefix: false
-  parameters:
-  - name: endpoint
-    in: path
-    description: Url of your De-identification Service.
-    required: true
-    type: string
-    format: uri
-    x-ms-skip-url-encoding: true
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow

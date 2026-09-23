@@ -1,12 +1,13 @@
 openapi: 3.2.0
 info:
-  title: Azure Health Data Services de-identification service Collection Dicom Services API
-  version: '2024-11-15'
-  x-typespec-generated:
-  - emitter: '@azure-tools/typespec-autorest'
+  version: '2024-03-31'
+  title: HealthcareApisClient Dicom Services API
+  description: Use this API to manage Microsoft HealthcareApis services in your Azure subscription.
+servers:
+- url: https://management.azure.com
 security:
-- AadToken:
-  - https://deid.azure.com/.default
+- azure_auth:
+  - user_impersonation
 tags:
 - name: DicomServices
 paths:
@@ -39,6 +40,8 @@ paths:
                 $ref: '#/components/schemas/ErrorDetails'
       x-ms-pageable:
         nextLinkName: nextLink
+      summary: Dicom services list by workspace
+      x-summary-source: derived
   ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HealthcareApis/workspaces/{workspaceName}/dicomservices/{dicomServiceName}
   : get:
       tags:
@@ -67,6 +70,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorDetails'
+      summary: Dicom services get
+      x-summary-source: derived
     put:
       tags:
       - DicomServices
@@ -114,6 +119,8 @@ paths:
               $ref: '#/components/schemas/DicomService'
         description: The parameters for creating or updating a Dicom Service resource.
         required: true
+      summary: Dicom services create or update
+      x-summary-source: derived
     patch:
       tags:
       - DicomServices
@@ -155,6 +162,8 @@ paths:
               $ref: '#/components/schemas/DicomServicePatchResource'
         description: The parameters for updating a Dicom Service.
         required: true
+      summary: Dicom services update
+      x-summary-source: derived
     delete:
       tags:
       - DicomServices
@@ -183,30 +192,59 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+      summary: Dicom services delete
+      x-summary-source: derived
 components:
   schemas:
-    CorsConfigurationOriginEntry:
-      description: An origin for CORS.
-      type: string
-      pattern: ^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\:\/\/(?:[a-zA-Z0-9-]+[.]?)+(?:\:[0-9]{1,5})?|[*]))$
-    DicomAudience:
-      description: The audience for Dicom Service
+    ResourceCore:
+      type: object
+      description: The common properties for any resource, tracked or proxy.
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The resource identifier.
+        name:
+          readOnly: true
+          type: string
+          description: The resource name.
+          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
+        type:
+          readOnly: true
+          type: string
+          description: The resource type.
+        etag:
+          description: An etag associated with the resource, used for optimistic concurrency when editing it.
+          type: string
+      x-ms-azure-resource: true
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    ProvisioningState:
+      description: The provisioning state.
+      enum:
+      - Deleting
+      - Succeeded
+      - Creating
+      - Accepted
+      - Verifying
+      - Updating
+      - Failed
+      - Canceled
+      - Deprovisioned
+      - Moving
+      - Suspended
+      - Warned
+      - SystemMaintenance
       type: string
       readOnly: true
-    UserAssignedIdentity:
-      type: object
-      description: User assigned identity properties
-      properties:
-        principalId:
-          description: The principal ID of the assigned identity.
-          format: uuid
-          type: string
-          readOnly: true
-        clientId:
-          description: The client ID of the assigned identity.
-          format: uuid
-          type: string
-          readOnly: true
+      x-ms-enum:
+        name: provisioningState
+        modelAsString: true
     Error:
       description: Error details.
       type: object
@@ -214,19 +252,102 @@ components:
         error:
           description: Error details
           $ref: '#/components/schemas/ErrorDetailsInternal'
-    Encryption:
-      description: Settings to encrypt a service
+    ServiceManagedIdentity:
+      type: object
+      description: Managed service identity (system assigned and/or user assigned identities)
+      properties:
+        identity:
+          type: object
+          description: Setting indicating whether the service has a managed identity associated with it.
+          properties:
+            type:
+              description: Type of identity being specified, currently SystemAssigned and None are allowed.
+              type: string
+              enum:
+              - None
+              - SystemAssigned
+              - UserAssigned
+              - SystemAssigned,UserAssigned
+              x-ms-enum:
+                name: ServiceManagedIdentityType
+                modelAsString: true
+            principalId:
+              readOnly: true
+              format: uuid
+              type: string
+              description: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+            tenantId:
+              readOnly: true
+              format: uuid
+              type: string
+              description: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+            userAssignedIdentities:
+              $ref: '#/components/schemas/UserAssignedIdentities'
+          required:
+          - type
+    EnableDataPartitions:
+      description: Boolean to indicate if data partitions is enabled or not.
+      type: boolean
+    CorsConfiguration:
+      description: The settings for the CORS configuration of the service instance.
       type: object
       properties:
-        customerManagedKeyEncryption:
-          type: object
-          description: The encryption settings for the customer-managed key
+        origins:
+          type: array
+          description: The origins to be allowed via CORS.
           readOnly: false
-          properties:
-            keyEncryptionKeyUrl:
-              type: string
-              description: The URL of the key to use for encryption
-              readOnly: false
+          items:
+            $ref: '#/components/schemas/CorsConfigurationOriginEntry'
+        headers:
+          type: array
+          description: The headers to be allowed via CORS.
+          readOnly: false
+          items:
+            $ref: '#/components/schemas/CorsConfigurationHeaderEntry'
+        methods:
+          type: array
+          description: The methods to be allowed via CORS.
+          readOnly: false
+          items:
+            $ref: '#/components/schemas/CorsConfigurationMethodEntry'
+        maxAge:
+          type: integer
+          format: int32
+          description: The max age to be allowed via CORS.
+          readOnly: false
+          minimum: 0
+          maximum: 99999
+        allowCredentials:
+          type: boolean
+          description: If credentials are allowed via CORS.
+          readOnly: false
+    DicomService:
+      type: object
+      description: The description of Dicom Service
+      allOf:
+      - $ref: '#/components/schemas/TaggedResource'
+      - $ref: '#/components/schemas/ServiceManagedIdentity'
+      properties:
+        properties:
+          description: Dicom Service configuration.
+          $ref: '#/components/schemas/DicomServiceProperties'
+          x-ms-client-flatten: true
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: '#/components/schemas/systemData'
+    ResourceTags:
+      type: object
+      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
+      properties:
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          x-ms-mutability:
+          - read
+          - create
+          - update
+          description: Resource tags.
     ResourcePublicNetworkAccess:
       description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
       enum:
@@ -237,32 +358,6 @@ components:
         name: PublicNetworkAccess
         modelAsString: true
       readOnly: true
-    DicomServiceCollection:
-      description: The collection of Dicom Services.
-      type: object
-      properties:
-        nextLink:
-          description: The link used to get the next page of Dicom Services.
-          type: string
-        value:
-          description: The list of Dicom Services.
-          type: array
-          items:
-            $ref: '#/components/schemas/DicomService'
-    DicomServiceAuthenticationConfiguration:
-      description: Authentication configuration information
-      type: object
-      properties:
-        authority:
-          type: string
-          description: The authority url for the service
-          readOnly: true
-        audiences:
-          type: array
-          description: The audiences for the service
-          items:
-            $ref: '#/components/schemas/DicomAudience'
-          readOnly: true
     systemData:
       description: Metadata pertaining to creation and last modification of the resource.
       type: object
@@ -304,52 +399,6 @@ components:
           type: string
           format: date-time
           description: The timestamp of resource last modification (UTC)
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    CorsConfigurationMethodEntry:
-      description: A method for CORS.
-      type: string
-    EnableDataPartitions:
-      description: Boolean to indicate if data partitions is enabled or not.
-      type: boolean
-    ProvisioningState:
-      description: The provisioning state.
-      enum:
-      - Deleting
-      - Succeeded
-      - Creating
-      - Accepted
-      - Verifying
-      - Updating
-      - Failed
-      - Canceled
-      - Deprovisioned
-      - Moving
-      - Suspended
-      - Warned
-      - SystemMaintenance
-      type: string
-      readOnly: true
-      x-ms-enum:
-        name: provisioningState
-        modelAsString: true
-    StorageConfiguration:
-      description: The configuration of connected storage
-      type: object
-      properties:
-        storageResourceId:
-          type: string
-          description: The resource id of connected storage account.
-          readOnly: false
-        fileSystemName:
-          type: string
-          description: The filesystem name of connected storage account.
-          readOnly: false
     ErrorDetailsInternal:
       description: Error details.
       type: object
@@ -366,47 +415,37 @@ components:
           description: The target of the particular error.
           type: string
           readOnly: true
-    DicomService:
-      type: object
-      description: The description of Dicom Service
-      allOf:
-      - $ref: '#/components/schemas/TaggedResource'
-      - $ref: '#/components/schemas/ServiceManagedIdentity'
-      properties:
-        properties:
-          description: Dicom Service configuration.
-          $ref: '#/components/schemas/DicomServiceProperties'
-          x-ms-client-flatten: true
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: '#/components/schemas/systemData'
-    ResourceTags:
-      type: object
-      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
-      properties:
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-          x-ms-mutability:
-          - read
-          - create
-          - update
-          description: Resource tags.
-    ResourceEventState:
+    CorsConfigurationMethodEntry:
+      description: A method for CORS.
       type: string
-      description: Indicates the current status of event support for the resource.
-      enum:
-      - Disabled
-      - Enabled
-      - Updating
-      x-ms-enum:
-        name: ServiceEventState
-        modelAsString: true
-      readOnly: true
     CorsConfigurationHeaderEntry:
       description: A header for CORS.
       type: string
+    StorageConfiguration:
+      description: The configuration of connected storage
+      type: object
+      properties:
+        storageResourceId:
+          type: string
+          description: The resource id of connected storage account.
+          readOnly: false
+        fileSystemName:
+          type: string
+          description: The filesystem name of connected storage account.
+          readOnly: false
+    LocationBasedResource:
+      type: object
+      description: The common properties for any location based resource, tracked or proxy.
+      allOf:
+      - $ref: '#/components/schemas/ResourceCore'
+      properties:
+        location:
+          type: string
+          description: The resource location.
+          x-ms-mutability:
+          - create
+          - read
+      x-ms-azure-resource: true
     DicomServiceProperties:
       description: Dicom Service properties.
       type: object
@@ -445,6 +484,41 @@ components:
         enableDataPartitions:
           description: If data partitions is enabled or not.
           $ref: '#/components/schemas/EnableDataPartitions'
+    ResourceEventState:
+      type: string
+      description: Indicates the current status of event support for the resource.
+      enum:
+      - Disabled
+      - Enabled
+      - Updating
+      x-ms-enum:
+        name: ServiceEventState
+        modelAsString: true
+      readOnly: true
+    DicomServiceAuthenticationConfiguration:
+      description: Authentication configuration information
+      type: object
+      properties:
+        authority:
+          type: string
+          description: The authority url for the service
+          readOnly: true
+        audiences:
+          type: array
+          description: The audiences for the service
+          items:
+            $ref: '#/components/schemas/DicomAudience'
+          readOnly: true
+    DicomServicePatchResource:
+      type: object
+      description: Dicom Service patch properties
+      allOf:
+      - $ref: '#/components/schemas/ResourceTags'
+      - $ref: '#/components/schemas/ServiceManagedIdentity'
+    CorsConfigurationOriginEntry:
+      description: An origin for CORS.
+      type: string
+      pattern: ^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\:\/\/(?:[a-zA-Z0-9-]+[.]?)+(?:\:[0-9]{1,5})?|[*]))$
     TaggedResource:
       type: object
       description: The common properties of tracked resources in the service.
@@ -452,139 +526,56 @@ components:
       - $ref: '#/components/schemas/ResourceTags'
       - $ref: '#/components/schemas/LocationBasedResource'
       x-ms-azure-resource: true
-    DicomServicePatchResource:
+    UserAssignedIdentity:
       type: object
-      description: Dicom Service patch properties
-      allOf:
-      - $ref: '#/components/schemas/ResourceTags'
-      - $ref: '#/components/schemas/ServiceManagedIdentity'
-    CorsConfiguration:
-      description: The settings for the CORS configuration of the service instance.
+      description: User assigned identity properties
+      properties:
+        principalId:
+          description: The principal ID of the assigned identity.
+          format: uuid
+          type: string
+          readOnly: true
+        clientId:
+          description: The client ID of the assigned identity.
+          format: uuid
+          type: string
+          readOnly: true
+    Encryption:
+      description: Settings to encrypt a service
       type: object
       properties:
-        origins:
-          type: array
-          description: The origins to be allowed via CORS.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/CorsConfigurationOriginEntry'
-        headers:
-          type: array
-          description: The headers to be allowed via CORS.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/CorsConfigurationHeaderEntry'
-        methods:
-          type: array
-          description: The methods to be allowed via CORS.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/CorsConfigurationMethodEntry'
-        maxAge:
-          type: integer
-          format: int32
-          description: The max age to be allowed via CORS.
-          readOnly: false
-          minimum: 0
-          maximum: 99999
-        allowCredentials:
-          type: boolean
-          description: If credentials are allowed via CORS.
-          readOnly: false
-    ServiceManagedIdentity:
-      type: object
-      description: Managed service identity (system assigned and/or user assigned identities)
-      properties:
-        identity:
+        customerManagedKeyEncryption:
           type: object
-          description: Setting indicating whether the service has a managed identity associated with it.
+          description: The encryption settings for the customer-managed key
+          readOnly: false
           properties:
-            type:
-              description: Type of identity being specified, currently SystemAssigned and None are allowed.
+            keyEncryptionKeyUrl:
               type: string
-              enum:
-              - None
-              - SystemAssigned
-              - UserAssigned
-              - SystemAssigned,UserAssigned
-              x-ms-enum:
-                name: ServiceManagedIdentityType
-                modelAsString: true
-            principalId:
-              readOnly: true
-              format: uuid
-              type: string
-              description: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-            tenantId:
-              readOnly: true
-              format: uuid
-              type: string
-              description: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-            userAssignedIdentities:
-              $ref: '#/components/schemas/UserAssignedIdentities'
-          required:
-          - type
-    LocationBasedResource:
-      type: object
-      description: The common properties for any location based resource, tracked or proxy.
-      allOf:
-      - $ref: '#/components/schemas/ResourceCore'
-      properties:
-        location:
-          type: string
-          description: The resource location.
-          x-ms-mutability:
-          - create
-          - read
-      x-ms-azure-resource: true
-    ResourceCore:
-      type: object
-      description: The common properties for any resource, tracked or proxy.
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The resource identifier.
-        name:
-          readOnly: true
-          type: string
-          description: The resource name.
-          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
-        type:
-          readOnly: true
-          type: string
-          description: The resource type.
-        etag:
-          description: An etag associated with the resource, used for optimistic concurrency when editing it.
-          type: string
-      x-ms-azure-resource: true
+              description: The URL of the key to use for encryption
+              readOnly: false
     UserAssignedIdentities:
       title: User-Assigned Identities
       description: 'The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: ''/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.'
       type: object
       additionalProperties:
         $ref: '#/components/schemas/UserAssignedIdentity'
+    DicomAudience:
+      description: The audience for Dicom Service
+      type: string
+      readOnly: true
+    DicomServiceCollection:
+      description: The collection of Dicom Services.
+      type: object
+      properties:
+        nextLink:
+          description: The link used to get the next page of Dicom Services.
+          type: string
+        value:
+          description: The list of Dicom Services.
+          type: array
+          items:
+            $ref: '#/components/schemas/DicomService'
   parameters:
-    dicomServiceName:
-      name: dicomServiceName
-      in: path
-      required: true
-      description: The name of DICOM Service resource.
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 24
-        minLength: 3
-    workspaceName:
-      name: workspaceName
-      in: path
-      required: true
-      description: The name of workspace resource.
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 24
-        minLength: 3
     resourceGroupName:
       name: resourceGroupName
       in: path
@@ -596,24 +587,32 @@ components:
         maxLength: 90
         minLength: 1
         pattern: ^[-\w\._\(\)]+$
+    workspaceName:
+      name: workspaceName
+      in: path
+      required: true
+      description: The name of workspace resource.
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 24
+        minLength: 3
+    dicomServiceName:
+      name: dicomServiceName
+      in: path
+      required: true
+      description: The name of DICOM Service resource.
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 24
+        minLength: 3
   securitySchemes:
-    AadToken:
+    azure_auth:
       type: oauth2
       flows:
-        authorizationCode:
+        implicit:
           scopes:
-            https://deid.azure.com/.default: ''
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/token
-      description: The Azure Active Directory OAuth2 Flow
-x-ms-parameterized-host:
-  hostTemplate: '{endpoint}'
-  useSchemePrefix: false
-  parameters:
-  - name: endpoint
-    in: path
-    description: Url of your De-identification Service.
-    required: true
-    type: string
-    format: uri
-    x-ms-skip-url-encoding: true
+            user_impersonation: impersonate your user account
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/authorize
+      description: Azure Active Directory OAuth2 Flow
