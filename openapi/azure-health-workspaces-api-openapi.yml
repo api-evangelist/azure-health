@@ -220,27 +220,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ResourceCore:
-      type: object
-      description: The common properties for any resource, tracked or proxy.
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The resource identifier.
-        name:
-          readOnly: true
-          type: string
-          description: The resource name.
-          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
-        type:
-          readOnly: true
-          type: string
-          description: The resource type.
-        etag:
-          description: An etag associated with the resource, used for optimistic concurrency when editing it.
-          type: string
-      x-ms-azure-resource: true
     WorkspaceList:
       description: Collection of workspace object with a next link
       type: object
@@ -258,52 +237,13 @@ components:
       description: Workspace patch properties
       allOf:
       - $ref: '#/components/schemas/ResourceTags'
-    ErrorDetails:
-      description: Error details.
+    TaggedResource:
       type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    LocationBasedResource:
-      type: object
-      description: The common properties for any location based resource, tracked or proxy.
+      description: The common properties of tracked resources in the service.
       allOf:
-      - $ref: '#/components/schemas/ResourceCore'
-      properties:
-        location:
-          type: string
-          description: The resource location.
-          x-ms-mutability:
-          - create
-          - read
+      - $ref: '#/components/schemas/ResourceTags'
+      - $ref: '#/components/schemas/LocationBasedResource'
       x-ms-azure-resource: true
-    Workspace:
-      type: object
-      description: Workspace resource.
-      allOf:
-      - $ref: '#/components/schemas/TaggedResource'
-      properties:
-        properties:
-          x-ms-client-flatten: false
-          type: object
-          description: Workspaces resource specific properties.
-          properties:
-            provisioningState:
-              description: The provisioning state.
-              $ref: '#/components/schemas/ProvisioningState'
-            privateEndpointConnections:
-              description: The list of private endpoint connections that are set up for this resource.
-              type: array
-              items:
-                $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
-              readOnly: true
-            publicNetworkAccess:
-              description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-              $ref: '#/components/schemas/ResourcePublicNetworkAccess'
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: '#/components/schemas/systemData'
     ProvisioningState:
       description: The provisioning state.
       enum:
@@ -332,29 +272,48 @@ components:
         error:
           description: Error details
           $ref: '#/components/schemas/ErrorDetailsInternal'
-    ResourceTags:
+    ErrorDetailsInternal:
+      description: Error details.
       type: object
-      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
       properties:
-        tags:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
+    Workspace:
+      type: object
+      description: Workspace resource.
+      allOf:
+      - $ref: '#/components/schemas/TaggedResource'
+      properties:
+        properties:
+          x-ms-client-flatten: false
           type: object
-          additionalProperties:
-            type: string
-          x-ms-mutability:
-          - read
-          - create
-          - update
-          description: Resource tags.
-    ResourcePublicNetworkAccess:
-      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
-      enum:
-      - Enabled
-      - Disabled
-      type: string
-      x-ms-enum:
-        name: PublicNetworkAccess
-        modelAsString: true
-      readOnly: true
+          description: Workspaces resource specific properties.
+          properties:
+            provisioningState:
+              description: The provisioning state.
+              $ref: '#/components/schemas/ProvisioningState'
+            privateEndpointConnections:
+              description: The list of private endpoint connections that are set up for this resource.
+              type: array
+              items:
+                $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
+              readOnly: true
+            publicNetworkAccess:
+              description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+              $ref: '#/components/schemas/ResourcePublicNetworkAccess'
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: '#/components/schemas/systemData'
     systemData:
       description: Metadata pertaining to creation and last modification of the resource.
       type: object
@@ -396,29 +355,70 @@ components:
           type: string
           format: date-time
           description: The timestamp of resource last modification (UTC)
-    ErrorDetailsInternal:
+    ErrorDetails:
       description: Error details.
       type: object
       properties:
-        code:
-          description: The error code.
-          type: string
-          readOnly: true
-        message:
-          description: The error message.
-          type: string
-          readOnly: true
-        target:
-          description: The target of the particular error.
-          type: string
-          readOnly: true
-    TaggedResource:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    LocationBasedResource:
       type: object
-      description: The common properties of tracked resources in the service.
+      description: The common properties for any location based resource, tracked or proxy.
       allOf:
-      - $ref: '#/components/schemas/ResourceTags'
-      - $ref: '#/components/schemas/LocationBasedResource'
+      - $ref: '#/components/schemas/ResourceCore'
+      properties:
+        location:
+          type: string
+          description: The resource location.
+          x-ms-mutability:
+          - create
+          - read
       x-ms-azure-resource: true
+    ResourceCore:
+      type: object
+      description: The common properties for any resource, tracked or proxy.
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The resource identifier.
+        name:
+          readOnly: true
+          type: string
+          description: The resource name.
+          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
+        type:
+          readOnly: true
+          type: string
+          description: The resource type.
+        etag:
+          description: An etag associated with the resource, used for optimistic concurrency when editing it.
+          type: string
+      x-ms-azure-resource: true
+    ResourcePublicNetworkAccess:
+      description: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+      enum:
+      - Enabled
+      - Disabled
+      type: string
+      x-ms-enum:
+        name: PublicNetworkAccess
+        modelAsString: true
+      readOnly: true
+    ResourceTags:
+      type: object
+      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
+      properties:
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          x-ms-mutability:
+          - read
+          - create
+          - update
+          description: Resource tags.
   parameters:
     workspaceName:
       name: workspaceName
