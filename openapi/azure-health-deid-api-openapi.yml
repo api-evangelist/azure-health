@@ -55,31 +55,28 @@ paths:
       tags:
       - Deid
 components:
+  parameters:
+    Azure.Core.ClientRequestIdHeader:
+      name: x-ms-client-request-id
+      in: header
+      description: An opaque, globally-unique, client-generated string identifier for the request.
+      required: false
+      x-ms-parameter-location: method
+      x-ms-client-name: clientRequestId
+      schema:
+        type: string
+        format: uuid
+    Azure.Core.Foundations.ApiVersionParameter:
+      name: api-version
+      in: query
+      description: The API version to use for this operation.
+      required: true
+      x-ms-parameter-location: method
+      x-ms-client-name: apiVersion
+      schema:
+        type: string
+        minLength: 1
   schemas:
-    Azure.Core.Foundations.Error:
-      type: object
-      description: The error object.
-      properties:
-        code:
-          type: string
-          description: One of a server-defined set of error codes.
-        message:
-          type: string
-          description: A human-readable representation of the error.
-        target:
-          type: string
-          description: The target of the error.
-        details:
-          type: array
-          description: An array of details about specific errors that led to this reported error.
-          items:
-            $ref: '#/components/schemas/Azure.Core.Foundations.Error'
-        innererror:
-          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
-          description: An object containing more specific information than the current object about the error.
-      required:
-      - code
-      - message
     PhiCategory:
       type: string
       description: List of PHI Entities.
@@ -204,6 +201,15 @@ components:
         - name: Zip
           value: Zip
           description: Zip Code.
+    Azure.Core.Foundations.ErrorResponse:
+      type: object
+      description: A response containing error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
+          description: The error object.
+      required:
+      - error
     StringIndex:
       type: object
       description: String index encoding model.
@@ -230,6 +236,61 @@ components:
       - utf8
       - utf16
       - codePoint
+    PhiTaggerResult:
+      type: object
+      description: Result of the "Tag" operation.
+      properties:
+        entities:
+          type: array
+          description: List of entities detected in the input.
+          items:
+            $ref: '#/components/schemas/PhiEntity'
+      required:
+      - entities
+    Azure.Core.Foundations.Error:
+      type: object
+      description: The error object.
+      properties:
+        code:
+          type: string
+          description: One of a server-defined set of error codes.
+        message:
+          type: string
+          description: A human-readable representation of the error.
+        target:
+          type: string
+          description: The target of the error.
+        details:
+          type: array
+          description: An array of details about specific errors that led to this reported error.
+          items:
+            $ref: '#/components/schemas/Azure.Core.Foundations.Error'
+        innererror:
+          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
+          description: An object containing more specific information than the current object about the error.
+      required:
+      - code
+      - message
+    Azure.Core.Foundations.InnerError:
+      type: object
+      description: An object containing more specific information about the error. As per Azure REST API guidelines - https://aka.ms/AzureRestApiGuidelines#handling-errors.
+      properties:
+        code:
+          type: string
+          description: One of a server-defined set of error codes.
+        innererror:
+          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
+          description: Inner error.
+    DeidentificationResult:
+      type: object
+      description: Response body for de-identification operation.
+      properties:
+        outputText:
+          type: string
+          description: Output text after de-identification. Not available for "Tag" operation.
+        taggerResult:
+          $ref: '#/components/schemas/PhiTaggerResult'
+          description: Result of the "Tag" operation. Only available for "Tag" Operation.
     DeidentificationContent:
       type: object
       description: Request body for de-identification operation.
@@ -264,59 +325,6 @@ components:
           description: Customization parameters to override default service behaviors.
       required:
       - inputText
-    PhiTaggerResult:
-      type: object
-      description: Result of the "Tag" operation.
-      properties:
-        entities:
-          type: array
-          description: List of entities detected in the input.
-          items:
-            $ref: '#/components/schemas/PhiEntity'
-      required:
-      - entities
-    DeidentificationCustomizationOptions:
-      type: object
-      description: Customizations options to override default service behaviors for synchronous usage.
-      properties:
-        redactionFormat:
-          type: string
-          description: "Format of the redacted output. Only valid when Operation is Redact. \nPlease refer to https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format for more details."
-          minLength: 1
-          maxLength: 16
-        surrogateLocale:
-          type: string
-          description: Locale in which the output surrogates are written.
-          default: en-US
-    Azure.Core.Foundations.ErrorResponse:
-      type: object
-      description: A response containing error details.
-      properties:
-        error:
-          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
-          description: The error object.
-      required:
-      - error
-    Azure.Core.Foundations.InnerError:
-      type: object
-      description: An object containing more specific information about the error. As per Azure REST API guidelines - https://aka.ms/AzureRestApiGuidelines#handling-errors.
-      properties:
-        code:
-          type: string
-          description: One of a server-defined set of error codes.
-        innererror:
-          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
-          description: Inner error.
-    DeidentificationResult:
-      type: object
-      description: Response body for de-identification operation.
-      properties:
-        outputText:
-          type: string
-          description: Output text after de-identification. Not available for "Tag" operation.
-        taggerResult:
-          $ref: '#/components/schemas/PhiTaggerResult'
-          description: Result of the "Tag" operation. Only available for "Tag" Operation.
     PhiEntity:
       type: object
       description: PHI Entity tag in the input.
@@ -341,27 +349,19 @@ components:
       - category
       - offset
       - length
-  parameters:
-    Azure.Core.ClientRequestIdHeader:
-      name: x-ms-client-request-id
-      in: header
-      description: An opaque, globally-unique, client-generated string identifier for the request.
-      required: false
-      x-ms-parameter-location: method
-      x-ms-client-name: clientRequestId
-      schema:
-        type: string
-        format: uuid
-    Azure.Core.Foundations.ApiVersionParameter:
-      name: api-version
-      in: query
-      description: The API version to use for this operation.
-      required: true
-      x-ms-parameter-location: method
-      x-ms-client-name: apiVersion
-      schema:
-        type: string
-        minLength: 1
+    DeidentificationCustomizationOptions:
+      type: object
+      description: Customizations options to override default service behaviors for synchronous usage.
+      properties:
+        redactionFormat:
+          type: string
+          description: "Format of the redacted output. Only valid when Operation is Redact. \nPlease refer to https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format for more details."
+          minLength: 1
+          maxLength: 16
+        surrogateLocale:
+          type: string
+          description: Locale in which the output surrogates are written.
+          default: en-US
   securitySchemes:
     AadToken:
       type: oauth2

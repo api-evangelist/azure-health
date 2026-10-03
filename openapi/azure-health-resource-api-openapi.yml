@@ -153,67 +153,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ServiceAccessPoliciesInfo:
-      description: The access policies of the service instance.
-      type: array
-      items:
-        $ref: '#/components/schemas/ServiceAccessPolicyEntry'
-      x-ms-identifiers:
-      - objectId
-    ServiceAuthenticationConfigurationInfo:
-      description: Authentication configuration information
-      type: object
-      properties:
-        authority:
-          type: string
-          description: The authority url for the service
-          readOnly: false
-        audience:
-          type: string
-          description: The audience url for the service
-          readOnly: false
-        smartProxyEnabled:
-          type: boolean
-          description: If the SMART on FHIR proxy is enabled
-          readOnly: false
-    ServiceCosmosDbConfigurationInfo:
-      description: The settings for the Cosmos DB database backing the service.
-      type: object
-      properties:
-        offerThroughput:
-          type: integer
-          description: The provisioned throughput for the backing database.
-          readOnly: false
-          minimum: 400
-        keyVaultKeyUri:
-          type: string
-          description: The URI of the customer-managed key for the backing database.
-          readOnly: false
-        crossTenantCmkApplicationId:
-          type: string
-          pattern: ^(([0-9A-Fa-f]{8}[-]?(?:[0-9A-Fa-f]{4}[-]?){3}[0-9A-Fa-f]{12}){1})+$
-          description: The multi-tenant application id used to enable CMK access for services in a data sovereign region.
-          readOnly: false
-    ServiceImportConfigurationInfo:
-      description: Import operation configuration information
-      type: object
-      properties:
-        integrationDataStore:
-          type: string
-          description: The name of the default integration storage account.
-          readOnly: false
-        initialImportMode:
-          type: boolean
-          description: If the FHIR service is in InitialImportMode.
-          readOnly: false
-        enabled:
-          type: boolean
-          description: If the import operation is enabled.
-          readOnly: false
-    ServiceCorsConfigurationOriginEntry:
-      description: An origin for CORS.
-      type: string
-      pattern: ^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\:\/\/(?:[a-zA-Z0-9-]+[.]?)+(?:\:[0-9]{1,5})?|[*]))$
     ServicesPropertiesUpdateParameters:
       description: The properties for updating a service instance.
       type: object
@@ -227,48 +166,39 @@ components:
           x-ms-enum:
             name: PublicNetworkAccess
             modelAsString: true
-    ErrorDetailsInternal:
-      description: Error details.
+    ServiceAcrConfigurationInfo:
+      description: Azure container registry configuration information
       type: object
       properties:
-        code:
-          description: The error code.
-          type: string
-          readOnly: true
-        message:
-          description: The error message.
-          type: string
-          readOnly: true
-        target:
-          description: The target of the particular error.
-          type: string
-          readOnly: true
-    ServiceCorsConfigurationMethodEntry:
-      description: A method for CORS.
-      type: string
-    ServiceCorsConfigurationHeaderEntry:
-      description: A header for CORS.
-      type: string
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    ServicesPatchDescription:
+        loginServers:
+          type: array
+          description: The list of the ACR login servers.
+          readOnly: false
+          items:
+            type: string
+        ociArtifacts:
+          type: array
+          description: The list of Open Container Initiative (OCI) artifacts.
+          readOnly: false
+          items:
+            $ref: '#/components/schemas/ServiceOciArtifactEntry'
+          x-ms-identifiers: []
+    ServicesDescription:
       description: The description of the service.
       type: object
       properties:
-        tags:
-          description: Instance tags
-          type: object
-          additionalProperties:
-            type: string
         properties:
-          $ref: '#/components/schemas/ServicesPropertiesUpdateParameters'
-          description: The properties for updating a service instance.
-          x-ms-client-flatten: true
+          x-ms-client-flatten: false
+          description: The common properties of a service.
+          $ref: '#/components/schemas/ServicesProperties'
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: '#/components/schemas/systemData'
+      allOf:
+      - $ref: '#/components/schemas/ServicesResource'
+    ServiceCorsConfigurationHeaderEntry:
+      description: A header for CORS.
+      type: string
     ProvisioningState:
       description: The provisioning state.
       enum:
@@ -290,6 +220,52 @@ components:
       x-ms-enum:
         name: provisioningState
         modelAsString: true
+    ServiceCorsConfigurationOriginEntry:
+      description: An origin for CORS.
+      type: string
+      pattern: ^(?:(?:(?:[hH][tT][tT][pP](?:[sS]|))\:\/\/(?:[a-zA-Z0-9-]+[.]?)+(?:\:[0-9]{1,5})?|[*]))$
+    ServiceAccessPoliciesInfo:
+      description: The access policies of the service instance.
+      type: array
+      items:
+        $ref: '#/components/schemas/ServiceAccessPolicyEntry'
+      x-ms-identifiers:
+      - objectId
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
+    ServiceImportConfigurationInfo:
+      description: Import operation configuration information
+      type: object
+      properties:
+        integrationDataStore:
+          type: string
+          description: The name of the default integration storage account.
+          readOnly: false
+        initialImportMode:
+          type: boolean
+          description: If the FHIR service is in InitialImportMode.
+          readOnly: false
+        enabled:
+          type: boolean
+          description: If the import operation is enabled.
+          readOnly: false
+    ServiceCorsConfigurationMethodEntry:
+      description: A method for CORS.
+      type: string
     systemData:
       description: Metadata pertaining to creation and last modification of the resource.
       type: object
@@ -331,31 +307,26 @@ components:
           type: string
           format: date-time
           description: The timestamp of resource last modification (UTC)
-    ServiceAcrConfigurationInfo:
-      description: Azure container registry configuration information
+    ServicesPatchDescription:
+      description: The description of the service.
       type: object
       properties:
-        loginServers:
-          type: array
-          description: The list of the ACR login servers.
-          readOnly: false
-          items:
+        tags:
+          description: Instance tags
+          type: object
+          additionalProperties:
             type: string
-        ociArtifacts:
-          type: array
-          description: The list of Open Container Initiative (OCI) artifacts.
-          readOnly: false
-          items:
-            $ref: '#/components/schemas/ServiceOciArtifactEntry'
-          x-ms-identifiers: []
-    ServiceExportConfigurationInfo:
-      description: Export operation configuration information
+        properties:
+          $ref: '#/components/schemas/ServicesPropertiesUpdateParameters'
+          description: The properties for updating a service instance.
+          x-ms-client-flatten: true
+    ErrorDetails:
+      description: Error details.
       type: object
       properties:
-        storageAccountName:
-          type: string
-          description: The name of the default export storage account.
-          readOnly: false
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
     ServiceOciArtifactEntry:
       description: An Open Container Initiative (OCI) artifact.
       type: object
@@ -369,6 +340,22 @@ components:
         digest:
           description: The artifact digest.
           type: string
+    ServiceAuthenticationConfigurationInfo:
+      description: Authentication configuration information
+      type: object
+      properties:
+        authority:
+          type: string
+          description: The authority url for the service
+          readOnly: false
+        audience:
+          type: string
+          description: The audience url for the service
+          readOnly: false
+        smartProxyEnabled:
+          type: boolean
+          description: If the SMART on FHIR proxy is enabled
+          readOnly: false
     ServicesResource:
       description: The common properties of a service.
       properties:
@@ -435,15 +422,6 @@ components:
       required:
       - location
       - kind
-    ServiceAccessPolicyEntry:
-      description: An access policy entry.
-      properties:
-        objectId:
-          description: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
-          type: string
-          pattern: ^(([0-9A-Fa-f]{8}[-]?(?:[0-9A-Fa-f]{4}[-]?){3}[0-9A-Fa-f]{12}){1})+$
-      required:
-      - objectId
     ServicesProperties:
       description: The properties of a service instance.
       type: object
@@ -486,19 +464,24 @@ components:
         importConfiguration:
           $ref: '#/components/schemas/ServiceImportConfigurationInfo'
           description: The settings for the import operation of the service instance.
-    ServicesDescription:
-      description: The description of the service.
+    ServiceCosmosDbConfigurationInfo:
+      description: The settings for the Cosmos DB database backing the service.
       type: object
       properties:
-        properties:
-          x-ms-client-flatten: false
-          description: The common properties of a service.
-          $ref: '#/components/schemas/ServicesProperties'
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: '#/components/schemas/systemData'
-      allOf:
-      - $ref: '#/components/schemas/ServicesResource'
+        offerThroughput:
+          type: integer
+          description: The provisioned throughput for the backing database.
+          readOnly: false
+          minimum: 400
+        keyVaultKeyUri:
+          type: string
+          description: The URI of the customer-managed key for the backing database.
+          readOnly: false
+        crossTenantCmkApplicationId:
+          type: string
+          pattern: ^(([0-9A-Fa-f]{8}[-]?(?:[0-9A-Fa-f]{4}[-]?){3}[0-9A-Fa-f]{12}){1})+$
+          description: The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+          readOnly: false
     ServiceCorsConfigurationInfo:
       description: The settings for the CORS configuration of the service instance.
       type: object
@@ -531,6 +514,23 @@ components:
           type: boolean
           description: If credentials are allowed via CORS.
           readOnly: false
+    ServiceExportConfigurationInfo:
+      description: Export operation configuration information
+      type: object
+      properties:
+        storageAccountName:
+          type: string
+          description: The name of the default export storage account.
+          readOnly: false
+    ServiceAccessPolicyEntry:
+      description: An access policy entry.
+      properties:
+        objectId:
+          description: An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+          type: string
+          pattern: ^(([0-9A-Fa-f]{8}[-]?(?:[0-9A-Fa-f]{4}[-]?){3}[0-9A-Fa-f]{12}){1})+$
+      required:
+      - objectId
   parameters:
     resourceName:
       name: resourceName

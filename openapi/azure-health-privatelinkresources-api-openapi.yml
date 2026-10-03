@@ -77,6 +77,22 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    PrivateLinkResourceListResultDescription:
+      type: object
+      properties:
+        value:
+          type: array
+          description: Array of private link resources
+          items:
+            $ref: '#/components/schemas/PrivateLinkResourceDescription'
+      description: A list of private link resources
     ErrorDetailsInternal:
       description: Error details.
       type: object
@@ -102,22 +118,6 @@ components:
       allOf:
       - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateLinkResource
       description: The Private Endpoint Connection resource.
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    PrivateLinkResourceListResultDescription:
-      type: object
-      properties:
-        value:
-          type: array
-          description: Array of private link resources
-          items:
-            $ref: '#/components/schemas/PrivateLinkResourceDescription'
-      description: A list of private link resources
   parameters:
     resourceName:
       name: resourceName

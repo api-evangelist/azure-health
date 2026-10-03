@@ -141,31 +141,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PrivateEndpointConnectionDescription:
-      type: object
-      properties:
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
-      allOf:
-      - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
-      description: The Private Endpoint Connection resource.
-    ErrorDetailsInternal:
-      description: Error details.
-      type: object
-      properties:
-        code:
-          description: The error code.
-          type: string
-          readOnly: true
-        message:
-          description: The error message.
-          type: string
-          readOnly: true
-        target:
-          description: The target of the particular error.
-          type: string
-          readOnly: true
     ErrorDetails:
       description: Error details.
       type: object
@@ -182,6 +157,31 @@ components:
           items:
             $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
       description: List of private endpoint connection associated with the specified storage account
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
+    PrivateEndpointConnectionDescription:
+      type: object
+      properties:
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
+      allOf:
+      - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
+      description: The Private Endpoint Connection resource.
   parameters:
     resourceName:
       name: resourceName
