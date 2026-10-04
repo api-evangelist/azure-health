@@ -104,142 +104,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CheckNameAvailabilityParameters:
-      description: Input values.
-      type: object
-      properties:
-        name:
-          description: The name of the service instance to check.
-          type: string
-        type:
-          description: The fully qualified resource type which includes provider namespace.
-          type: string
-      required:
-      - name
-      - type
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    MetricDimension:
-      description: Specifications of the Dimension of metrics
-      type: object
-      properties:
-        name:
-          description: Name of the dimension
-          type: string
-        displayName:
-          description: Localized friendly display name of the dimension
-          type: string
-        toBeExportedForShoebox:
-          description: Whether this dimension should be included for the Shoebox export scenario
-          type: boolean
-    ServicesNameAvailabilityInfo:
-      description: The properties indicating whether a given service name is available.
-      type: object
-      properties:
-        nameAvailable:
-          description: The value which indicates whether the provided name is available.
-          type: boolean
-          readOnly: true
-        reason:
-          description: The reason for unavailability.
-          enum:
-          - Invalid
-          - AlreadyExists
-          type: string
-          readOnly: true
-          x-ms-enum:
-            name: ServiceNameUnavailabilityReason
-            modelAsString: false
-        message:
-          description: The detailed reason message.
-          type: string
-    OperationDisplay:
-      description: The object that represents the operation.
-      type: object
-      properties:
-        provider:
-          readOnly: true
-          type: string
-          description: 'Service provider: Microsoft.HealthcareApis'
-        resource:
-          readOnly: true
-          type: string
-          description: 'Resource Type: Services'
-        operation:
-          readOnly: true
-          type: string
-          description: Name of the operation
-        description:
-          readOnly: true
-          type: string
-          description: Friendly description for the operation,
-    MetricSpecification:
-      description: Specifications of the Metrics for Azure Monitoring
-      type: object
-      properties:
-        name:
-          description: Name of the metric
-          type: string
-        displayName:
-          description: Localized friendly display name of the metric
-          type: string
-        displayDescription:
-          description: Localized friendly description of the metric
-          type: string
-        unit:
-          description: Unit that makes sense for the metric
-          type: string
-        category:
-          description: Name of the metric category that the metric belongs to. A metric can only belong to a single category.
-          type: string
-        aggregationType:
-          description: 'Only provide one value for this field. Valid values: Average, Minimum, Maximum, Total, Count.'
-          type: string
-        supportedAggregationTypes:
-          description: Supported aggregation types
-          uniqueItems: false
-          type: array
-          items:
-            type: string
-        supportedTimeGrainTypes:
-          description: Supported time grain types
-          uniqueItems: false
-          type: array
-          items:
-            type: string
-        fillGapWithZero:
-          description: Optional. If set to true, then zero will be returned for time duration where no metric is emitted/published.
-          type: boolean
-        metricFilterPattern:
-          type: string
-          description: Pattern for the filter of the metric.
-        dimensions:
-          description: Dimensions of the metric
-          uniqueItems: false
-          type: array
-          items:
-            $ref: '#/components/schemas/MetricDimension'
-          x-ms-identifiers: []
-        isInternal:
-          type: boolean
-          description: Whether the metric is internal.
-        sourceMdmAccount:
-          type: string
-          description: The source MDM account.
-        sourceMdmNamespace:
-          type: string
-          description: The source MDM namespace.
-        enableRegionalMdmAccount:
-          type: boolean
-          description: Whether regional MDM account enabled.
-        resourceIdDimensionNameOverride:
-          type: string
-          description: The resource Id dimension name override.
     OperationDetail:
       description: Service REST API operation.
       type: object
@@ -326,6 +190,81 @@ components:
           x-ms-client-flatten: false
           description: Additional properties of the operation result.
           type: object
+    MetricSpecification:
+      description: Specifications of the Metrics for Azure Monitoring
+      type: object
+      properties:
+        name:
+          description: Name of the metric
+          type: string
+        displayName:
+          description: Localized friendly display name of the metric
+          type: string
+        displayDescription:
+          description: Localized friendly description of the metric
+          type: string
+        unit:
+          description: Unit that makes sense for the metric
+          type: string
+        category:
+          description: Name of the metric category that the metric belongs to. A metric can only belong to a single category.
+          type: string
+        aggregationType:
+          description: 'Only provide one value for this field. Valid values: Average, Minimum, Maximum, Total, Count.'
+          type: string
+        supportedAggregationTypes:
+          description: Supported aggregation types
+          uniqueItems: false
+          type: array
+          items:
+            type: string
+        supportedTimeGrainTypes:
+          description: Supported time grain types
+          uniqueItems: false
+          type: array
+          items:
+            type: string
+        fillGapWithZero:
+          description: Optional. If set to true, then zero will be returned for time duration where no metric is emitted/published.
+          type: boolean
+        metricFilterPattern:
+          type: string
+          description: Pattern for the filter of the metric.
+        dimensions:
+          description: Dimensions of the metric
+          uniqueItems: false
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricDimension'
+          x-ms-identifiers: []
+        isInternal:
+          type: boolean
+          description: Whether the metric is internal.
+        sourceMdmAccount:
+          type: string
+          description: The source MDM account.
+        sourceMdmNamespace:
+          type: string
+          description: The source MDM namespace.
+        enableRegionalMdmAccount:
+          type: boolean
+          description: Whether regional MDM account enabled.
+        resourceIdDimensionNameOverride:
+          type: string
+          description: The resource Id dimension name override.
+    MetricDimension:
+      description: Specifications of the Dimension of metrics
+      type: object
+      properties:
+        name:
+          description: Name of the dimension
+          type: string
+        displayName:
+          description: Localized friendly display name of the dimension
+          type: string
+        toBeExportedForShoebox:
+          description: Whether this dimension should be included for the Shoebox export scenario
+          type: boolean
     ErrorDetailsInternal:
       description: Error details.
       type: object
@@ -342,13 +281,6 @@ components:
           description: The target of the particular error.
           type: string
           readOnly: true
-    OperationProperties:
-      description: Extra Operation properties
-      type: object
-      properties:
-        serviceSpecification:
-          $ref: '#/components/schemas/ServiceSpecification'
-          description: Service specifications of the operation
     LogSpecification:
       description: Specifications of the Log for Azure Monitoring
       type: object
@@ -362,6 +294,26 @@ components:
         blobDuration:
           description: Blob duration of the log
           type: string
+    OperationDisplay:
+      description: The object that represents the operation.
+      type: object
+      properties:
+        provider:
+          readOnly: true
+          type: string
+          description: 'Service provider: Microsoft.HealthcareApis'
+        resource:
+          readOnly: true
+          type: string
+          description: 'Resource Type: Services'
+        operation:
+          readOnly: true
+          type: string
+          description: Name of the operation
+        description:
+          readOnly: true
+          type: string
+          description: Friendly description for the operation,
     ListOperations:
       description: Available operations of the service
       type: object
@@ -380,6 +332,54 @@ components:
 
             It''s null for now, added for future use.'
           type: string
+    CheckNameAvailabilityParameters:
+      description: Input values.
+      type: object
+      properties:
+        name:
+          description: The name of the service instance to check.
+          type: string
+        type:
+          description: The fully qualified resource type which includes provider namespace.
+          type: string
+      required:
+      - name
+      - type
+    ServicesNameAvailabilityInfo:
+      description: The properties indicating whether a given service name is available.
+      type: object
+      properties:
+        nameAvailable:
+          description: The value which indicates whether the provided name is available.
+          type: boolean
+          readOnly: true
+        reason:
+          description: The reason for unavailability.
+          enum:
+          - Invalid
+          - AlreadyExists
+          type: string
+          readOnly: true
+          x-ms-enum:
+            name: ServiceNameUnavailabilityReason
+            modelAsString: false
+        message:
+          description: The detailed reason message.
+          type: string
+    OperationProperties:
+      description: Extra Operation properties
+      type: object
+      properties:
+        serviceSpecification:
+          $ref: '#/components/schemas/ServiceSpecification'
+          description: Service specifications of the operation
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
   parameters:
     locationName:
       name: locationName

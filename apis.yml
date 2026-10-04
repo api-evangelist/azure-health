@@ -835,8 +835,6 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/azure/healthcare-apis/fhir/overview
   baseURL: https://{workspace-name}-{fhir-service-name}.fhir.azurehealthcareapis.com
   tags:
-  - PrivateEndpointConnections
-  tags_raw:
   - Private Endpoint Connections
   properties:
   - type: OpenAPI

@@ -140,48 +140,6 @@ paths:
       summary: Workspace private endpoint connections delete
       x-summary-source: derived
 components:
-  schemas:
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    PrivateEndpointConnectionListResultDescription:
-      type: object
-      properties:
-        value:
-          type: array
-          description: Array of private endpoint connections
-          items:
-            $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
-      description: List of private endpoint connection associated with the specified storage account
-    ErrorDetailsInternal:
-      description: Error details.
-      type: object
-      properties:
-        code:
-          description: The error code.
-          type: string
-          readOnly: true
-        message:
-          description: The error message.
-          type: string
-          readOnly: true
-        target:
-          description: The target of the particular error.
-          type: string
-          readOnly: true
-    PrivateEndpointConnectionDescription:
-      type: object
-      properties:
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
-      allOf:
-      - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
-      description: The Private Endpoint Connection resource.
   parameters:
     workspaceName:
       name: workspaceName
@@ -204,6 +162,48 @@ components:
         maxLength: 90
         minLength: 1
         pattern: ^[-\w\._\(\)]+$
+  schemas:
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
+    PrivateEndpointConnectionListResultDescription:
+      type: object
+      properties:
+        value:
+          type: array
+          description: Array of private endpoint connections
+          items:
+            $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
+      description: List of private endpoint connection associated with the specified storage account
+    PrivateEndpointConnectionDescription:
+      type: object
+      properties:
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
+      allOf:
+      - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
+      description: The Private Endpoint Connection resource.
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
   securitySchemes:
     azure_auth:
       type: oauth2

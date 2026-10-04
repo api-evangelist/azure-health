@@ -140,23 +140,29 @@ paths:
       summary: Private endpoint connections delete
       x-summary-source: derived
 components:
+  parameters:
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      description: The name of the resource group that contains the service instance.
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 90
+        minLength: 1
+        pattern: ^[-\w\._\(\)]+$
+    resourceName:
+      name: resourceName
+      in: path
+      description: The name of the service instance.
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 24
+        minLength: 3
   schemas:
-    ErrorDetails:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    PrivateEndpointConnectionListResultDescription:
-      type: object
-      properties:
-        value:
-          type: array
-          description: Array of private endpoint connections
-          items:
-            $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
-      description: List of private endpoint connection associated with the specified storage account
     ErrorDetailsInternal:
       description: Error details.
       type: object
@@ -173,6 +179,15 @@ components:
           description: The target of the particular error.
           type: string
           readOnly: true
+    PrivateEndpointConnectionListResultDescription:
+      type: object
+      properties:
+        value:
+          type: array
+          description: Array of private endpoint connections
+          items:
+            $ref: '#/components/schemas/PrivateEndpointConnectionDescription'
+      description: List of private endpoint connection associated with the specified storage account
     PrivateEndpointConnectionDescription:
       type: object
       properties:
@@ -182,28 +197,13 @@ components:
       allOf:
       - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateEndpointConnection
       description: The Private Endpoint Connection resource.
-  parameters:
-    resourceName:
-      name: resourceName
-      in: path
-      description: The name of the service instance.
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 24
-        minLength: 3
-    resourceGroupName:
-      name: resourceGroupName
-      in: path
-      description: The name of the resource group that contains the service instance.
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 90
-        minLength: 1
-        pattern: ^[-\w\._\(\)]+$
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
   securitySchemes:
     azure_auth:
       type: oauth2
