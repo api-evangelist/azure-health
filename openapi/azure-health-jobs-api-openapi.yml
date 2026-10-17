@@ -318,7 +318,77 @@ paths:
       tags:
       - Jobs
 components:
+  parameters:
+    Azure.Core.Foundations.ApiVersionParameter:
+      name: api-version
+      in: query
+      description: The API version to use for this operation.
+      required: true
+      x-ms-parameter-location: method
+      x-ms-client-name: apiVersion
+      schema:
+        type: string
+        minLength: 1
+    PaginationByTokenQueryParameters.continuationToken:
+      name: continuationToken
+      in: query
+      description: Token to continue a previous query.
+      required: false
+      x-ms-parameter-location: method
+      schema:
+        type: string
+    Azure.Core.MaxPageSizeQueryParameter:
+      name: maxpagesize
+      in: query
+      description: The maximum number of result items per page.
+      required: false
+      x-ms-parameter-location: method
+      schema:
+        type: integer
+        format: int32
+    Azure.Core.ClientRequestIdHeader:
+      name: x-ms-client-request-id
+      in: header
+      description: An opaque, globally-unique, client-generated string identifier for the request.
+      required: false
+      x-ms-parameter-location: method
+      x-ms-client-name: clientRequestId
+      schema:
+        type: string
+        format: uuid
   schemas:
+    Azure.Core.Foundations.ErrorResponse:
+      type: object
+      description: A response containing error details.
+      properties:
+        error:
+          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
+          description: The error object.
+      required:
+      - error
+    DeidentificationJobCustomizationOptions:
+      type: object
+      description: Customizations options to override default service behaviors for job usage.
+      properties:
+        redactionFormat:
+          type: string
+          description: "Format of the redacted output. Only valid when Operation is Redact. \nPlease refer to https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format for more details."
+          minLength: 1
+          maxLength: 16
+        surrogateLocale:
+          type: string
+          description: Locale in which the output surrogates are written.
+          default: en-US
+    Azure.Core.Foundations.InnerError:
+      type: object
+      description: An object containing more specific information about the error. As per Azure REST API guidelines - https://aka.ms/AzureRestApiGuidelines#handling-errors.
+      properties:
+        code:
+          type: string
+          description: One of a server-defined set of error codes.
+        innererror:
+          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
+          description: Inner error.
     Azure.Core.Foundations.OperationState:
       type: string
       description: Enum describing allowed operation states.
@@ -347,43 +417,29 @@ components:
         - name: Canceled
           value: Canceled
           description: The operation has been canceled by the user.
-    DeidentificationDocumentDetails:
+    SourceStorageLocation:
       type: object
-      description: Details of a single document in a job.
+      description: Storage location.
       properties:
-        id:
+        location:
           type: string
-          description: Id of the document details.
-          readOnly: true
-        input:
-          $ref: '#/components/schemas/DeidentificationDocumentLocation'
-          description: Location for the input.
-        output:
-          $ref: '#/components/schemas/DeidentificationDocumentLocation'
-          description: Location for the output.
-        status:
-          $ref: '#/components/schemas/Azure.Core.Foundations.OperationState'
-          description: Status of the document.
-        error:
-          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
-          description: Error when document fails.
+          format: uri
+          description: URL to storage location.
+        prefix:
+          type: string
+          description: Prefix to filter path by.
+          maxLength: 1024
+        extensions:
+          type: array
+          description: List of extensions to filter path by.
+          default:
+          - '*'
+          minItems: 1
+          items:
+            type: string
       required:
-      - id
-      - input
-      - status
-    DeidentificationJobCustomizationOptions:
-      type: object
-      description: Customizations options to override default service behaviors for job usage.
-      properties:
-        redactionFormat:
-          type: string
-          description: "Format of the redacted output. Only valid when Operation is Redact. \nPlease refer to https://learn.microsoft.com/azure/healthcare-apis/deidentification/redaction-format for more details."
-          minLength: 1
-          maxLength: 16
-        surrogateLocale:
-          type: string
-          description: Locale in which the output surrogates are written.
-          default: en-US
+      - location
+      - prefix
     Azure.Core.eTag:
       type: string
       description: 'The ETag (or entity tag) HTTP response header is an identifier for a specific version of a resource.
@@ -392,15 +448,21 @@ components:
 
 
         It is a string of ASCII characters placed between double quotes, like "675af34563dc-tr34".'
-    Azure.Core.Foundations.ErrorResponse:
+    PagedDeidentificationDocumentDetails:
       type: object
-      description: A response containing error details.
+      description: Paged collection of DeidentificationDocumentDetails items
       properties:
-        error:
-          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
-          description: The error object.
+        value:
+          type: array
+          description: The DeidentificationDocumentDetails items on this page
+          items:
+            $ref: '#/components/schemas/DeidentificationDocumentDetails'
+        nextLink:
+          type: string
+          format: uri
+          description: The link to the next page of items
       required:
-      - error
+      - value
     DeidentificationJob:
       type: object
       description: A job containing a batch of documents to de-identify.
@@ -482,21 +544,6 @@ components:
       - status
       - lastUpdatedAt
       - createdAt
-    PagedDeidentificationDocumentDetails:
-      type: object
-      description: Paged collection of DeidentificationDocumentDetails items
-      properties:
-        value:
-          type: array
-          description: The DeidentificationDocumentDetails items on this page
-          items:
-            $ref: '#/components/schemas/DeidentificationDocumentDetails'
-        nextLink:
-          type: string
-          format: uri
-          description: The link to the next page of items
-      required:
-      - value
     TargetStorageLocation:
       type: object
       description: Storage location.
@@ -525,94 +572,6 @@ components:
           type: boolean
           description: When set to true during a job, the service will overwrite the output location if it already exists.
           default: false
-      required:
-      - location
-      - prefix
-    DeidentificationDocumentLocation:
-      type: object
-      description: Location of a document.
-      properties:
-        location:
-          type: string
-          format: uri
-          description: Location of document in storage.
-          maxLength: 1024
-        etag:
-          $ref: '#/components/schemas/Azure.Core.eTag'
-          description: The entity tag for this resource.
-          readOnly: true
-      required:
-      - location
-      - etag
-    PagedDeidentificationJob:
-      type: object
-      description: Paged collection of DeidentificationJob items
-      properties:
-        value:
-          type: array
-          description: The DeidentificationJob items on this page
-          items:
-            $ref: '#/components/schemas/DeidentificationJob'
-        nextLink:
-          type: string
-          format: uri
-          description: The link to the next page of items
-      required:
-      - value
-    Azure.Core.Foundations.InnerError:
-      type: object
-      description: An object containing more specific information about the error. As per Azure REST API guidelines - https://aka.ms/AzureRestApiGuidelines#handling-errors.
-      properties:
-        code:
-          type: string
-          description: One of a server-defined set of error codes.
-        innererror:
-          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
-          description: Inner error.
-    Azure.Core.Foundations.Error:
-      type: object
-      description: The error object.
-      properties:
-        code:
-          type: string
-          description: One of a server-defined set of error codes.
-        message:
-          type: string
-          description: A human-readable representation of the error.
-        target:
-          type: string
-          description: The target of the error.
-        details:
-          type: array
-          description: An array of details about specific errors that led to this reported error.
-          items:
-            $ref: '#/components/schemas/Azure.Core.Foundations.Error'
-        innererror:
-          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
-          description: An object containing more specific information than the current object about the error.
-      required:
-      - code
-      - message
-    SourceStorageLocation:
-      type: object
-      description: Storage location.
-      properties:
-        location:
-          type: string
-          format: uri
-          description: URL to storage location.
-        prefix:
-          type: string
-          description: Prefix to filter path by.
-          maxLength: 1024
-        extensions:
-          type: array
-          description: List of extensions to filter path by.
-          default:
-          - '*'
-          minItems: 1
-          items:
-            type: string
       required:
       - location
       - prefix
@@ -646,44 +605,85 @@ components:
       - canceled
       - total
       - bytesProcessed
-  parameters:
-    Azure.Core.MaxPageSizeQueryParameter:
-      name: maxpagesize
-      in: query
-      description: The maximum number of result items per page.
-      required: false
-      x-ms-parameter-location: method
-      schema:
-        type: integer
-        format: int32
-    Azure.Core.ClientRequestIdHeader:
-      name: x-ms-client-request-id
-      in: header
-      description: An opaque, globally-unique, client-generated string identifier for the request.
-      required: false
-      x-ms-parameter-location: method
-      x-ms-client-name: clientRequestId
-      schema:
-        type: string
-        format: uuid
-    Azure.Core.Foundations.ApiVersionParameter:
-      name: api-version
-      in: query
-      description: The API version to use for this operation.
-      required: true
-      x-ms-parameter-location: method
-      x-ms-client-name: apiVersion
-      schema:
-        type: string
-        minLength: 1
-    PaginationByTokenQueryParameters.continuationToken:
-      name: continuationToken
-      in: query
-      description: Token to continue a previous query.
-      required: false
-      x-ms-parameter-location: method
-      schema:
-        type: string
+    PagedDeidentificationJob:
+      type: object
+      description: Paged collection of DeidentificationJob items
+      properties:
+        value:
+          type: array
+          description: The DeidentificationJob items on this page
+          items:
+            $ref: '#/components/schemas/DeidentificationJob'
+        nextLink:
+          type: string
+          format: uri
+          description: The link to the next page of items
+      required:
+      - value
+    Azure.Core.Foundations.Error:
+      type: object
+      description: The error object.
+      properties:
+        code:
+          type: string
+          description: One of a server-defined set of error codes.
+        message:
+          type: string
+          description: A human-readable representation of the error.
+        target:
+          type: string
+          description: The target of the error.
+        details:
+          type: array
+          description: An array of details about specific errors that led to this reported error.
+          items:
+            $ref: '#/components/schemas/Azure.Core.Foundations.Error'
+        innererror:
+          $ref: '#/components/schemas/Azure.Core.Foundations.InnerError'
+          description: An object containing more specific information than the current object about the error.
+      required:
+      - code
+      - message
+    DeidentificationDocumentLocation:
+      type: object
+      description: Location of a document.
+      properties:
+        location:
+          type: string
+          format: uri
+          description: Location of document in storage.
+          maxLength: 1024
+        etag:
+          $ref: '#/components/schemas/Azure.Core.eTag'
+          description: The entity tag for this resource.
+          readOnly: true
+      required:
+      - location
+      - etag
+    DeidentificationDocumentDetails:
+      type: object
+      description: Details of a single document in a job.
+      properties:
+        id:
+          type: string
+          description: Id of the document details.
+          readOnly: true
+        input:
+          $ref: '#/components/schemas/DeidentificationDocumentLocation'
+          description: Location for the input.
+        output:
+          $ref: '#/components/schemas/DeidentificationDocumentLocation'
+          description: Location for the output.
+        status:
+          $ref: '#/components/schemas/Azure.Core.Foundations.OperationState'
+          description: Status of the document.
+        error:
+          $ref: '#/components/schemas/Azure.Core.Foundations.Error'
+          description: Error when document fails.
+      required:
+      - id
+      - input
+      - status
   securitySchemes:
     AadToken:
       type: oauth2

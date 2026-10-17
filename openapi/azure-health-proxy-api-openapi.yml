@@ -135,61 +135,6 @@ components:
         properties:
           $ref: '#/components/schemas/OperationProperties'
           description: Properties of the operation
-    ServiceSpecification:
-      description: Service specification payload
-      type: object
-      properties:
-        logSpecifications:
-          description: Specifications of the Log for Azure Monitoring
-          uniqueItems: false
-          type: array
-          items:
-            $ref: '#/components/schemas/LogSpecification'
-          x-ms-identifiers: []
-        metricSpecifications:
-          description: Specifications of the Metrics for Azure Monitoring
-          uniqueItems: false
-          type: array
-          items:
-            $ref: '#/components/schemas/MetricSpecification'
-          x-ms-identifiers: []
-    OperationResultsDescription:
-      description: The properties indicating the operation result of an operation on a service.
-      type: object
-      properties:
-        id:
-          description: The ID of the operation returned.
-          readOnly: true
-          type: string
-        name:
-          description: The name of the operation result.
-          readOnly: true
-          type: string
-        status:
-          description: The status of the operation being performed.
-          enum:
-          - Canceled
-          - Succeeded
-          - Failed
-          - Requested
-          - Running
-          readOnly: true
-          type: string
-          x-ms-enum:
-            name: OperationResultStatus
-            modelAsString: true
-        startTime:
-          description: The time that the operation was started.
-          readOnly: true
-          type: string
-        endTime:
-          description: The time that the operation finished.
-          readOnly: true
-          type: string
-        properties:
-          x-ms-client-flatten: false
-          description: Additional properties of the operation result.
-          type: object
     MetricSpecification:
       description: Specifications of the Metrics for Azure Monitoring
       type: object
@@ -265,86 +210,6 @@ components:
         toBeExportedForShoebox:
           description: Whether this dimension should be included for the Shoebox export scenario
           type: boolean
-    ErrorDetailsInternal:
-      description: Error details.
-      type: object
-      properties:
-        code:
-          description: The error code.
-          type: string
-          readOnly: true
-        message:
-          description: The error message.
-          type: string
-          readOnly: true
-        target:
-          description: The target of the particular error.
-          type: string
-          readOnly: true
-    LogSpecification:
-      description: Specifications of the Log for Azure Monitoring
-      type: object
-      properties:
-        name:
-          description: Name of the log
-          type: string
-        displayName:
-          description: Localized friendly display name of the log
-          type: string
-        blobDuration:
-          description: Blob duration of the log
-          type: string
-    OperationDisplay:
-      description: The object that represents the operation.
-      type: object
-      properties:
-        provider:
-          readOnly: true
-          type: string
-          description: 'Service provider: Microsoft.HealthcareApis'
-        resource:
-          readOnly: true
-          type: string
-          description: 'Resource Type: Services'
-        operation:
-          readOnly: true
-          type: string
-          description: Name of the operation
-        description:
-          readOnly: true
-          type: string
-          description: Friendly description for the operation,
-    ListOperations:
-      description: Available operations of the service
-      type: object
-      properties:
-        value:
-          description: Collection of available operation details
-          uniqueItems: false
-          type: array
-          readOnly: true
-          items:
-            $ref: '#/components/schemas/OperationDetail'
-          x-ms-identifiers:
-          - name
-        nextLink:
-          description: 'URL client should use to fetch the next page (per server side paging).
-
-            It''s null for now, added for future use.'
-          type: string
-    CheckNameAvailabilityParameters:
-      description: Input values.
-      type: object
-      properties:
-        name:
-          description: The name of the service instance to check.
-          type: string
-        type:
-          description: The fully qualified resource type which includes provider namespace.
-          type: string
-      required:
-      - name
-      - type
     ServicesNameAvailabilityInfo:
       description: The properties indicating whether a given service name is available.
       type: object
@@ -366,6 +231,103 @@ components:
         message:
           description: The detailed reason message.
           type: string
+    ListOperations:
+      description: Available operations of the service
+      type: object
+      properties:
+        value:
+          description: Collection of available operation details
+          uniqueItems: false
+          type: array
+          readOnly: true
+          items:
+            $ref: '#/components/schemas/OperationDetail'
+          x-ms-identifiers:
+          - name
+        nextLink:
+          description: 'URL client should use to fetch the next page (per server side paging).
+
+            It''s null for now, added for future use.'
+          type: string
+    OperationResultsDescription:
+      description: The properties indicating the operation result of an operation on a service.
+      type: object
+      properties:
+        id:
+          description: The ID of the operation returned.
+          readOnly: true
+          type: string
+        name:
+          description: The name of the operation result.
+          readOnly: true
+          type: string
+        status:
+          description: The status of the operation being performed.
+          enum:
+          - Canceled
+          - Succeeded
+          - Failed
+          - Requested
+          - Running
+          readOnly: true
+          type: string
+          x-ms-enum:
+            name: OperationResultStatus
+            modelAsString: true
+        startTime:
+          description: The time that the operation was started.
+          readOnly: true
+          type: string
+        endTime:
+          description: The time that the operation finished.
+          readOnly: true
+          type: string
+        properties:
+          x-ms-client-flatten: false
+          description: Additional properties of the operation result.
+          type: object
+    CheckNameAvailabilityParameters:
+      description: Input values.
+      type: object
+      properties:
+        name:
+          description: The name of the service instance to check.
+          type: string
+        type:
+          description: The fully qualified resource type which includes provider namespace.
+          type: string
+      required:
+      - name
+      - type
+    LogSpecification:
+      description: Specifications of the Log for Azure Monitoring
+      type: object
+      properties:
+        name:
+          description: Name of the log
+          type: string
+        displayName:
+          description: Localized friendly display name of the log
+          type: string
+        blobDuration:
+          description: Blob duration of the log
+          type: string
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
     OperationProperties:
       description: Extra Operation properties
       type: object
@@ -380,6 +342,44 @@ components:
         error:
           description: Error details
           $ref: '#/components/schemas/ErrorDetailsInternal'
+    OperationDisplay:
+      description: The object that represents the operation.
+      type: object
+      properties:
+        provider:
+          readOnly: true
+          type: string
+          description: 'Service provider: Microsoft.HealthcareApis'
+        resource:
+          readOnly: true
+          type: string
+          description: 'Resource Type: Services'
+        operation:
+          readOnly: true
+          type: string
+          description: Name of the operation
+        description:
+          readOnly: true
+          type: string
+          description: Friendly description for the operation,
+    ServiceSpecification:
+      description: Service specification payload
+      type: object
+      properties:
+        logSpecifications:
+          description: Specifications of the Log for Azure Monitoring
+          uniqueItems: false
+          type: array
+          items:
+            $ref: '#/components/schemas/LogSpecification'
+          x-ms-identifiers: []
+        metricSpecifications:
+          description: Specifications of the Metrics for Azure Monitoring
+          uniqueItems: false
+          type: array
+          items:
+            $ref: '#/components/schemas/MetricSpecification'
+          x-ms-identifiers: []
   parameters:
     locationName:
       name: locationName

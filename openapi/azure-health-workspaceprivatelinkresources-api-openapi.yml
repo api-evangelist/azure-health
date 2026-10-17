@@ -79,15 +79,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PrivateLinkResourceDescription:
-      type: object
-      properties:
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
-      allOf:
-      - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateLinkResource
-      description: The Private Endpoint Connection resource.
     ErrorDetailsInternal:
       description: Error details.
       type: object
@@ -104,6 +95,13 @@ components:
           description: The target of the particular error.
           type: string
           readOnly: true
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
     PrivateLinkResourceListResultDescription:
       type: object
       properties:
@@ -113,13 +111,15 @@ components:
           items:
             $ref: '#/components/schemas/PrivateLinkResourceDescription'
       description: A list of private link resources
-    ErrorDetails:
-      description: Error details.
+    PrivateLinkResourceDescription:
       type: object
       properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: ../../../../../../common-types/resource-management/v1/types.json#/definitions/systemData
+      allOf:
+      - $ref: ../../../../../../common-types/resource-management/v1/privatelinks.json#/definitions/PrivateLinkResource
+      description: The Private Endpoint Connection resource.
   parameters:
     workspaceName:
       name: workspaceName

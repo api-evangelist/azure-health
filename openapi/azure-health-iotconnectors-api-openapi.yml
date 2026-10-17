@@ -340,108 +340,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    LocationBasedResource:
-      type: object
-      description: The common properties for any location based resource, tracked or proxy.
-      allOf:
-      - $ref: '#/components/schemas/ResourceCore'
-      properties:
-        location:
-          type: string
-          description: The resource location.
-          x-ms-mutability:
-          - create
-          - read
-      x-ms-azure-resource: true
-    Error:
-      description: Error details.
-      type: object
-      properties:
-        error:
-          description: Error details
-          $ref: '#/components/schemas/ErrorDetailsInternal'
-    ErrorDetailsInternal:
-      description: Error details.
-      type: object
-      properties:
-        code:
-          description: The error code.
-          type: string
-          readOnly: true
-        message:
-          description: The error message.
-          type: string
-          readOnly: true
-        target:
-          description: The target of the particular error.
-          type: string
-          readOnly: true
-    IotEventHubIngestionEndpointConfiguration:
-      type: object
-      properties:
-        eventHubName:
-          type: string
-          description: Event Hub name to connect to.
-        consumerGroup:
-          type: string
-          description: Consumer group of the event hub to connected to.
-        fullyQualifiedEventHubNamespace:
-          type: string
-          description: Fully qualified namespace of the Event Hub to connect to.
-      description: Event Hub ingestion endpoint configuration
-    UserAssignedIdentity:
-      type: object
-      description: User assigned identity properties
-      properties:
-        principalId:
-          description: The principal ID of the assigned identity.
-          format: uuid
-          type: string
-          readOnly: true
-        clientId:
-          description: The client ID of the assigned identity.
-          format: uuid
-          type: string
-          readOnly: true
-    IotConnectorCollection:
-      description: A collection of IoT Connectors.
-      type: object
-      properties:
-        nextLink:
-          description: The link used to get the next page of IoT Connectors.
-          type: string
-        value:
-          description: The list of IoT Connectors.
-          type: array
-          items:
-            $ref: '#/components/schemas/IotConnector'
-    IotConnectorProperties:
-      description: IoT Connector properties.
-      type: object
-      properties:
-        provisioningState:
-          description: The provisioning state.
-          $ref: '#/components/schemas/ProvisioningState'
-        ingestionEndpointConfiguration:
-          description: Source configuration.
-          $ref: '#/components/schemas/IotEventHubIngestionEndpointConfiguration'
-        deviceMapping:
-          description: Device Mappings.
-          $ref: '#/components/schemas/IotMappingProperties'
-    TaggedResource:
-      type: object
-      description: The common properties of tracked resources in the service.
-      allOf:
-      - $ref: '#/components/schemas/ResourceTags'
-      - $ref: '#/components/schemas/LocationBasedResource'
-      x-ms-azure-resource: true
-    IotMappingProperties:
-      description: The mapping content.
-      type: object
-      properties:
-        content:
-          description: The mapping.
-          type: object
     ServiceManagedIdentity:
       type: object
       description: Managed service identity (system assigned and/or user assigned identities)
@@ -475,42 +373,36 @@ components:
               $ref: '#/components/schemas/UserAssignedIdentities'
           required:
           - type
-    ResourceCore:
-      type: object
-      description: The common properties for any resource, tracked or proxy.
-      properties:
-        id:
-          readOnly: true
-          type: string
-          description: The resource identifier.
-        name:
-          readOnly: true
-          type: string
-          description: The resource name.
-          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
-        type:
-          readOnly: true
-          type: string
-          description: The resource type.
-        etag:
-          description: An etag associated with the resource, used for optimistic concurrency when editing it.
-          type: string
-      x-ms-azure-resource: true
-    IotDestinationProperties:
-      type: object
-      description: Common IoT Connector destination properties.
-      properties:
-        provisioningState:
-          description: The provisioning state.
-          $ref: '#/components/schemas/ProvisioningState'
-          x-ms-client-flatten: true
-    ErrorDetails:
+    IotIdentityResolutionType:
+      description: The type of IoT identity resolution to use with the destination.
+      enum:
+      - Create
+      - Lookup
+      type: string
+      x-ms-enum:
+        name: IotIdentityResolutionType
+        modelAsString: true
+    Error:
       description: Error details.
       type: object
       properties:
         error:
           description: Error details
           $ref: '#/components/schemas/ErrorDetailsInternal'
+    UserAssignedIdentity:
+      type: object
+      description: User assigned identity properties
+      properties:
+        principalId:
+          description: The principal ID of the assigned identity.
+          format: uuid
+          type: string
+          readOnly: true
+        clientId:
+          description: The client ID of the assigned identity.
+          format: uuid
+          type: string
+          readOnly: true
     ProvisioningState:
       description: The provisioning state.
       enum:
@@ -532,6 +424,65 @@ components:
       x-ms-enum:
         name: provisioningState
         modelAsString: true
+    IotConnectorCollection:
+      description: A collection of IoT Connectors.
+      type: object
+      properties:
+        nextLink:
+          description: The link used to get the next page of IoT Connectors.
+          type: string
+        value:
+          description: The list of IoT Connectors.
+          type: array
+          items:
+            $ref: '#/components/schemas/IotConnector'
+    IotFhirDestinationCollection:
+      description: A collection of IoT Connector FHIR destinations.
+      type: object
+      properties:
+        nextLink:
+          description: The link used to get the next page of IoT FHIR destinations.
+          type: string
+        value:
+          description: The list of IoT Connector FHIR destinations.
+          type: array
+          items:
+            $ref: '#/components/schemas/IotFhirDestination'
+    IotConnectorProperties:
+      description: IoT Connector properties.
+      type: object
+      properties:
+        provisioningState:
+          description: The provisioning state.
+          $ref: '#/components/schemas/ProvisioningState'
+        ingestionEndpointConfiguration:
+          description: Source configuration.
+          $ref: '#/components/schemas/IotEventHubIngestionEndpointConfiguration'
+        deviceMapping:
+          description: Device Mappings.
+          $ref: '#/components/schemas/IotMappingProperties'
+    IotFhirDestination:
+      required:
+      - properties
+      type: object
+      description: IoT Connector FHIR destination definition.
+      allOf:
+      - $ref: '#/components/schemas/LocationBasedResource'
+      properties:
+        properties:
+          description: IoT FHIR Destination settings.
+          $ref: '#/components/schemas/IotFhirDestinationProperties'
+          x-ms-client-flatten: true
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: '#/components/schemas/systemData'
+    IotMappingProperties:
+      description: The mapping content.
+      type: object
+      properties:
+        content:
+          description: The mapping.
+          type: object
     IotFhirDestinationProperties:
       required:
       - resourceIdentityResolutionType
@@ -551,81 +502,13 @@ components:
         fhirMapping:
           description: FHIR Mappings
           $ref: '#/components/schemas/IotMappingProperties'
-    UserAssignedIdentities:
-      title: User-Assigned Identities
-      description: 'The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: ''/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.'
+    TaggedResource:
       type: object
-      additionalProperties:
-        $ref: '#/components/schemas/UserAssignedIdentity'
-    IotFhirDestinationCollection:
-      description: A collection of IoT Connector FHIR destinations.
-      type: object
-      properties:
-        nextLink:
-          description: The link used to get the next page of IoT FHIR destinations.
-          type: string
-        value:
-          description: The list of IoT Connector FHIR destinations.
-          type: array
-          items:
-            $ref: '#/components/schemas/IotFhirDestination'
-    IotConnector:
-      type: object
-      description: IoT Connector definition.
-      allOf:
-      - $ref: '#/components/schemas/TaggedResource'
-      - $ref: '#/components/schemas/ServiceManagedIdentity'
-      properties:
-        properties:
-          description: IoT Connector configuration.
-          $ref: '#/components/schemas/IotConnectorProperties'
-          x-ms-client-flatten: true
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: '#/components/schemas/systemData'
-    IotConnectorPatchResource:
-      type: object
-      description: Iot Connector patch properties
+      description: The common properties of tracked resources in the service.
       allOf:
       - $ref: '#/components/schemas/ResourceTags'
-      - $ref: '#/components/schemas/ServiceManagedIdentity'
-    ResourceTags:
-      type: object
-      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
-      properties:
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-          x-ms-mutability:
-          - read
-          - create
-          - update
-          description: Resource tags.
-    IotFhirDestination:
-      required:
-      - properties
-      type: object
-      description: IoT Connector FHIR destination definition.
-      allOf:
       - $ref: '#/components/schemas/LocationBasedResource'
-      properties:
-        properties:
-          description: IoT FHIR Destination settings.
-          $ref: '#/components/schemas/IotFhirDestinationProperties'
-          x-ms-client-flatten: true
-        systemData:
-          description: Metadata pertaining to creation and last modification of the resource.
-          $ref: '#/components/schemas/systemData'
-    IotIdentityResolutionType:
-      description: The type of IoT identity resolution to use with the destination.
-      enum:
-      - Create
-      - Lookup
-      type: string
-      x-ms-enum:
-        name: IotIdentityResolutionType
-        modelAsString: true
+      x-ms-azure-resource: true
     systemData:
       description: Metadata pertaining to creation and last modification of the resource.
       type: object
@@ -667,7 +550,135 @@ components:
           type: string
           format: date-time
           description: The timestamp of resource last modification (UTC)
+    ErrorDetailsInternal:
+      description: Error details.
+      type: object
+      properties:
+        code:
+          description: The error code.
+          type: string
+          readOnly: true
+        message:
+          description: The error message.
+          type: string
+          readOnly: true
+        target:
+          description: The target of the particular error.
+          type: string
+          readOnly: true
+    IotConnectorPatchResource:
+      type: object
+      description: Iot Connector patch properties
+      allOf:
+      - $ref: '#/components/schemas/ResourceTags'
+      - $ref: '#/components/schemas/ServiceManagedIdentity'
+    IotConnector:
+      type: object
+      description: IoT Connector definition.
+      allOf:
+      - $ref: '#/components/schemas/TaggedResource'
+      - $ref: '#/components/schemas/ServiceManagedIdentity'
+      properties:
+        properties:
+          description: IoT Connector configuration.
+          $ref: '#/components/schemas/IotConnectorProperties'
+          x-ms-client-flatten: true
+        systemData:
+          description: Metadata pertaining to creation and last modification of the resource.
+          $ref: '#/components/schemas/systemData'
+    IotDestinationProperties:
+      type: object
+      description: Common IoT Connector destination properties.
+      properties:
+        provisioningState:
+          description: The provisioning state.
+          $ref: '#/components/schemas/ProvisioningState'
+          x-ms-client-flatten: true
+    IotEventHubIngestionEndpointConfiguration:
+      type: object
+      properties:
+        eventHubName:
+          type: string
+          description: Event Hub name to connect to.
+        consumerGroup:
+          type: string
+          description: Consumer group of the event hub to connected to.
+        fullyQualifiedEventHubNamespace:
+          type: string
+          description: Fully qualified namespace of the Event Hub to connect to.
+      description: Event Hub ingestion endpoint configuration
+    UserAssignedIdentities:
+      title: User-Assigned Identities
+      description: 'The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: ''/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.'
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/UserAssignedIdentity'
+    ErrorDetails:
+      description: Error details.
+      type: object
+      properties:
+        error:
+          description: Error details
+          $ref: '#/components/schemas/ErrorDetailsInternal'
+    ResourceTags:
+      type: object
+      description: List of key value pairs that describe the resource. This will overwrite the existing tags.
+      properties:
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+          x-ms-mutability:
+          - read
+          - create
+          - update
+          description: Resource tags.
+    LocationBasedResource:
+      type: object
+      description: The common properties for any location based resource, tracked or proxy.
+      allOf:
+      - $ref: '#/components/schemas/ResourceCore'
+      properties:
+        location:
+          type: string
+          description: The resource location.
+          x-ms-mutability:
+          - create
+          - read
+      x-ms-azure-resource: true
+    ResourceCore:
+      type: object
+      description: The common properties for any resource, tracked or proxy.
+      properties:
+        id:
+          readOnly: true
+          type: string
+          description: The resource identifier.
+        name:
+          readOnly: true
+          type: string
+          description: The resource name.
+          pattern: ^[a-z0-9][a-z0-9-]{1,21}[a-z0-9]$
+        type:
+          readOnly: true
+          type: string
+          description: The resource type.
+        etag:
+          description: An etag associated with the resource, used for optimistic concurrency when editing it.
+          type: string
+      x-ms-azure-resource: true
   parameters:
+    resourceGroupName:
+      name: resourceGroupName
+      in: path
+      description: The name of the resource group that contains the service instance.
+      required: true
+      x-ms-parameter-location: method
+      schema:
+        type: string
+        maxLength: 90
+        minLength: 1
+        pattern: ^[-\w\._\(\)]+$
     iotConnectorName:
       name: iotConnectorName
       in: path
@@ -688,17 +699,6 @@ components:
         type: string
         maxLength: 24
         minLength: 3
-    resourceGroupName:
-      name: resourceGroupName
-      in: path
-      description: The name of the resource group that contains the service instance.
-      required: true
-      x-ms-parameter-location: method
-      schema:
-        type: string
-        maxLength: 90
-        minLength: 1
-        pattern: ^[-\w\._\(\)]+$
     fhirDestinationName:
       name: fhirDestinationName
       in: path
